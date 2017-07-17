@@ -9,7 +9,7 @@ class PanelButtonsMinimised extends Component {
             <div className="row component-PanelButtons">
                 <div>
                     <button onClick={this.props.viewMore}type="button" className="btn btn-info">View</button>
-                    <Link to={'#'}><button type="button" className="btn btn-info">Add</button></Link>
+                    <button type="button" onClick={this.props.addNewNote}className="btn btn-info">Add</button>
                 </div>
             </div>
         );
@@ -18,5 +18,6 @@ class PanelButtonsMinimised extends Component {
 export default PanelButtonsMinimised;
 
 PanelButtonsMinimised.propTypes = {
-    viewMore: PropTypes.func.isRequired
+    viewMore: PropTypes.func.isRequired,
+    addNewNote: PropTypes.func.isRequired
 };

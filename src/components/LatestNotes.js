@@ -4,6 +4,7 @@ import NoteCard from './NoteCard';
 import PanelButtons from './PanelButtons';
 import PanelButtonsMinimised from './PanelButtonsMinimised';
 import { map } from 'underscore';
+import AddNote from './AddNote';
 
 const notes = {
         '-KpG7jiyD6sVSRLV5eaC': {
@@ -27,8 +28,11 @@ class LatestNotes extends Component {
         super(props);
         this.state = {
             view: false,
+            add: false
         };
         this.viewMore = this.viewMore.bind(this);
+        this.addNewNote = this.addNewNote.bind(this);
+        
     }
     render() {
         return (
@@ -43,7 +47,6 @@ class LatestNotes extends Component {
                                 <div className="container">
                                     <RowTitle />
                                     {map(notes, function (note) {
-                                        console.log(note);
                                         return (
                                             <NoteCard key={note.created} note={note}/>
                                         );
@@ -57,17 +60,25 @@ class LatestNotes extends Component {
                         <div className="panel panel-default">
                             <div className="panel-heading">
                                 <h3 className="panel-title">Latest Notes</h3>
-                                <PanelButtonsMinimised viewMore={this.viewMore} />
+                                <PanelButtonsMinimised addNewNote={this.addNewNote} viewMore={this.viewMore} />
                             </div>
                         </div>
                     </div>
                 }
+                {this.state.add 
+                ? <AddNote/>
+                :null}
             </div>
         );
     }
     viewMore() {
         this.setState({
             view: !this.state.view
+        });
+    }
+    addNewNote() {
+        this.setState({
+            add: !this.state.add
         });
     }
 }

@@ -4,13 +4,13 @@ import React from 'react';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import App from './components/App';
+import 'bootstrap/dist/css/bootstrap.css';
 
 // const store = createStore(reducer);
 
 ReactDOM.render(
     <div>
    {/*<Provider store={store}>*/}
-        Knowledge in Messaging
         <App />
     {/*</Provider>*/}
     </div>,

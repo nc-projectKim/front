@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import RowTitle from './RowTitle';
+import NoteCard from './NoteCard';
 
 class LatestNotes extends Component {
     constructor(props) {
@@ -18,7 +20,14 @@ class LatestNotes extends Component {
                                 <h3 className="panel-title">Latest Notes</h3>
                             </div>
                             <div className="panel-body">
-                                <div className="container"></div>
+                                <div className="container">
+                                    <RowTitle />
+                                    <NoteCard/>
+                                    <NoteCard/>
+                                    <NoteCard/>
+                                    <NoteCard/>
+                                    <NoteCard/>                                    
+                                </div>
                             </div>
                         </div>
                     </div>

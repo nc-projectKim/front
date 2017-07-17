@@ -1,0 +1,8 @@
+{
+  "name": "project-kim",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/nc-projectKim/front.git",
+  "author": "SalVN <sal.v.newell@gmail.com>",
+  "license": "MIT"
+}

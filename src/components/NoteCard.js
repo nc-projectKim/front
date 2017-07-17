@@ -7,7 +7,7 @@ const dateFormat = 'D MMM YYYY';
 const timeFormat = 'HH:mm';
 
 class NoteCard extends Component {
-    render() {
+    render () {
         return (
             <div className="container">
                 <div className="col-xs-2"><div>{moment(this.props.note.created).format(dateFormat)}</div>

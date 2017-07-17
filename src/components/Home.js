@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-
+import PageTop from './PageTop';
 
 
 class Home extends Component {
     render() {
         return (
             <div>
-                hello, i am kim
+                <PageTop />
+                {/*<LatestNotes />*/}
             </div>
         );
     }

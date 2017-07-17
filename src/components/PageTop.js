@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Welcome from './Welcome';
+import ActionButtons from './ActionButtons';
+
 
 
 class PageTop extends Component {
@@ -7,7 +9,7 @@ class PageTop extends Component {
         return (
             <div>
                 <Welcome/>
-                {/*<ActionButtons/>*/}
+                <ActionButtons/>
             </div>
         );
     }

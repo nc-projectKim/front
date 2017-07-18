@@ -27,10 +27,10 @@ class NoteCard extends Component {
                         <div>{moment(this.props.note.created).format(timeFormat)}</div>
                     </div>
                     <div className="col-xs-6"><div><strong>{this.props.note.title.substring(0, 30)}</strong></div>
-                        { this.state.displayAll 
+                        {this.state.displayAll
                             ? <div>{this.props.note.text}</div>
                             : <div>{formatNote(this.props.note.text)}</div>
-                        
+
                         }
                     </div>
                     <div className="col-xs-2">{this.props.note.tags.map((tag, i) => {
@@ -40,8 +40,12 @@ class NoteCard extends Component {
                             </span>
                         );
                     })}</div>
-                    <div className="col-xs-1"><button onClick={this.displayNote}>View</button></div>
-                    <div className="col-xs-1"><Link to={'#'}><button>Edit</button></Link></div>
+                    {this.state.displayAll
+                        ? <div className="col-xs-1"><button onClick={this.displayNote}>Collapse</button></div>
+                        : <div className="col-xs-1"><button onClick={this.displayNote}>View</button></div>
+
+                    }
+                    <div className="col-xs-1"><button onClick={this.props.editNote}>Edit</button></div>
                 </div>
             </div>
         );
@@ -56,4 +60,5 @@ export default NoteCard;
 
 NoteCard.propTypes = {
     note: PropTypes.object.isRequired
+    // editNote: PropTypes.func.isRequired
 };

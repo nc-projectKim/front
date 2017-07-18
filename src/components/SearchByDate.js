@@ -2,20 +2,38 @@ import React from 'react';
 // import {Field, reduxForm } from 'redux-form';
 // import PropTypes from 'prop-types';
 import './css/AddNote.css';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+import 'react-datepicker/dist/react-datepicker.css';
 
-const inputStyles= {
-    fontFamily: 'Arial, FontAwesome'
+
+
+class SearchByDate extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            startDate: moment()
+
+        }
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+    render() {
+
+        return (
+            <div className="panel-body">
+                <DatePicker selected={this.state.startDate} onChange={this.handleChange} />
+                <form onSubmit="#">
+                    <button className="btn btn-primary" type="submit">Search</button>
+                </form>
+            </div>
+        );
+    }
+    handleChange(date) {
+        this.setState({
+            startDate: date
+        });
+    }
 }
-
-const SearchByDate = () => {
-    return (
-        <div className="panel-body">
-            <form >
-                
-                <button className="btn btn-primary" type="submit">Search</button>
-            </form>
-        </div>
-    );
-};
 
 export default SearchByDate;

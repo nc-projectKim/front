@@ -51,7 +51,7 @@ class LatestNotes extends Component {
                                             <NoteCard key={note.created} note={note}/>
                                         );
                                     })}
-                                    <PanelButtons viewMore={this.viewMore} />
+                                    <PanelButtons addNewNote={this.addNewNote} viewMore={this.viewMore} />
                                 </div>
                             </div>
                         </div>
@@ -66,7 +66,7 @@ class LatestNotes extends Component {
                     </div>
                 }
                 {this.state.add 
-                ? <AddNote/>
+                ? <AddNote addNewNote={this.addNewNote}/>
                 :null}
             </div>
         );

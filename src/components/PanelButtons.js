@@ -10,7 +10,7 @@ class PanelButtons extends Component {
                 <div>
                     <Link to={'#'}><button type="button" className="btn btn-info">View More</button></Link>
                     <button onClick={this.props.viewMore} type="button" className="btn btn-info">Collapse</button>
-                    <Link to={'#'}><button type="button" className="btn btn-info">Add</button></Link>
+                    <button onClick={this.props.addNewNote}type="button" className="btn btn-info">Add</button>
                 </div>
             </div>
         );
@@ -20,5 +20,6 @@ class PanelButtons extends Component {
 export default PanelButtons;
 
 PanelButtons.propTypes = {
-    viewMore: PropTypes.func.isRequired
-}
+    viewMore: PropTypes.func.isRequired,
+    addNewNote: PropTypes.func.isRequired
+};

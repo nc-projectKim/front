@@ -47,7 +47,7 @@ const EditNote = (props) => {
             </div>
             <div>
                 <button type="submit">Save Changes</button>
-                <button onClick={props.editNote} type="button">Cancel</button>
+                <button type="button">Cancel</button>
             </div>
         </form>
     );

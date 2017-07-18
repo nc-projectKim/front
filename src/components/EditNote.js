@@ -62,9 +62,9 @@ class EditNote extends React.Component {
             title: e.target.value
         };
     }
-    removeTag(e) {
+    removeTag(tag) {
         const newTags = [...this.state.tags];
-        const i = findIndex(newTags, e);
+        const i = findIndex(newTags, tag);
         newTags.splice(i, 1);
         this.setState({
             tags: newTags

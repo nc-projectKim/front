@@ -48,7 +48,6 @@ class EditNote extends React.Component {
                     <button className="btn btn-success" type="submit">Save Changes</button>
                     <button className="btn btn-warning" onClick={this.props.editNote} type="button">Cancel</button>
                     <button className="btn btn-danger" type="button">Delete</button>
-                    
                 </div>
             </form>
         );

@@ -12,7 +12,7 @@ class SearchByDate extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            startDate: moment()
+            startDate: moment.utc()
 
         }
 
@@ -38,8 +38,11 @@ class SearchByDate extends React.Component {
     }
     submitDate(e) {
         e.preventDefault();
-        console.log(this.state.startDate._d);
+        let date = moment(this.state.startDate);
+        console.log(date);
     }
 }
+
+
 
 export default SearchByDate;

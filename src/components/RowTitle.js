@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import './css/NoteCard.css';
 
 
 class RowTitle extends Component {
     render () {
         return (
-            <div className="container">
+            <div className="container-fluid component-NoteCard">
                 <div className="col-xs-2"><div>Date</div>
                 <div>(Time)</div>
                 </div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import moment from 'moment';
+import './css/NoteCard.css';
 
 const dateFormat = 'D MMM YYYY';
 const timeFormat = 'HH:mm';
@@ -22,7 +23,7 @@ class NoteCard extends Component {
     render() {
         return (
             <div>
-                <div className="container">
+                <div className="container-fluid component-NoteCard">
                     <div className="col-xs-2"><div>{moment(this.props.note.created).format(dateFormat)}</div>
                         <div>{moment(this.props.note.created).format(timeFormat)}</div>
                     </div>
@@ -45,7 +46,7 @@ class NoteCard extends Component {
                         : <div className="col-xs-1"><button onClick={this.displayNote}>View</button></div>
 
                     }
-                    <div className="col-xs-1"><button onClick={this.props.editNote}>Edit</button></div>
+                    <div className="col-xs-1"><button type="submit" value={this.props.iD} onClick={this.props.editNote.bind(this, this.props.iD)}>Edit</button></div>
                 </div>
             </div>
         );

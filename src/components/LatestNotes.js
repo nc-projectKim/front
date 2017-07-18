@@ -1,10 +1,4 @@
 import React, { Component } from 'react';
-import RowTitle from './RowTitle';
-import NoteCard from './NoteCard';
-import PanelButtons from './PanelButtons';
-import PanelButtonsMinimised from './PanelButtonsMinimised';
-import { map } from 'underscore';
-import AddNote from './AddNote';
 import NotesList from './NotesList';
 import EditNote from './EditNote';
 
@@ -21,7 +15,7 @@ const notes = {
         'lastEditTime': 1500304943481,
         'tags': ['code', 'firebase'],
         'text': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque accusamus fugit deserunt quia molestiae voluptates, iusto quam quae provident officiis sunt optio nobis in eum accusantium laboriosam. Vero nostrum, ducimus.',
-        'title': 'War And Peace'
+        'title': 'Peace and War'
     }
 };
 
@@ -37,13 +31,12 @@ class LatestNotes extends Component {
         this.viewMore = this.viewMore.bind(this);
         this.addNewNote = this.addNewNote.bind(this);
         this.editNote = this.editNote.bind(this);
-
     }
     render() {
         return (
             <div>
                 { this.state.edit
-                ? <EditNote note={notes}/>
+                ? <EditNote editNote={this.editNote} note={notes[this.state.noteId]}/>
                 : <NotesList
                     view={this.state.view}
                     notes={notes}
@@ -57,9 +50,10 @@ class LatestNotes extends Component {
             </div>
         );
     }
-    editNote() {
+    editNote(id) {
         this.setState({
-            edit: !this.state.edit
+            edit: !this.state.edit,
+            noteId: id
         });
     }
     viewMore() {

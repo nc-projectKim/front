@@ -1,5 +1,11 @@
 import * as actions from '../src/actions/actions';
 import * as types from '../src/actions/types';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import nock from 'nock';
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
 
 
 describe('actions', () => {
@@ -35,4 +41,18 @@ describe('actions', () => {
             });
         });
     });
+
+    // describe('#fetchNotes', () => {
+    //     it('creates FETCH_NOTES_SUCCESS when fething notes has been done', () => {
+    //         nock(`API_URL`)
+    //             .get(`/notes`)
+    //             .reply(200)
+    //             const expectedAction = [{type: types.FETCH_NOTES_REQUEST}, {type: types.FETCH_NOTES_SUCCESS}];
+    //             const store = mockStore(`/notes`)
+
+    //             return store.dispatch(actions.fetchNotes()).then(() => {
+    //                 expect(store.getActions()).toEqual(expectedAction);
+    //             });
+    //     });
+    // });
 });

@@ -7,7 +7,7 @@ class Entries extends Component {
     constructor (props) {
         super (props);
         this.state = {
-            notesSearch: true
+            notesSearch: false
         }
     }
     render () {

@@ -35,9 +35,7 @@ class EditNote extends React.Component {
                         return (<div key={i}>
                             <span>
                                 {tag}
-                            </span>
-                            <span>
-                                <i className="fa fa-times-circle-o"></i>
+                                <i onClick={this.removeTag.bind(this, tag)} className= "fa fa-times-circle-o" ></i>
                             </span>
                         </div>
                         )
@@ -52,36 +50,35 @@ class EditNote extends React.Component {
             </form>
         );
     }
-    titleChange (e) {
+    titleChange(e) {
         e.preventDefault();
         this.setState = {
             title: e.target.value
         };
     }
-    textChange (e) {
+    textChange(e) {
         e.preventDefault();
         this.setState = {
             title: e.target.value
         };
     }
-    // removeTag (e) {
-    //     const newTags = [...this.state.tags];
-    //     const i = findIndex(newTags, e);
-    //     console.log(newTags, e, i);
-    //     console.log(this.state.tags);
-    //     this.setState({
-    //         tags: newTags.splice(i, 1)
-    //     });
-    // }
+    removeTag(e) {
+        const newTags = [...this.state.tags];
+        const i = findIndex(newTags, e);
+        newTags.splice(i, 1);
+        this.setState({
+            tags: newTags
+        });
+    }
 }
 
-// function findIndex(tags, name) {
-//     for (let i = 0; i < tags.length; i++) {
-//         if (tags[i] === name) {
-//             return i;
-//         }
-//     }
-// }
+function findIndex(tags, name) {
+    for (let i = 0; i < tags.length; i++) {
+        if (tags[i] === name) {
+            return i;
+        }
+    }
+}
 
 
 export default EditNote;

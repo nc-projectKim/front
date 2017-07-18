@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Nav, Navbar, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 
 class KimNavbar extends Component {
-    render() {
+    render () {
         return (
             <div>
                 <Navbar collapseOnSelect>

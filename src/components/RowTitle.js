@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 
 class RowTitle extends Component {
-    render() {
+    render () {
         return (
             <div className="container">
                 <div className="col-xs-2"><div>Date</div>

@@ -24,7 +24,7 @@ const notes = {
 };
 
 class LatestNotes extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             view: false,
@@ -34,7 +34,7 @@ class LatestNotes extends Component {
         this.addNewNote = this.addNewNote.bind(this);
         
     }
-    render() {
+    render () {
         return (
             <div>
                 {this.state.view
@@ -67,16 +67,16 @@ class LatestNotes extends Component {
                 }
                 {this.state.add 
                 ? <AddNote addNewNote={this.addNewNote}/>
-                :null}
+                : null}
             </div>
         );
     }
-    viewMore() {
+    viewMore () {
         this.setState({
             view: !this.state.view
         });
     }
-    addNewNote() {
+    addNewNote () {
         this.setState({
             add: !this.state.add
         });

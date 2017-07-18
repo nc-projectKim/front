@@ -3,7 +3,7 @@ import LatestNotes from './LatestNotes';
 
 
 class Entries extends Component {
-    render() {
+    render () {
         return (
             <div>
                 <LatestNotes />

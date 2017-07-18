@@ -10,9 +10,9 @@ import App from './components/App';
 
 ReactDOM.render(
     <div>
-   {/*<Provider store={store}>*/}
+   {/* <Provider store={store}>*/}
         <App />
-    {/*</Provider>*/}
+    {/* </Provider>*/}
     </div>,
     document.getElementById('root')
 );

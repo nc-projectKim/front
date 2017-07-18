@@ -8,7 +8,7 @@ const AddNote = (props) => {
             <div>
                 <label htmlFor="Title">Title</label>
                 <br />
-                {/*<div>
+                {/* <div>
                     <Field
                         name="Title"
                         component="input"
@@ -21,7 +21,7 @@ const AddNote = (props) => {
              <div>
                 <label htmlFor="note">My Note</label>
                 <br />
-                {/*<div>
+                {/* <div>
                     <Field
                         name="Text"
                         component="textarea"
@@ -34,7 +34,7 @@ const AddNote = (props) => {
              <div>
                 <label htmlFor="Tags">#tag</label>
                 <br />
-                {/*<div>
+                {/* <div>
                     <Field
                         name="Tags"
                         component="input"
@@ -51,7 +51,6 @@ const AddNote = (props) => {
         </form>
     );
 };
-
 
 
 export default AddNote;

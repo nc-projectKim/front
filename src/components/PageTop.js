@@ -3,9 +3,8 @@ import Welcome from './Welcome';
 import ActionButtons from './ActionButtons';
 
 
-
 class PageTop extends Component {
-    render() {
+    render () {
         return (
             <div>
                 <Welcome/>

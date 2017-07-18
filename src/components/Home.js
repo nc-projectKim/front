@@ -3,7 +3,7 @@ import PageTop from './PageTop';
 import Entries from './Entries';
 
 class Home extends Component {
-    render() {
+    render () {
         return (
             <div>
                 <PageTop />

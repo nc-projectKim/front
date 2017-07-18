@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 
 class Welcome extends Component {
-    render() {
+    render () {
         return (
             <div>
                 <div className="media">

@@ -17,15 +17,13 @@ class SearchByDate extends React.Component {
         }
 
         this.handleChange = this.handleChange.bind(this);
-        this.submitDate = this.submitDate.bind(this);
-        
     }
     render() {
 
         return (
             <div className="panel-body">
-                <DatePicker selected={this.state.startDate} onChange={this.handleChange} isClearable={true} dateFormat="DD/MM/YYYY"/>
-                <form onSubmit={this.submitDate}>
+                <DatePicker selected={this.state.startDate} onChange={this.handleChange} />
+                <form onSubmit="#">
                     <button className="btn btn-primary" type="submit">Search</button>
                 </form>
             </div>

@@ -25,9 +25,9 @@ class NotesList extends Component {
                             <div className="panel-body">
                                 <div className="container">
                                     <RowTitle />
-                                    {map(this.props.notes, function (note) {
+                                    {map(this.props.notes, function (note, key) {
                                         return (
-                                            <NoteCard key={note.created} note={note} editNote={editNote}/>
+                                            <NoteCard iD={key} key={note.created} note={note} editNote={editNote}/>
                                         );
                                     })}
                                     <PanelButtons addNewNote={this.props.addNewNote} viewMore={this.props.viewMore} />

@@ -45,7 +45,7 @@ class NoteCard extends Component {
                         : <div className="col-xs-1"><button onClick={this.displayNote}>View</button></div>
 
                     }
-                    <div className="col-xs-1"><button onClick={this.props.editNote}>Edit</button></div>
+                    <div className="col-xs-1"><button onClick={this.props.editNote(this.props.iD)} >Edit</button></div>
                 </div>
             </div>
         );

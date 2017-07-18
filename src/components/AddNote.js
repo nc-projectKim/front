@@ -59,6 +59,6 @@ export default AddNote;
 // })();
 
 AddNote.propTypes = {
-    addNewNote: PropTypes.func.isRequired,
-    handleSubmit: PropTypes.func.isRequired
+    addNewNote: PropTypes.func.isRequired
+    // handleSubmit: PropTypes.func.isRequired
 };

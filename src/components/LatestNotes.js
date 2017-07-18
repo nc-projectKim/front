@@ -43,7 +43,7 @@ class LatestNotes extends Component {
         return (
             <div>
                 { this.state.edit
-                ? <EditNote editNote={this.editNote}/>
+                ? <EditNote note={notes}/>
                 : <NotesList
                     view={this.state.view}
                     notes={notes}
@@ -67,11 +67,9 @@ class LatestNotes extends Component {
             view: !this.state.view
         });
     }
-    addNewNote(e) {
-        console.log(e);
+    addNewNote() {
         this.setState({
-            add: !this.state.add,
-            noteId: 
+            add: !this.state.add
         });
     }
 }

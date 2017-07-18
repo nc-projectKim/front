@@ -2,7 +2,8 @@ import React from 'react';
 // import {Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 
-const AddNote = (props) => {
+const EditNote = (props) => {
+    console.log(props.note);
     return (
         <form onSubmit={props.handleSubmit}>
             <div>
@@ -53,12 +54,12 @@ const AddNote = (props) => {
 };
 
 
-export default AddNote;
+export default EditNote;
 // reduxForm({
 //     form : 'addNote'
 // })();
 
-AddNote.propTypes = {
-    editNote: PropTypes.func.isRequired,
-    handleSubmit: PropTypes.func.isRequired
+EditNote.propTypes = {
+    // editNote: PropTypes.func.isRequired,
+    // handleSubmit: PropTypes.func.isRequired
 };

@@ -9,6 +9,8 @@ import NotesSearch from './NotesSearch';
 import AddNote from './AddNote';
 import Welcome from './Welcome';
 import MainNotesPage from './MainNotesPage';
+import FilteredNotes from './FilteredNotes';
+
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import './css/Notes.css';
@@ -29,7 +31,8 @@ class NotesList extends Component {
                     messageTitle={'Kim\'s notes'} />
                 <Switch>
                     <Route exact path='/notes' component={MainNotesPage}/>
-                    <Route path='/notes/search' component={NotesSearch} />
+                    <Route exact path='/notes/search' component={NotesSearch} />
+                    <Route path="/notes/search/result" component={FilteredNotes} />
                 </Switch>
                 {/*{this.state.notesSearch
                     ? <NotesSearch toggleNoteSearch={this.toggleNoteSearch} />

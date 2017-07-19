@@ -9,6 +9,7 @@ import NotesSearch from './NotesSearch';
 import AddNote from './AddNote';
 import Welcome from './Welcome';
 import MainNotesPage from './MainNotesPage';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import './css/Notes.css';
 
@@ -17,7 +18,7 @@ class NotesList extends Component {
         super(props);
         this.state = {
             notesSearch: false
-        }
+        };
         this.toggleNoteSearch = this.toggleNoteSearch.bind(this);
     }
 
@@ -26,10 +27,14 @@ class NotesList extends Component {
             <div className='notes-page'>
                 <Welcome className='notes-welcome'
                     messageTitle={'Kim\'s notes'} />
-                {this.state.notesSearch
+                <Switch>
+                    <Route path='/notes' component={MainNotesPage}/>
+                    <Route path='/notes/search' component={MainNotesPage} />
+                </Switch>
+                {/*{this.state.notesSearch
                     ? <NotesSearch toggleNoteSearch={this.toggleNoteSearch} />
                     : <MainNotesPage toggleNoteSearch={this.toggleNoteSearch} />
-                }
+                }*/}
             </div>
         );
     }

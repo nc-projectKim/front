@@ -19,7 +19,7 @@ const notes = {
     }
 };
 
-class LatestNotes extends Component {
+class MainNotesPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -70,7 +70,7 @@ class LatestNotes extends Component {
     }
 }
 
-LatestNotes.propTypes = {
+MainNotesPage.propTypes = {
     toggleNoteSearch: PropTypes.func.isRequired
 }
-export default LatestNotes;
+export default MainNotesPage;

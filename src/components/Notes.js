@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import NotesSearch from './NotesSearch';
 import AddNote from './AddNote';
 import Welcome from './Welcome';
-import LatestNotesPage from './LatestNotesPage';
+import MainNotesPage from './MainNotesPage';
 
 import './css/Notes.css';
 
@@ -28,7 +28,7 @@ class NotesList extends Component {
                     messageTitle={'Kim\'s notes'} />
                 {this.state.notesSearch
                     ? <NotesSearch toggleNoteSearch={this.toggleNoteSearch} />
-                    : <LatestNotesPage toggleNoteSearch={this.toggleNoteSearch} />
+                    : <MainNotesPage toggleNoteSearch={this.toggleNoteSearch} />
                 }
             </div>
         );

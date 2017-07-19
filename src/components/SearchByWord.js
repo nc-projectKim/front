@@ -3,7 +3,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import './css/AddNote.css';
 
-const inputStyles= {
+const inputStyles = {
     fontFamily: 'Arial, FontAwesome'
 }
 

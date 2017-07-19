@@ -22,5 +22,5 @@ export default Welcome;
 
 Welcome.propTypes = {
     messageTitle: PropTypes.string.isRequired,
-    messageBody: PropTypes.string.isRequired
+    // messageBody: PropTypes.string.isRequired
 };

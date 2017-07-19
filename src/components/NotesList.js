@@ -6,6 +6,7 @@ import PanelButtonsMinimised from './PanelButtonsMinimised';
 import { map } from 'underscore';
 import PropTypes from 'prop-types';
 import AddNote from './AddNote';
+import {BrowserRouter as Router, Link} from 'react-router-dom';
 
 class NotesList extends Component {
     constructor(props) {
@@ -20,9 +21,10 @@ class NotesList extends Component {
                         <div className='panel panel-default'>
                             <div className="panel-heading">
                                 <h3 className="panel-title">{this.props.heading}</h3>
-                                <button type="button"
+                                <Link to="/notes/search" ><button type="button"
                                     onClick={this.props.toggleNoteSearch}
                                     className="btn btn-info">Search</button>
+                                </Link>
                             </div>
 
                             <div className="panel-body">

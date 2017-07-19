@@ -28,8 +28,8 @@ class NotesList extends Component {
                 <Welcome className='notes-welcome'
                     messageTitle={'Kim\'s notes'} />
                 <Switch>
-                    <Route path='/notes' component={MainNotesPage}/>
-                    <Route path='/notes/search' component={MainNotesPage} />
+                    <Route exact path='/notes' component={MainNotesPage}/>
+                    <Route path='/notes/search' component={NotesSearch} />
                 </Switch>
                 {/*{this.state.notesSearch
                     ? <NotesSearch toggleNoteSearch={this.toggleNoteSearch} />

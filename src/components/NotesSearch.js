@@ -8,6 +8,8 @@ import SearchByTag from './SearchByTag';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
+import {BrowserRouter as Router, Link} from 'react-router-dom';
+
 
 const inputStyles = {
     fontFamily: 'Arial, FontAwesome'
@@ -36,9 +38,9 @@ class NotesSearch extends React.Component {
                     <div className="panel-heading">
 
                         <h3 className="panel-title">Search Notes</h3>
-                        <button type="button"
-                            onClick={this.props.toggleNoteSearch}
+                        <Link to="/notes"> <button type="button"
                             className="btn btn-info">Return to Notes</button>
+                            </Link>
                     </div>
                     <form onSubmit={this.handleSubmit}>
                         <input className="word-search" style={inputStyles} type="text" name="Search Word" placeholder="&#xf002; Search" />

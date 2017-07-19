@@ -7,23 +7,23 @@ import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
 
-
 class SearchByDate extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            startDate: moment.utc()
+            startDate: moment().utc()
 
         }
 
         this.handleChange = this.handleChange.bind(this);
+        this.submitDate = this.submitDate.bind(this);
     }
     render() {
 
         return (
             <div className="panel-body">
                 <DatePicker selected={this.state.startDate} onChange={this.handleChange} />
-                <form onSubmit={'#'}>
+                <form onSubmit={this.submitDate}>
                     <button className="btn btn-primary" type="submit">Search</button>
                 </form>
             </div>
@@ -36,7 +36,7 @@ class SearchByDate extends React.Component {
     }
     submitDate(e) {
         e.preventDefault();
-        let date = moment(this.state.startDate);
+        let date = moment(this.state.startDate._d).format('x');
         console.log(date);
     }
 }

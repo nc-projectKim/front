@@ -23,6 +23,9 @@ class NotesSearch extends React.Component {
                 <div className="panel panel-default">
                         <div onClick={this.searchExpand} className="panel-heading">
                             <h3 className="panel-title">Search By Word</h3>
+                            <button type="button"
+                                    onClick={this.props.toggleNoteSearch}
+                                    className="btn btn-info">Return to Notes</button>
                         </div>
                     {
                         this.state.open === 'Search By Word'
@@ -33,6 +36,9 @@ class NotesSearch extends React.Component {
                 <div className="panel panel-default">
                         <div onClick={this.searchExpand} className="panel-heading">
                             <h3 className="panel-title">Search By Date Added</h3>
+                            <button type="button"
+                                    onClick={this.props.toggleNoteSearch}
+                                    className="btn btn-info">Return to Notes</button>
                         </div>
                     {this.state.open === 'Search By Date Added'
                         ? <SearchByDate />
@@ -52,8 +58,7 @@ class NotesSearch extends React.Component {
 
 export default NotesSearch;
 
-// NotesSearch.propTypes = {
-//     note: PropTypes.object.isRequired,
-//     editNote: PropTypes.func.isRequired
-//     // handleSubmit: PropTypes.func.isRequired
-// };
+NotesSearch.propTypes = {
+    toggleNoteSearch: PropTypes.func.isRequired
+    // handleSubmit: PropTypes.func.isRequired
+};

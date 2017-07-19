@@ -8,11 +8,11 @@ import PropTypes from 'prop-types';
 import AddNote from './AddNote';
 
 class NotesList extends Component {
-    constructor (props) {
-        super (props);
+    constructor(props) {
+        super(props);
     }
 
-    render () {
+    render() {
         const editNote = this.props.editNote;
         return (
             <div>
@@ -21,18 +21,22 @@ class NotesList extends Component {
                         <div className='panel panel-default'>
                             <div className="panel-heading">
                                 <h3 className="panel-title">Latest Notes</h3>
+                                <button type="button"
+                                    onClick={this.props.toggleNoteSearch}
+                                    className="btn btn-info">Search</button>
                             </div>
+
                             <div className="panel-body">
                                 <div className="container">
                                     <RowTitle />
                                     {map(this.props.notes, function (note, key) {
                                         return (
-                                            <NoteCard iD={key} key={note.created} note={note} editNote={editNote}/>
+                                            <NoteCard iD={key} key={note.created} note={note} editNote={editNote} />
                                         );
                                     })}
-                                    <PanelButtons 
-                                    addNewNote={this.props.addNewNote} 
-                                    viewMore={this.props.viewMore} />
+                                    <PanelButtons
+                                        addNewNote={this.props.addNewNote}
+                                        viewMore={this.props.viewMore} />
                                 </div>
                             </div>
                         </div>
@@ -41,17 +45,17 @@ class NotesList extends Component {
                         <div className="panel panel-default">
                             <div className="panel-heading">
                                 <h3 className="panel-title">Latest Notes</h3>
-                                <PanelButtonsMinimised 
-                                toggleNoteSearch={this.props.toggleNoteSearch}
-                                addNewNote={this.props.addNewNote} 
-                                viewMore={this.props.viewMore} />
+                                <PanelButtonsMinimised
+                                    toggleNoteSearch={this.props.toggleNoteSearch}
+                                    addNewNote={this.props.addNewNote}
+                                    viewMore={this.props.viewMore} />
                             </div>
                         </div>
                     </div>
                 }
-                {this.props.add 
-                ? <AddNote addNewNote={this.props.addNewNote}/>
-                : null}
+                {this.props.add
+                    ? <AddNote addNewNote={this.props.addNewNote} />
+                    : null}
             </div>
         );
     }
@@ -66,5 +70,5 @@ NotesList.propTypes = {
     viewMore: PropTypes.func.isRequired,
     editNote: PropTypes.func.isRequired,
     toggleNoteSearch: PropTypes.func.isRequired
-    
+
 };

@@ -11,9 +11,8 @@ class PanelButtonsMinimised extends Component {
                     <button onClick={this.props.viewMore}type="button" className="btn btn-info">View</button>
                     <button type="button" onClick={this.props.addNewNote}className="btn btn-info">Add</button>
                     <button type="button" 
-                    
                     onClick={this.props.toggleNoteSearch} 
-                    className="btn btn-default">Search</button>
+                    className="btn btn-info">Search</button>
                     
                 </div>
             </div>

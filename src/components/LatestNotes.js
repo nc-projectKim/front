@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NotesList from './NotesList';
 import EditNote from './EditNote';
-
+import PropTypes from 'prop-types';
 const notes = {
     '-KpG7jiyD6sVSRLV5eaC': {
         'created': 1500304832915,
@@ -38,6 +38,7 @@ class LatestNotes extends Component {
                 { this.state.edit
                 ? <EditNote editNote={this.editNote} note={notes[this.state.noteId]}/>
                 : <NotesList
+                    toggleNoteSearch={this.props.toggleNoteSearch}
                     view={this.state.view}
                     notes={notes}
                     addNewNote={this.addNewNote}
@@ -66,5 +67,9 @@ class LatestNotes extends Component {
             add: !this.state.add
         });
     }
+}
+
+LatestNotes.propTypes = {
+    toggleNoteSearch: PropTypes.func.isRequired
 }
 export default LatestNotes;

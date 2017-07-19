@@ -10,6 +10,11 @@ class PanelButtonsMinimised extends Component {
                 <div>
                     <button onClick={this.props.viewMore}type="button" className="btn btn-info">View</button>
                     <button type="button" onClick={this.props.addNewNote}className="btn btn-info">Add</button>
+                    <button type="button" 
+                    
+                    onClick={this.props.toggleNoteSearch} 
+                    className="btn btn-default">Search</button>
+                    
                 </div>
             </div>
         );
@@ -19,5 +24,7 @@ export default PanelButtonsMinimised;
 
 PanelButtonsMinimised.propTypes = {
     viewMore: PropTypes.func.isRequired,
-    addNewNote: PropTypes.func.isRequired
+    addNewNote: PropTypes.func.isRequired,
+    toggleNoteSearch: PropTypes.func.isRequired
+    
 };

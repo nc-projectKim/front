@@ -9,17 +9,23 @@ class Entries extends Component {
         this.state = {
             notesSearch: false
         }
+        this.toggleNoteSearch = this.toggleNoteSearch.bind(this);
     }
     render () {
         return (
             <div>
 
                 { this.state.notesSearch
-                ? <NotesSearch />
-                : <LatestNotes />
+                ? <NotesSearch toggleNoteSearch={this.toggleNoteSearch}/>
+                : <LatestNotes toggleNoteSearch={this.toggleNoteSearch}/>
                 }
             </div>
         );
+    }
+    toggleNoteSearch() {
+        this.setState({
+            notesSearch: !this.state.notesSearch
+        });
     }
 }
 export default Entries;

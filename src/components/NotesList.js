@@ -30,7 +30,9 @@ class NotesList extends Component {
                                             <NoteCard iD={key} key={note.created} note={note} editNote={editNote}/>
                                         );
                                     })}
-                                    <PanelButtons addNewNote={this.props.addNewNote} viewMore={this.props.viewMore} />
+                                    <PanelButtons 
+                                    addNewNote={this.props.addNewNote} 
+                                    viewMore={this.props.viewMore} />
                                 </div>
                             </div>
                         </div>
@@ -39,7 +41,10 @@ class NotesList extends Component {
                         <div className="panel panel-default">
                             <div className="panel-heading">
                                 <h3 className="panel-title">Latest Notes</h3>
-                                <PanelButtonsMinimised addNewNote={this.props.addNewNote} viewMore={this.props.viewMore} />
+                                <PanelButtonsMinimised 
+                                toggleNoteSearch={this.props.toggleNoteSearch}
+                                addNewNote={this.props.addNewNote} 
+                                viewMore={this.props.viewMore} />
                             </div>
                         </div>
                     </div>
@@ -59,5 +64,7 @@ NotesList.propTypes = {
     addNewNote: PropTypes.func.isRequired,
     notes: PropTypes.object.isRequired,
     viewMore: PropTypes.func.isRequired,
-    editNote: PropTypes.func.isRequired
+    editNote: PropTypes.func.isRequired,
+    toggleNoteSearch: PropTypes.func.isRequired
+    
 };

@@ -23,7 +23,7 @@ class SearchByDate extends React.Component {
         return (
             <div className="panel-body">
                 <DatePicker selected={this.state.startDate} onChange={this.handleChange} />
-                <form onSubmit="#">
+                <form onSubmit={'#'}>
                     <button className="btn btn-primary" type="submit">Search</button>
                 </form>
             </div>

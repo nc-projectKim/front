@@ -5,11 +5,12 @@ import './css/PageTop.css';
 
 
 class PageTop extends Component {
-    render () {
+    render() {
         return (
             <div className='component-PageTop'>
-                <Welcome/>
-                <ActionButtons/>
+                <Welcome
+                    messageTitle={'Welcome Back Kim'}
+                    messageBody={'What can I help you with today?'} />
             </div>
         );
     }

@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
-import Home from './Home';
+import LoggedInHome from './LoggedInHome';
+import NonLoggedInHome from './NonLoggedInHome';
+import Notes from './Notes';
 import KimNavbar from './Navbar';
+import Entries from './Entries';
+import PageTabs from './PageTabs';
 import './css/App.css';
+
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
@@ -11,8 +16,11 @@ class App extends Component {
             <Router>
                 <div className='page'>
                     <KimNavbar />
+                    <PageTabs />
                     <Switch>
-                        <Route exact path='/' component={Home}/>
+                        <Route exact path='/' component={NonLoggedInHome}/>
+                        <Route exact path='/welcome' component={LoggedInHome}/>
+                        <Route exact path='/notes' component={Notes}/>
                     </Switch>
                 </div>
             </Router>  

@@ -23,7 +23,7 @@ class LatestNotes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            view: false,
+            view: true,
             add: false,
             edit: false,
             noteId: ''
@@ -35,20 +35,20 @@ class LatestNotes extends Component {
     render() {
         return (
             <div>
-                { this.state.edit
-                ? <EditNote editNote={this.editNote} note={notes[this.state.noteId]}/>
-                : <NotesList
-                    heading={'Latest Notes'}
-                    toggleNoteSearch={this.props.toggleNoteSearch}
-                    view={this.state.view}
-                    notes={notes}
-                    addNewNote={this.addNewNote}
-                    viewMore={this.viewMore}
-                    add={this.state.add}
-                    editNote={this.editNote}
-                />
+                {this.state.edit
+                    ? <EditNote editNote={this.editNote} note={notes[this.state.noteId]} />
+                    : <NotesList
+                        heading={'My Notes'}
+                        toggleNoteSearch={this.props.toggleNoteSearch}
+                        view={this.state.view}
+                        notes={notes}
+                        addNewNote={this.addNewNote}
+                        viewMore={this.viewMore}
+                        add={this.state.add}
+                        editNote={this.editNote}
+                    />
                 }
-                
+
             </div>
         );
     }

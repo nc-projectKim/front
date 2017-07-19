@@ -11,7 +11,6 @@ class NotesList extends Component {
     constructor(props) {
         super(props);
     }
-
     render() {
         const editNote = this.props.editNote;
         return (
@@ -20,7 +19,7 @@ class NotesList extends Component {
                     ? <div>
                         <div className='panel panel-default'>
                             <div className="panel-heading">
-                                <h3 className="panel-title">Latest Notes</h3>
+                                <h3 className="panel-title">{this.props.heading}</h3>
                                 <button type="button"
                                     onClick={this.props.toggleNoteSearch}
                                     className="btn btn-info">Search</button>

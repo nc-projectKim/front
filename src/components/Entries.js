@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import LatestNotes from './LatestNotes';
 import NotesSearch from './NotesSearch';
+import PageTop from './PageTop';
+import './css/Entries.css';
 
 
 class Entries extends Component {
@@ -13,8 +15,8 @@ class Entries extends Component {
     }
     render () {
         return (
-            <div>
-
+            <div className="entries-main">
+                <PageTop />
                 { this.state.notesSearch
                 ? <NotesSearch toggleNoteSearch={this.toggleNoteSearch}/>
                 : <LatestNotes toggleNoteSearch={this.toggleNoteSearch}/>

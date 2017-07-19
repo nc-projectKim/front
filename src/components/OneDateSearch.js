@@ -42,6 +42,4 @@ class OneDateSearch extends React.Component {
     }
 }
 
-
-
 export default OneDateSearch;

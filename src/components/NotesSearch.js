@@ -20,7 +20,6 @@ class NotesSearch extends React.Component {
     render() {
         return (
             <div>
-
                 <div className="panel panel-default">
                     <div onClick={this.searchExpand} className="panel-heading">
                         <h3 className="panel-title">Search By Word</h3>

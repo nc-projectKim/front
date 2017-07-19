@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import './css/NotesSearch.css';
 import SearchByWord from './SearchByWord';
 import SearchByDate from './SearchByDate';
+import SearchByTag from './SearchByTag';
 
 
 
@@ -21,12 +22,12 @@ class NotesSearch extends React.Component {
             <div>
 
                 <div className="panel panel-default">
-                        <div onClick={this.searchExpand} className="panel-heading">
-                            <h3 className="panel-title">Search By Word</h3>
-                            <button type="button"
-                                    onClick={this.props.toggleNoteSearch}
-                                    className="btn btn-info">Return to Notes</button>
-                        </div>
+                    <div onClick={this.searchExpand} className="panel-heading">
+                        <h3 className="panel-title">Search By Word</h3>
+                        <button type="button"
+                            onClick={this.props.toggleNoteSearch}
+                            className="btn btn-info">Return to Notes</button>
+                    </div>
                     {
                         this.state.open === 'Search By Word'
                             ? <SearchByWord />
@@ -34,22 +35,34 @@ class NotesSearch extends React.Component {
                     }
                 </div>
                 <div className="panel panel-default">
-                        <div onClick={this.searchExpand} className="panel-heading">
-                            <h3 className="panel-title">Search By Date Added</h3>
-                            <button type="button"
-                                    onClick={this.props.toggleNoteSearch}
-                                    className="btn btn-info">Return to Notes</button>
-                        </div>
+                    <div onClick={this.searchExpand} className="panel-heading">
+                        <h3 className="panel-title">Search By Date Added</h3>
+                        <button type="button"
+                            onClick={this.props.toggleNoteSearch}
+                            className="btn btn-info">Return to Notes</button>
+                    </div>
                     {this.state.open === 'Search By Date Added'
                         ? <SearchByDate />
+                        : null
+                    }
+                </div>
+                <div className="panel panel-default">
+                    <div onClick={this.searchExpand} className="panel-heading">
+                        <h3 className="panel-title">Search For A Tag</h3>
+                        <button type="button"
+                            onClick={this.props.toggleNoteSearch}
+                            className="btn btn-info">Return to Notes</button>
+                    </div>
+                    {this.state.open === 'Search For A Tag'
+                        ? <SearchByTag />
                         : null
                     }
                 </div>
             </div>
         );
     }
-    searchExpand (e) {
-        this.setState ({
+    searchExpand(e) {
+        this.setState({
             open: e.target.textContent
         });
     }

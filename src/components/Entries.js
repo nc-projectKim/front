@@ -17,10 +17,7 @@ class Entries extends Component {
         return (
             <div className="entries-main">
                 <PageTop />
-                { this.state.notesSearch
-                ? <NotesSearch toggleNoteSearch={this.toggleNoteSearch}/>
-                : <LatestNotes toggleNoteSearch={this.toggleNoteSearch}/>
-                }
+                <LatestNotes toggleNoteSearch={this.toggleNoteSearch}/>
             </div>
         );
     }

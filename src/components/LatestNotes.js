@@ -39,7 +39,6 @@ class LatestNotes extends Component {
                 ? <EditNote editNote={this.editNote} note={notes[this.state.noteId]}/>
                 : <NotesList
                     heading={'Latest Notes'}
-                    toggleNoteSearch={this.props.toggleNoteSearch}
                     view={this.state.view}
                     notes={notes}
                     addNewNote={this.addNewNote}

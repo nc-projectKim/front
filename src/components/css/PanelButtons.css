@@ -4,13 +4,13 @@
 
 .view-btn {
     float: left;
-    margin-left: 3%;
+    margin-left: 5%;
     margin-bottom: 1.5%;    
 }
 
 .search-btn {
     float: right;
-    margin-right: 3%;
+    margin-right: 5%;
     margin-bottom: 1.5%;
 }
 
@@ -18,4 +18,9 @@
     float: left;
     margin-left: 3%;
     
+}
+
+.view-more-notes-btn {
+    float: right;
+    margin-right: 5%;
 }

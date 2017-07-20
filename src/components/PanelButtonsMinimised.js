@@ -18,7 +18,7 @@ class PanelButtonsMinimised extends Component {
                 <button
                     type="button"
                     onClick={this.props.addNewNote}
-                    className="btn btn-info"><i className="fa fa-plus" aria-hidden="true"></i>
+                    className="btn btn-info "><i className="fa fa-plus" aria-hidden="true"></i>
                      &nbsp; Add A Note
                     </button>
 

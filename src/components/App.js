@@ -25,8 +25,8 @@ class App extends Component {
         firebase.auth().onAuthStateChanged((currentUser) => {
             console.log('AUTH STATE HAS CHANGED!');
             if (currentUser) {
-                this.setState({currentUser});
-                
+                this.setState({ currentUser });
+
             } else {
                 // WHEN AUTH FAILS
             }
@@ -36,17 +36,19 @@ class App extends Component {
         return (
             <Router>
                 <div className='page'>
-                    <KimNavbar user={this.state.currentUser} loginWithFacebook={this.loginWithFacebook} logOut={this.logOut}/>
-                    <PageTabs />
+                    <KimNavbar user={this.state.currentUser} loginWithFacebook={this.loginWithFacebook} logOut={this.logOut} />
                     {!this.state.currentUser &&
                         <button className="btn btn-primary" onClick={(this.loginWithFacebook)}>Login with Facebook</button>
                     }
                     {this.state.currentUser &&
-                        <Switch>
-                            <Route exact path='/welcome' component={LoggedInHome} />
-                            <Route path='/notes' component={Notes} />
-                            <Route path='/createuser' component={CreateUser} />
-                        </Switch>
+                        <div>
+                            <PageTabs />
+                            <Switch>
+                                <Route exact path='/welcome' component={LoggedInHome} />
+                                <Route path='/notes' component={Notes} />
+                                <Route path='/createuser' component={CreateUser} />
+                            </Switch>
+                        </div>
                     }
                 </div>
             </Router>

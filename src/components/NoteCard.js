@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import moment from 'moment';
 import './css/NoteCard.css';
 
@@ -31,7 +31,6 @@ class NoteCard extends Component {
                         {this.state.displayAll
                             ? <div>{this.props.note.text}</div>
                             : <div>{formatNote(this.props.note.text)}</div>
-
                         }
                     </div>
                     <div className="col-xs-2">{this.props.note.tags.map((tag, i) => {

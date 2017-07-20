@@ -17,12 +17,11 @@ class NotesList extends Component {
         return (
             <div>
                 {this.props.view
-                    ? <div>
+                    ? 
                         <div className='panel panel-default'>
                             <div className="panel-heading">
                                 <h3 className="panel-title">{this.props.heading}</h3>
                                 <Link to="/notes/search" ><button type="button"
-                                    onClick={this.props.toggleNoteSearch}
                                     className="btn btn-info">Search</button>
                                 </Link>
                             </div>
@@ -41,13 +40,11 @@ class NotesList extends Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
                     : <div>
                         <div className="panel panel-default">
                             <div className="panel-heading">
                                 <h3 className="panel-title">Latest Notes</h3>
                                 <PanelButtonsMinimised
-                                    toggleNoteSearch={this.props.toggleNoteSearch}
                                     addNewNote={this.props.addNewNote}
                                     viewMore={this.props.viewMore} />
                             </div>
@@ -70,6 +67,5 @@ NotesList.propTypes = {
     notes: PropTypes.object.isRequired,
     viewMore: PropTypes.func.isRequired,
     editNote: PropTypes.func.isRequired,
-    toggleNoteSearch: PropTypes.func.isRequired
-
+    heading: PropTypes.string.isRequired
 };

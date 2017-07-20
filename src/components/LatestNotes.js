@@ -47,7 +47,6 @@ class LatestNotes extends Component {
                     editNote={this.editNote}
                 />
                 }
-                
             </div>
         );
     }
@@ -70,6 +69,5 @@ class LatestNotes extends Component {
 }
 
 LatestNotes.propTypes = {
-    toggleNoteSearch: PropTypes.func.isRequired
-}
+};
 export default LatestNotes;

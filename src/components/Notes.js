@@ -19,9 +19,7 @@ class NotesList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            notesSearch: false
         };
-        this.toggleNoteSearch = this.toggleNoteSearch.bind(this);
     }
 
     render() {
@@ -32,30 +30,14 @@ class NotesList extends Component {
                 <Switch>
                     <Route exact path='/notes' component={MainNotesPage}/>
                     <Route exact path='/notes/search' component={NotesSearch} />
-                    <Route path="/notes/search/result" component={FilteredNotes} />
+                    <Route path='/notes/search/result' component={FilteredNotes} />
                 </Switch>
-                {/*{this.state.notesSearch
-                    ? <NotesSearch toggleNoteSearch={this.toggleNoteSearch} />
-                    : <MainNotesPage toggleNoteSearch={this.toggleNoteSearch} />
-                }*/}
             </div>
         );
-    }
-    toggleNoteSearch() {
-        this.setState({
-            notesSearch: !this.state.notesSearch
-        });
     }
 }
 export default NotesList;
 
 NotesList.propTypes = {
-    // view: PropTypes.bool.isRequired,
-    // add: PropTypes.bool.isRequired,
-    // addNewNote: PropTypes.func.isRequired,
-    // notes: PropTypes.object.isRequired,
-    // viewMore: PropTypes.func.isRequired,
-    // editNote: PropTypes.func.isRequired,
-    // toggleNoteSearch: PropTypes.func.isRequired
 
 };

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import RowTitle from './RowTitle';
 import NoteCard from './NoteCard';
 import PanelButtons from './PanelButtons';
-import PanelButtonsMinimised from './PanelButtonsMinimised';
 import { map } from 'underscore';
 import PropTypes from 'prop-types';
 import AddNote from './AddNote';

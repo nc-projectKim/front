@@ -34,8 +34,6 @@ class FilteredNotes extends Component {
                 {this.state.edit
                     ? <EditNote editNote={this.editNote} note={notes[this.state.noteId]} />
                     : <FilteredNotesList
-                        heading={'My Notes'}
-                        toggleNoteSearch={this.props.toggleNoteSearch}
                         view={this.state.view}
                         notes={notes}
                         addNewNote={this.addNewNote}

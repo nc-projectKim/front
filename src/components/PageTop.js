@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import Welcome from './Welcome';
-import ActionButtons from './ActionButtons';
 import './css/PageTop.css';
 
 
 class PageTop extends Component {
-    render() {
+    render () {
         return (
             <div className='component-PageTop'>
                 <Welcome

@@ -5,7 +5,6 @@ import './css/Welcome.css';
 class Welcome extends Component {
     render() {
         return (
-            <div>
                 <div className="media">
                     <div className="media-left">
                             <img src="http://www.aminoapps.com/static/bower/emojify.js/images/emoji/information_desk_person.png" className="media-object" /></div>
@@ -14,7 +13,6 @@ class Welcome extends Component {
                         <p>{this.props.messageBody}</p>
                     </div>
                 </div>
-            </div>
         );
     }
 }
@@ -22,5 +20,5 @@ export default Welcome;
 
 Welcome.propTypes = {
     messageTitle: PropTypes.string.isRequired,
-    // messageBody: PropTypes.string.isRequired
+    messageBody: PropTypes.string
 };

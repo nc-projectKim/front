@@ -1,10 +1,6 @@
 import React from 'react';
-// import {Field, reduxForm } from 'redux-form';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import './css/NotesSearch.css';
-import SearchByWord from './SearchByWord';
-import SearchByDate from './SearchByDate';
-import SearchByTag from './SearchByTag';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -113,7 +109,6 @@ class NotesSearch extends React.Component {
     }
     handleSubmit(e) {
         e.preventDefault();
-        console.dir(e.target);
         let searchTerm = e.target[0].value;
         let searchOneDate = moment(this.state.startDate._d).format('x');
         let searchBetweenDateStart = moment(this.state.startDate._d).format('x');
@@ -135,5 +130,4 @@ class NotesSearch extends React.Component {
 export default NotesSearch;
 
 NotesSearch.propTypes = {
-    toggleNoteSearch: PropTypes.func.isRequired
 };

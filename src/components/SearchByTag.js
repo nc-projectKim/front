@@ -12,6 +12,6 @@ const SearchByWord = () => {
             </form>
         </div>
     );
-};
+}; 
 
 export default SearchByWord;

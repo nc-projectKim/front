@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import PageTop from './PageTop';
 import Entries from './Entries';
-import PageTabs from './PageTabs';
 import './css/Home.css';
 
 class LoggedInHome extends Component {

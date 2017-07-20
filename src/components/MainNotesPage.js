@@ -39,7 +39,6 @@ class MainNotesPage extends Component {
                     ? <EditNote editNote={this.editNote} note={notes[this.state.noteId]} />
                     : <NotesList
                         heading={'My Notes'}
-                        toggleNoteSearch={this.props.toggleNoteSearch}
                         view={this.state.view}
                         notes={notes}
                         addNewNote={this.addNewNote}
@@ -71,6 +70,5 @@ class MainNotesPage extends Component {
 }
 
 MainNotesPage.propTypes = {
-    toggleNoteSearch: PropTypes.func.isRequired
-}
+};
 export default MainNotesPage;

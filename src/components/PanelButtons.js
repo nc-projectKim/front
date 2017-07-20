@@ -7,11 +7,9 @@ class PanelButtons extends Component {
     render () {
         return ( 
             <div className="row component-PanelButtons">
-                <div>
                     <Link to="/notes"><button type="button" className="btn btn-info">View More Notes</button></Link>
                     <button onClick={this.props.viewMore} type="button" className="btn btn-info">Collapse</button>
                     <button onClick={this.props.addNewNote}type="button" className="btn btn-info">Add</button>
-                </div>
             </div>
         );
     }

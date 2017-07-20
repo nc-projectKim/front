@@ -57,7 +57,7 @@ class LoggedInHome extends Component {
                                     password
                             </label>
                                 <br />
-                                <input onClick={this.passwordChangeHandler} type="text" className="form-input" name="password" placeholder="password" />
+                                <input onClick={this.passwordChangeHandler} type="password" className="form-input" name="password" placeholder="password" />
                                 <p className="error-text">{this.state.errors.password}</p>
                             </div>
                             <button className="btn btn-success form-submit-button" type="submit">Log in</button>

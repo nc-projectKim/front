@@ -5,6 +5,7 @@ import './css/NonLoggedInHome.css';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 
+
 function validate(newState) {
     const errors = {};
 
@@ -51,7 +52,7 @@ class LoggedInHome extends Component {
                                     email address
                                 </label>
                                 <br />
-                                <input onChange={this.usernameChangeHandler} type="text" className="form-input" name="email" placeholder="username" />
+                                <input onChange={this.usernameChangeHandler} required="required" type="text" className="form-input" name="email" placeholder="username" />
                                 <p className="error-text">{this.state.errors.username}</p>
                             </div>
                             <br />
@@ -60,7 +61,7 @@ class LoggedInHome extends Component {
                                     password
                             </label>
                                 <br />
-                                <input onClick={this.passwordChangeHandler} type="password" className="form-input" name="password" placeholder="password" />
+                                <input onClick={this.passwordChangeHandler} type="password" required="required" className="form-input" name="password" placeholder="password" />
                                 <p className="error-text">{this.state.errors.password}</p>
                             </div>
                             <button className="btn btn-success form-submit-button" type="submit">Log in</button>

@@ -1,3 +1,26 @@
 .components-PanelButtons {
     text-align: center;
 }
+
+.view-btn {
+    float: left;
+    margin-left: 5%;
+    margin-bottom: 1.5%;    
+}
+
+.search-btn {
+    float: right;
+    margin-right: 5%;
+    margin-bottom: 1.5%;
+}
+
+.collapse-btn {
+    float: left;
+    margin-left: 3%;
+    
+}
+
+.view-more-notes-btn {
+    float: right;
+    margin-right: 5%;
+}

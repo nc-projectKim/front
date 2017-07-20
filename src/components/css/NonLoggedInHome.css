@@ -23,3 +23,8 @@
 .form-create-account-button {
     width: 150px;
 }
+
+.error-text {
+    color: red;
+    margin: 5px;
+}

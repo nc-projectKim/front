@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import LoggedInHome from './LoggedInHome';
 import NonLoggedInHome from './NonLoggedInHome';
 import Notes from './Notes';
@@ -8,22 +8,28 @@ import PageTabs from './PageTabs';
 import './css/App.css';
 
 
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
-    render () {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loggedIn: false
+        };
+    }
+    render() {
         return (
             <Router>
                 <div className='page'>
                     <KimNavbar />
                     <PageTabs />
                     <Switch>
-                        <Route exact path='/' component={NonLoggedInHome}/>
-                        <Route exact path='/welcome' component={LoggedInHome}/>
-                        <Route path='/notes' component={Notes}/>
+                        <Route exact path='/' component={NonLoggedInHome} />
+                        <Route exact path='/welcome' component={LoggedInHome} />
+                        <Route path='/notes' component={Notes} />
                     </Switch>
                 </div>
-            </Router>  
+            </Router>
         );
     }
 }

@@ -44,7 +44,7 @@ class LoggedInHome extends Component {
             <div className="component-mainPage col-xs-10 col-xs-offset-1">
                 <div className="panel panel-default">
                     <div className="panel-body">
-                        <h3>Log In</h3>
+                        <h3>Create User</h3>
                         <form onSubmit={this.submitHandler} type="post">
                             <div className="form-group">
                                 <label className="form-label" htmlFor="email">

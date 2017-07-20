@@ -5,6 +5,7 @@ import Notes from './Notes';
 import KimNavbar from './Navbar';
 import Entries from './Entries';
 import PageTabs from './PageTabs';
+import CreateUser from './CreateUser';
 import './css/App.css';
 
 
@@ -27,6 +28,7 @@ class App extends Component {
                         <Route exact path='/' component={NonLoggedInHome} />
                         <Route exact path='/welcome' component={LoggedInHome} />
                         <Route path='/notes' component={Notes} />
+                        <Route path='/createuser' component={CreateUser} />
                     </Switch>
                 </div>
             </Router>

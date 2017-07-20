@@ -3,6 +3,23 @@ import PageTop from './PageTop';
 import Entries from './Entries';
 import './css/NonLoggedInHome.css';
 
+function validate(newState) {
+    const errors = {};
+
+    if (newState.usernameTouched) {
+        if (!newState.username) errors.username = 'Please enter your username';
+        if (!(/\S+@\w+\.\w+/g.test(newState.username))) errors.username = 'Please enter a valid email address';
+        else errors.username = null;
+    }
+
+    if (newState.passwordTouched) {
+        if (!newState.password) errors.password = 'Please enter your password';
+        if (!(/\S+@\w+\.\w+/g.test(newState.username))) errors.username = 'Please enter a valid email address';
+        else errors.password = null;
+    }
+    return errors;
+}
+
 class LoggedInHome extends Component {
     constructor(props) {
         super(props);
@@ -10,10 +27,14 @@ class LoggedInHome extends Component {
             username: '',
             password: '',
             usernameTouched: false,
-            passwordTouched: false
+            passwordTouched: false,
+            errors: {
+                username: null,
+                password: null
+            }
         };
-        this.usernameClickHandler = this.usernameClickHandler.bind(this);
-        this.passwordClickHandler = this.passwordClickHandler.bind(this);
+        this.usernameChangeHandler = this.usernameChangeHandler.bind(this);
+        this.passwordChangeHandler = this.passwordChangeHandler.bind(this);
     }
     render() {
         return (
@@ -23,11 +44,12 @@ class LoggedInHome extends Component {
                         <h3>Log In</h3>
                         <form method="post">
                             <div className="form-group">
-                                <label className="form-label" htmlFor="username">
-                                    username
+                                <label className="form-label" htmlFor="email">
+                                    email address
                                 </label>
                                 <br />
-                                <input onClick={this.usernameClickHandler} type="text" className="form-input" name="username" placeholder="username" />
+                                <input onChange={this.usernameChangeHandler} type="text" className="form-input" name="email" placeholder="username" />
+                                <p className="error-text">{this.state.errors.username}</p>
                             </div>
                             <br />
                             <div className="form-group">
@@ -35,7 +57,8 @@ class LoggedInHome extends Component {
                                     password
                             </label>
                                 <br />
-                                <input onClick={this.passwordClickHandler} type="text" className="form-input" name="password" placeholder="password" />
+                                <input onClick={this.passwordChangeHandler} type="text" className="form-input" name="password" placeholder="password" />
+                                <p className="error-text">{this.state.errors.password}</p>
                             </div>
                             <button className="btn btn-success form-submit-button" type="submit">Log in</button>
                         </form>
@@ -45,15 +68,15 @@ class LoggedInHome extends Component {
             </div>
         );
     }
-    usernameClickHandler() {
-        this.setState({
-            usernameTouched: true
-        });
+    usernameChangeHandler(e) {
+        const newState = Object.assign({}, this.state, { usernameTouched: true }, {username: e.target.value});
+        const errors = validate(newState);
+        this.setState(Object.assign(newState, { errors })); 
     }
-    passwordClickHandler() {
-        this.setState({
-            passwordTouched: true
-        });
+    passwordChangeHandler(e) {
+        const newState = Object.assign({}, this.state, { passwordTouched: true }, {password: e.target.value});
+        const errors = validate(newState);
+        this.setState(Object.assign(newState, { errors })); 
     }
 }
 export default LoggedInHome;

@@ -7,8 +7,7 @@ import Entries from './Entries';
 import PageTabs from './PageTabs';
 import CreateUser from './CreateUser';
 import './css/App.css';
-import firebase from 'firebase';
-import { provider } from './FirebaseConfig';
+import firebase, { facebookProvider, auth, database } from './FirebaseConfig';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -17,17 +16,19 @@ class App extends Component {
         super(props);
         this.state = {
             currentUser: null,
-            data: null,
+            data: null
         };
         this.loginWithFacebook = this.loginWithFacebook.bind(this);
         this.logOut = this.logOut.bind(this);
     }
     componentDidMount() {
-        firebase.auth().onAuthStateChanged(function (user) {
-            if (user) {
-
+        firebase.auth().onAuthStateChanged((currentUser) => {
+            console.log('AUTH STATE HAS CHANGED!');
+            if (currentUser) {
+                this.setState({currentUser});
+                
             } else {
-                // No user is signed in.
+                // WHEN AUTH FAILS
             }
         });
     }
@@ -38,7 +39,7 @@ class App extends Component {
                     <KimNavbar user={this.state.currentUser} loginWithFacebook={this.loginWithFacebook} logOut={this.logOut}/>
                     <PageTabs />
                     {!this.state.currentUser &&
-                        <button className="btn btn-primary" onClick={this.loginWithFacebook}>Login with Facebook</button>
+                        <button className="btn btn-primary" onClick={(this.loginWithFacebook)}>Login with Facebook</button>
                     }
                     {this.state.currentUser &&
                         <Switch>
@@ -52,21 +53,15 @@ class App extends Component {
         );
     }
     loginWithFacebook() {
-        firebase.auth().signInWithPopup(provider).then(function (result) {
-            var token = result.credential.accessToken;
-            this.setState({
-                currentUser: result.user,
-                userThere: true
-            });
-        }.bind(this));
+        firebase.auth().signInWithPopup(facebookProvider);
     }
     logOut() {
-        firebase.auth().signOut().then(function () {
+        firebase.auth().signOut().then(() => {
             this.setState({
                 currentUser: null,
-                userThere: false
+                loggedIn: false
             });
-        }.bind(this));
+        });
     }
 }
 export default App;

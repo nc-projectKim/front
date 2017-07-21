@@ -3,6 +3,7 @@ import LatestNotes from './LatestNotes';
 import NotesSearch from './NotesSearch';
 import PageTop from './PageTop';
 import './css/Entries.css';
+import PropTypes from 'prop-types';
 
 
 class Entries extends Component {
@@ -17,7 +18,7 @@ class Entries extends Component {
         return (
             <div className="entries-main">
                 <PageTop />
-                <LatestNotes toggleNoteSearch={this.toggleNoteSearch}/>
+                <LatestNotes notes={this.props.notes} toggleNoteSearch={this.toggleNoteSearch}/>
             </div>
         );
     }
@@ -28,3 +29,7 @@ class Entries extends Component {
     }
 }
 export default Entries;
+
+Entries.propTypes = {
+    notes: PropTypes.object.isRequired
+};

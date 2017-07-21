@@ -12,7 +12,7 @@ export default function addNote (data) {
     const notesRef = database.ref(`/notes/${userId}`);
     return notesRef.push(note)
         .then(res => {
-            console.log(res);
+            console.log(res.key);
             note.key = res.key;
         })
         .catch(err => {

@@ -17,7 +17,7 @@ export const logOutUser = () => {
 export function getNotes () {
     return function (dispatch) {
         dispatch(getNotesRequest());
-        getAllNotes()
+        return getAllNotes()
         .then (res => {
             dispatch(getNotesSuccess(res));
         })

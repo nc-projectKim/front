@@ -27,7 +27,10 @@ class NotesList extends Component {
         return (
             <div>
                 {this.state.newSubmit &&
-                    <div>Note submitted!</div>
+                    <div>
+                        <div>Note submitted!</div>
+                        <Redirect to='/welcome'/>
+                    </div>
                 }
                 {this.state.view
                     ?
@@ -113,6 +116,15 @@ class NotesList extends Component {
         });
     }
 }
+
+// function mapDispatchToProps(dispatch) {
+//     return {
+//         addNote: (note) => {
+//             dispatch(actions.)
+//         }
+//     }
+// }
+
 export default NotesList;
 
 NotesList.propTypes = {

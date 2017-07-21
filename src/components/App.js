@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import LoggedInHome from './LoggedInHome';
 // import NonLoggedInHome from './NonLoggedInHome';
 import Notes from './Notes';
@@ -8,16 +9,19 @@ import PageTabs from './PageTabs';
 import CreateUser from './CreateUser';
 import './css/App.css';
 import firebase, { facebookProvider, auth, database } from './FirebaseConfig';
+import {connect} from 'react-redux';
+import {firebaseConnect, isLoaded, isEmpty, dataToJS} from 'react-redux-firebase';
+import * as actions from '../actions/actions';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
     constructor (props) {
         super(props);
-        this.state = {
-            currentUser: null,
-            data: null
-        };
+        // this.state = {
+        //     currentUser: null,
+        //     data: null
+        // };
         this.loginWithFacebook = this.loginWithFacebook.bind(this);
         this.logOut = this.logOut.bind(this);
     }
@@ -25,22 +29,22 @@ class App extends Component {
         firebase.auth().onAuthStateChanged((currentUser) => {
             console.log('AUTH STATE HAS CHANGED!');
             if (currentUser) {
-                this.setState({ currentUser });
-
+                this.props.logInUser(currentUser);
             } else {
                 // WHEN AUTH FAILS
             }
         });
     }
     render () {
+        const {currentUser} = this.props;
         return (
             <Router>
                 <div className='page'>
-                    <KimNavbar user={this.state.currentUser} loginWithFacebook={this.loginWithFacebook} logOut={this.logOut} />
-                    {!this.state.currentUser &&
+                    <KimNavbar user={currentUser} loginWithFacebook={this.loginWithFacebook} logOut={this.logOut} />
+                    {!currentUser &&
                         <button className="btn btn-primary" onClick={(this.loginWithFacebook)}>Login with Facebook</button>
                     }
-                    {this.state.currentUser &&
+                    {currentUser &&
                         <div>
                             <PageTabs />
                             <Switch>
@@ -59,11 +63,34 @@ class App extends Component {
     }
     logOut () {
         firebase.auth().signOut().then(() => {
-            this.setState({
-                currentUser: null,
-                loggedIn: false
-            });
+            this.props.logOutUser();
         });
     }
 }
-export default App;
+
+App.propTypes = {
+    logInUser: PropTypes.func.isRequired,
+    logOutUser: PropTypes.func.isRequired,
+    currentUser: PropTypes.any.isRequired
+};
+
+function mapDispatchToProps (dispatch) {
+  return {
+    logInUser: (currentUser) => {
+        if (!currentUser) return;
+        dispatch(actions.logInUser(currentUser));
+    },
+    logOutUser: () => {
+      dispatch(actions.logOutUser());
+    }
+  };
+}
+
+function mapStateToProps (state) {
+    console.log(state);
+  return {
+    currentUser: state.currentUser
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

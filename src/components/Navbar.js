@@ -41,7 +41,7 @@ class KimNavbar extends Component {
 export default KimNavbar;
 
 Navbar.propTypes = {
-    user: PropTypes.object.isRequired,
-    logOut: PropTypes.func.isRequired,
-    loginWithFacebook: PropTypes.func.isRequired
+    // user: PropTypes.object.isRequired,
+    // logOut: PropTypes.func.isRequired,
+    // loginWithFacebook: PropTypes.func.isRequired
 };

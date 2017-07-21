@@ -88,6 +88,6 @@ export default EditNote;
 
 EditNote.propTypes = {
     note: PropTypes.object.isRequired,
-    editNote: PropTypes.func.isRequired
-    // handleSubmit: PropTypes.func.isRequired
+    editNote: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired
 };

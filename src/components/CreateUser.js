@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PageTop from './PageTop';
-import Entries from './Entries';
+// import PageTop from './PageTop';
+// import Entries from './Entries';
 import './css/NonLoggedInHome.css';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
@@ -141,9 +141,9 @@ class LoggedInHome extends Component {
             </div >
         );
     }
-    firstNameChangeHandler (e) {
+    // firstNameChangeHandler (e) {
         
-    }
+    // }
 
     usernameChangeHandler (e) {
         const newState = Object.assign({}, this.state, { usernameTouched: true }, { username: e.target.value });
@@ -155,7 +155,7 @@ class LoggedInHome extends Component {
         const errors = validate(newState);
         this.setState(Object.assign(newState, { errors }));
     }
-    submitHandler (e) {
-    }
+    // submitHandler (e) {
+    // }
 }
 export default LoggedInHome;

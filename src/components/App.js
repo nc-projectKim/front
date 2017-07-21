@@ -4,13 +4,13 @@ import LoggedInHome from './LoggedInHome';
 // import NonLoggedInHome from './NonLoggedInHome';
 import Notes from './Notes';
 import KimNavbar from './Navbar';
-import Entries from './Entries';
+// import Entries from './Entries';
 import PageTabs from './PageTabs';
-import NoMatch from './NoMatch';
+// import NoMatch from './NoMatch';
 import './css/App.css';
-import firebase, { facebookProvider, auth, database } from './FirebaseConfig';
+import firebase, { facebookProvider } from './FirebaseConfig';
 import {connect} from 'react-redux';
-import {firebaseConnect, isLoaded, isEmpty, dataToJS} from 'react-redux-firebase';
+// import {firebaseConnect, isLoaded, isEmpty, dataToJS} from 'react-redux-firebase';
 import * as actions from '../actions/actions';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';

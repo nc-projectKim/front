@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import PageTop from './PageTop';
-import Entries from './Entries';
+// import PageTop from './PageTop';
+// import Entries from './Entries';
 import './css/NonLoggedInHome.css';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { BrowserRouter as Link } from 'react-router-dom';
 
 
 function validate (newState) {
@@ -81,7 +81,7 @@ class LoggedInHome extends Component {
         const errors = validate(newState);
         this.setState(Object.assign(newState, { errors })); 
     }
-    submitHandler (e) {
-    }
+    // submitHandler (e) {
+    // }
 }
 export default LoggedInHome;

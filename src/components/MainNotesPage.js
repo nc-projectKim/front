@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NotesList from './NotesList';
 import EditNote from './EditNote';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 const notes = {
     '-KpG7jiyD6sVSRLV5eaC': {
         'created': 1500304832915,

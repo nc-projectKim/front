@@ -8,12 +8,14 @@ import PropTypes from 'prop-types';
 import AddNote from './AddNote';
 import './css/NotesList.css';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
+import addNote from '../utilities/addNote.utilities';
 
 class NotesList extends Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
+        this.submitNote = this.submitNote.bind(this);
     }
-    render () {
+    render() {
         const editNote = this.props.editNote;
         return (
             <div>
@@ -64,10 +66,19 @@ class NotesList extends Component {
                     </div>
                 }
                 {this.props.add
-                    ? <AddNote addNewNote={this.props.addNewNote} />
+                    ? <AddNote submitNote={this.submitNote}/*addNewNote={this.props.addNewNote}*/ />
                     : null}
             </div>
         );
+    }
+    submitNote(e) {
+        e.preventDefault();
+        const newNoteObj = {
+            title: e.target[0].value,
+            text: e.target[1].value,
+            tags: e.target[2].value.split(',')
+        };
+        addNote(newNoteObj)
     }
 }
 export default NotesList;

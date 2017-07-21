@@ -1,10 +1,13 @@
 import * as types from '../actions/types';
 
 const initialState = {
-    currentUser: null
+    currentUser: null,
+    notes: {},
+    loading: false,
+
 };
 
-export function reducer(prevState = initialState, action) {
+export default function reducer (prevState = initialState, action) {
 
     if (action.type === types.LOG_IN_USER) {
         return Object.assign({}, prevState, {
@@ -18,26 +21,28 @@ export function reducer(prevState = initialState, action) {
         });
     }
 
-    else {
-        return prevState;
+    if (action.type === types.GET_NOTES_REQUEST) {
+        return Object.assign({}, prevState, {
+            data: action.data,
+            loading: true,
+
+        });
     }
-}
-
-export function notesReducer(prevState = initialState, action) {
-
-    // implement loading on request;
-
     if (action.type === types.GET_NOTES_SUCCESS) {
         return Object.assign({}, prevState, {
-            data: action.data
+            data: action.data,
+            loading: false,
         });
     }
 
     if (action.type === types.GET_NOTES_ERROR) {
         return Object.assign({}, prevState, {
+            loading: false,
             data: action.data
         });
     }
 
-    return prevState;
+    else {
+        return prevState;
+    }
 }

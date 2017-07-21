@@ -1,35 +1,15 @@
 import * as types from './types';
-import axios from 'axios';
 
-export function fetchNotes () {
-    return function (dispatch) {
-        dispatch(fetchNotesRequest());
-        axios.get('API_URL')
-        .then((res) => {
-            dispatch(fetchNotesSuccess(res.data));
-        })
-        .catch((error) => {
-            dispatch(fetchNotesError(error));
-        });
-    };
-}
-
-export function fetchNotesRequest () {
+export const logInUser = (currentUser) => {
     return {
-        type: types.FETCH_NOTES_REQUEST
+        type: types.LOG_IN_USER,
+        currentUser: currentUser
     };
-}
+};
 
-export function fetchNotesSuccess (notes) {
+export const logOutUser = () => {
     return {
-        type: types.FETCH_NOTES_SUCCESS,
-        data: notes
+        type: types.LOG_OUT_USER
     };
-}
+};
 
-export function fetchNotesError (error) {
-    return {
-        type: types.FETCH_NOTES_ERROR,
-        data: error
-    };
-}

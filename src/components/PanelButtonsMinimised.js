@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './css/PanelButtons.css';
 
 class PanelButtonsMinimised extends Component {
-    render() {
+    render () {
         return (
             <div className="row component-PanelButtons">
                 <button

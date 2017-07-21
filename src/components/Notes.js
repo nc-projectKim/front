@@ -16,13 +16,13 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './css/Notes.css';
 
 class NotesList extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
         };
     }
 
-    render() {
+    render () {
         return (
             <div className='notes-page'>
                 <Welcome className='notes-welcome'

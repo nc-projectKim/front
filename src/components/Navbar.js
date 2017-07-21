@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Nav, Navbar, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
+import {Nav, Navbar, NavItem, NavDropdown, MenuItem, Button} from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 class KimNavbar extends Component {
     render () {
@@ -25,8 +26,11 @@ class KimNavbar extends Component {
                             </NavDropdown>
                         </Nav>
                         <Nav pullRight>
-                            <NavItem eventKey={1} href="#">Link Right</NavItem>
-                            <NavItem eventKey={2} href="#">Link Right</NavItem>
+                            {
+                                this.props.user 
+                                ? <Button className='btn btn-primary' onClick={this.props.logOut}>Logout</Button>
+                                : <Button className='btn btn-primary' onClick={this.props.loginWithFacebook}>Login with Facebook</Button>
+                            }
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
@@ -35,3 +39,9 @@ class KimNavbar extends Component {
     }
 }
 export default KimNavbar;
+
+Navbar.propTypes = {
+    // user: PropTypes.object.isRequired,
+    // logOut: PropTypes.func.isRequired,
+    // loginWithFacebook: PropTypes.func.isRequired
+};

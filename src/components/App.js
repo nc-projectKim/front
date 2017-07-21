@@ -6,7 +6,7 @@ import Notes from './Notes';
 import KimNavbar from './Navbar';
 import Entries from './Entries';
 import PageTabs from './PageTabs';
-import CreateUser from './CreateUser';
+import NoMatch from './NoMatch';
 import './css/App.css';
 import firebase, { facebookProvider, auth, database } from './FirebaseConfig';
 import {connect} from 'react-redux';
@@ -18,10 +18,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 class App extends Component {
     constructor (props) {
         super(props);
-        // this.state = {
-        //     currentUser: null,
-        //     data: null
-        // };
         this.loginWithFacebook = this.loginWithFacebook.bind(this);
         this.logOut = this.logOut.bind(this);
     }

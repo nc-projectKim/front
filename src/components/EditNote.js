@@ -5,7 +5,7 @@ import './css/EditNote.css';
 
 
 class EditNote extends React.Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             title: this.props.note.title,
@@ -15,7 +15,7 @@ class EditNote extends React.Component {
         this.titleChange = this.titleChange.bind(this);
         this.textChange = this.textChange.bind(this);
     }
-    render() {
+    render () {
         return (
             <form onSubmit={this.props.handleSubmit}>
                 <div>
@@ -38,7 +38,7 @@ class EditNote extends React.Component {
                                 <i onClick={this.removeTag.bind(this, tag)} className= "fa fa-times-circle-o" ></i>
                             </span>
                         </div>
-                        )
+                        );
                     })}
                     <input name="Tags" type="text" placeholder="#" />
                 </div>
@@ -50,19 +50,19 @@ class EditNote extends React.Component {
             </form>
         );
     }
-    titleChange(e) {
+    titleChange (e) {
         e.preventDefault();
         this.setState = {
             title: e.target.value
         };
     }
-    textChange(e) {
+    textChange (e) {
         e.preventDefault();
         this.setState = {
             title: e.target.value
         };
     }
-    removeTag(tag) {
+    removeTag (tag) {
         const newTags = [...this.state.tags];
         const i = findIndex(newTags, tag);
         newTags.splice(i, 1);
@@ -72,7 +72,7 @@ class EditNote extends React.Component {
     }
 }
 
-function findIndex(tags, name) {
+function findIndex (tags, name) {
     for (let i = 0; i < tags.length; i++) {
         if (tags[i] === name) {
             return i;

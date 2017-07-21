@@ -5,8 +5,7 @@ import './css/NonLoggedInHome.css';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 
-
-function validate(newState) {
+function validate (newState) {
     const errors = {};
 
     if (newState.usernameTouched) {
@@ -24,7 +23,7 @@ function validate(newState) {
 }
 
 class LoggedInHome extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             username: '',
@@ -40,7 +39,7 @@ class LoggedInHome extends Component {
         this.passwordChangeHandler = this.passwordChangeHandler.bind(this);
         this.submitHandler = this.submitHandler.bind(this);
     }
-    render() {
+    render () {
         return (
             <div className="component-mainPage col-xs-10 col-xs-offset-1">
                 <div className="panel panel-default">
@@ -72,12 +71,12 @@ class LoggedInHome extends Component {
             </div>
         );
     }
-    usernameChangeHandler(e) {
+    usernameChangeHandler (e) {
         const newState = Object.assign({}, this.state, { usernameTouched: true }, {username: e.target.value});
         const errors = validate(newState);
         this.setState(Object.assign(newState, { errors })); 
     }
-    passwordChangeHandler(e) {
+    passwordChangeHandler (e) {
         const newState = Object.assign({}, this.state, { passwordTouched: true }, {password: e.target.value});
         const errors = validate(newState);
         this.setState(Object.assign(newState, { errors })); 

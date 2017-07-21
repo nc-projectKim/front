@@ -8,7 +8,7 @@ import BetweenSearch from './BetweenSearch';
 
 
 class SearchByDate extends React.Component {
-    render() {
+    render () {
 
         return (
             <div className="panel-body">

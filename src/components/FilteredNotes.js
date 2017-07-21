@@ -20,15 +20,15 @@ const notes = {
 };
 
 class FilteredNotes extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             edit: false,
             noteId: ''
-        }
+        };
         this.editNote = this.editNote.bind(this);
     }
-    render() {
+    render () {
         return (
             <div className="FilteredNotes-main">
                 {this.state.edit
@@ -44,7 +44,7 @@ class FilteredNotes extends Component {
             </div>
         );
     }
-    editNote(id) {
+    editNote (id) {
         this.setState({
             edit: !this.state.edit,
             noteId: id

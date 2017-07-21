@@ -8,10 +8,10 @@ import AddNote from './AddNote';
 import {BrowserRouter as Router, Link} from 'react-router-dom';
 
 class NotesList extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
     }
-    render() {
+    render () {
         const editNote = this.props.editNote;
         return (
             <div>

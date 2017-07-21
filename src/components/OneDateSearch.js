@@ -8,17 +8,17 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 
 class OneDateSearch extends React.Component {
-    constructor(props) {
-        super(props)
+    constructor (props) {
+        super(props);
         this.state = {
             startDate: moment().utc()
 
-        }
+        };
 
         this.handleChange = this.handleChange.bind(this);
         this.submitDate = this.submitDate.bind(this);
     }
-    render() {
+    render () {
 
         return (
             <div>
@@ -30,12 +30,12 @@ class OneDateSearch extends React.Component {
             </div>
         );
     }
-    handleChange(date) {
+    handleChange (date) {
         this.setState({
             startDate: date
         });
     }
-    submitDate(e) {
+    submitDate (e) {
         e.preventDefault();
         let date = moment(this.state.startDate._d).format('x');
         console.log(date);

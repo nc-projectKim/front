@@ -4,14 +4,14 @@ import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import './css/PageTabs.css';
 
 class PageTabs extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             activeTab: 1
         };
         this.handleSelect = this.handleSelect.bind(this);
     }
-    render() {
+    render () {
         return (
             <div className='navTabs'>
                 <NavLink activeClassName='selected' className='navlink' to={'/welcome'}>
@@ -29,7 +29,7 @@ class PageTabs extends Component {
             </div>
         );
     }
-    handleSelect(key) {
+    handleSelect (key) {
         this.setState({ activeTab: key });
     }
 }

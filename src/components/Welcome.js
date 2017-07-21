@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './css/Welcome.css';
 
 class Welcome extends Component {
-    render() {
+    render () {
         return (
                 <div className="media">
                     <div className="media-left">

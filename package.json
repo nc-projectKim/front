@@ -48,8 +48,8 @@
   },
   "scripts": {
     "test": "jest",
-    "test:watch": "npm test -- --watch",
-    "posttest": "npm run lint",
+    "test:watch": "yarn test -- --watch",
+    "posttest": "yarn run lint",
     "dev": "webpack-dev-server",
     "lint": "eslint ./ --fix"
   }

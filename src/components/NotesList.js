@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
 import addNote from '../utilities/addNote.utilities';
 
 class NotesList extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             newSubmit: false,
@@ -22,7 +22,7 @@ class NotesList extends Component {
         this.addNewNote = this.addNewNote.bind(this);
         this.viewMore = this.viewMore.bind(this);
     }
-    render() {
+    render () {
         const editNote = this.props.editNote;
         return (
             <div>
@@ -76,12 +76,12 @@ class NotesList extends Component {
                     </div>
                 }
                 {this.state.add
-                    ? <AddNote submitNote={this.submitNote}/*addNewNote={this.props.addNewNote}*/ />
+                    ? <AddNote submitNote={this.submitNote}/* addNewNote={this.props.addNewNote}*/ />
                     : null}
             </div>
         );
     }
-    submitNote(e) {
+    submitNote (e) {
         e.preventDefault();
         const newNoteObj = {
             title: e.target[0].value,
@@ -102,12 +102,12 @@ class NotesList extends Component {
                 console.log(err);
             });
     }
-    addNewNote() {
+    addNewNote () {
         this.setState({
             add: !this.state.add
         });
     }
-    viewMore() {
+    viewMore () {
         this.setState({
             view: !this.state.view
         });

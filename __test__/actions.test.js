@@ -24,4 +24,36 @@ describe('actions', () => {
             });
         });
     });
+    describe('#GET_NOTES_REQUEST', () => {
+        it('is a function', () => {
+            expect(typeof actions.getNotesRequest).toBe('function');
+        });
+        it('returns expected result', () => {
+            expect(actions.getNotesRequest()).toEqual({
+                type: types.GET_NOTES_REQUEST
+            });
+        });
+    });
+    describe('#GET_NOTES_SUCCESS', () => {
+        it('is a function', () => {
+            expect(typeof actions.getNotesSuccess).toBe('function');
+        });
+        it('returns expected result', () => {
+            expect(actions.getNotesSuccess('let there be notes')).toEqual({
+                type: types.GET_NOTES_SUCCESS,
+                data: 'let there be notes'
+            });
+        });
+    });
+    describe('#GET_NOTES_ERROR', () => {
+        it('is a function', () => {
+            expect(typeof actions.getNotesError).toBe('function');
+        });
+        it('returns expected result', () => {
+            expect(actions.getNotesError('err')).toEqual({
+                type: types.GET_NOTES_ERROR,
+                data: 'err'
+            });
+        });
+    });
 });

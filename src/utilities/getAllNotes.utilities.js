@@ -6,7 +6,7 @@ var userId = firebase.auth().currentUser.uid;
 console.log('u', userId);
 return firebase.database().ref('/notes/' + userId).once('value').then(function (snapshot) {
     return snapshot.val();
-}).catch(function(error) {
+}).catch(function (error) {
     console.log(error);
 });
 

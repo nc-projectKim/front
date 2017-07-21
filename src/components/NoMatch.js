@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
 class NoMatch extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             loggedIn: false
         };
     }
-    render() {
+    render () {
         return (
             <div className="container">
                 <div className="jumbotron">

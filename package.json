@@ -49,6 +49,6 @@
     "test:watch": "npm test -- --watch",
     "posttest": "npm run lint",
     "dev": "webpack-dev-server",
-    "lint": "eslint ./"
+    "lint": "eslint ./ --fix"
   }
 }

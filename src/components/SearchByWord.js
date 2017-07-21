@@ -5,7 +5,7 @@ import './css/AddNote.css';
 
 const inputStyles = {
     fontFamily: 'Arial, FontAwesome'
-}
+};
 
 const SearchByWord = () => {
     return (

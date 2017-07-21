@@ -12,7 +12,7 @@ import firebase, { facebookProvider, auth, database } from './FirebaseConfig';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             currentUser: null,
@@ -21,7 +21,7 @@ class App extends Component {
         this.loginWithFacebook = this.loginWithFacebook.bind(this);
         this.logOut = this.logOut.bind(this);
     }
-    componentDidMount() {
+    componentDidMount () {
         firebase.auth().onAuthStateChanged((currentUser) => {
             console.log('AUTH STATE HAS CHANGED!');
             if (currentUser) {
@@ -32,7 +32,7 @@ class App extends Component {
             }
         });
     }
-    render() {
+    render () {
         return (
             <Router>
                 <div className='page'>
@@ -52,10 +52,10 @@ class App extends Component {
             </Router>
         );
     }
-    loginWithFacebook() {
+    loginWithFacebook () {
         firebase.auth().signInWithPopup(facebookProvider);
     }
-    logOut() {
+    logOut () {
         firebase.auth().signOut().then(() => {
             this.setState({
                 currentUser: null,

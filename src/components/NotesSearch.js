@@ -12,7 +12,7 @@ const inputStyles = {
 };
 
 class NotesSearch extends React.Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             startDate: moment().utc(),
@@ -27,7 +27,7 @@ class NotesSearch extends React.Component {
         this.handleChangeStart = this.handleChangeStart.bind(this);
         this.handleChangeEnd = this.handleChangeEnd.bind(this);
     }
-    render() {
+    render () {
         return (
             <div>
                 <div className="panel panel-default">
@@ -84,30 +84,30 @@ class NotesSearch extends React.Component {
             </div>
         );
     }
-    searchExpand(e) {
+    searchExpand (e) {
         this.setState({
             open: e.target.textContent
         });
     }
-    handleChange(date) {
+    handleChange (date) {
         this.setState({
             startDate: date,
             searchOneDateClicked: true
         });
     }
-    handleChangeStart(date) {
+    handleChangeStart (date) {
         this.setState({
             startDate: date,
             searchStartDateClicked: true 
         });
     }
-    handleChangeEnd(date) {
+    handleChangeEnd (date) {
         this.setState({
             endDate: date,
             searchEndDateClicked: true
         });
     }
-    handleSubmit(e) {
+    handleSubmit (e) {
         e.preventDefault();
         let searchTerm = e.target[0].value;
         let searchOneDate = moment(this.state.startDate._d).format('x');

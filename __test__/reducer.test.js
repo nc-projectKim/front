@@ -5,24 +5,33 @@ import reducer from '../src/reducer/reducer';
 const initialState = {
     currentUser: null,
     data: null
-}
+};
 
 describe('reducer', () => {
     describe('#reducer', () => {
         it('is a function', () => {
-            expect(typeof reducer).toBe('function')
-        })
+            expect(typeof reducer).toBe('function');
+        });
         it('returns previous state if action is not defined', () => {
-            const newState = reducer(initialState)
+            const newState = reducer(initialState);
             expect(newState).toBe(initialState);
         });
     });
     describe('#action: authStateChange', () => {
         it('return the previous state if no user is defined', () => {
-        const action = actions.authStateChange();
-        const newState = reducer(initialState, action);
-        expect(newState).toBe(initialState);
-        expect(newState.currentUser).toBe(initialState.currentUser);
-        })
+            const action = actions.authStateChange();
+            const newState = reducer(initialState, action);
+            expect(newState).toBe(initialState);
+            expect(newState.currentUser).toBe(initialState.currentUser);
+        });
+        it('changes the current user to the new user', () => {
+            const action = actions.authStateChange('user');
+            const newState = reducer(initialState, action);
+            expect(newState.currentUser).toEqual('user');
+            expect(newState).toEqual({
+                currentUser: 'user',
+                data: null
+            });
+        });
     });
 });

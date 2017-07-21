@@ -10,10 +10,10 @@ import './css/NotesList.css';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 class NotesList extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
     }
-    render() {
+    render () {
         const editNote = this.props.editNote;
         return (
             <div>
@@ -30,7 +30,7 @@ class NotesList extends Component {
                                 </button>
                                 </Link>
                             </span>
-                            {/*<h3 className="panel-title"><span>{this.props.heading}</span>/</h3>
+                            {/* <h3 className="panel-title"><span>{this.props.heading}</span>/</h3>
                                 <Link to="/notes/search" ><button type="button"
                                     className="btn btn-info srch-btn">
                                     <i className="fa fa-search" aria-hidden="true"></i>

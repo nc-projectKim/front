@@ -10,7 +10,7 @@ class Entries extends Component {
         super (props);
         this.state = {
             notesSearch: false
-        }
+        };
         this.toggleNoteSearch = this.toggleNoteSearch.bind(this);
     }
     render () {
@@ -21,7 +21,7 @@ class Entries extends Component {
             </div>
         );
     }
-    toggleNoteSearch() {
+    toggleNoteSearch () {
         this.setState({
             notesSearch: !this.state.notesSearch
         });

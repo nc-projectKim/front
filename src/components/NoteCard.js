@@ -7,20 +7,20 @@ import './css/NoteCard.css';
 const dateFormat = 'D MMM YYYY';
 const timeFormat = 'HH:mm';
 
-function formatNote(text) {
+function formatNote (text) {
     if (text.length < 100) return text;
     return `${text.substring(0, 100)}...`;
 }
 
 class NoteCard extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             displayAll: false
         };
         this.displayNote = this.displayNote.bind(this);
     }
-    render() {
+    render () {
         return (
             <div>
                 <div className="container-fluid component-NoteCard">
@@ -50,7 +50,7 @@ class NoteCard extends Component {
             </div>
         );
     }
-    displayNote() {
+    displayNote () {
         this.setState({
             displayAll: !this.state.displayAll
         });

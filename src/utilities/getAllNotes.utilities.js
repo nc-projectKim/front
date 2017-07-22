@@ -1,4 +1,4 @@
-import firebase from '../components/FirebaseConfig';
+import firebase from '../../FirebaseConfig';
 
 export default function getAllNotes () {
 var userId = firebase.auth().currentUser.uid;

@@ -1,5 +1,5 @@
 import firebase from 'firebase';
-import {CONFIG} from '../../config.js';
+import {CONFIG} from './config.js';
 // import {reactReduxFirebase} from 'react-redux-firebase';
 // import {compose} from 'redux';
 

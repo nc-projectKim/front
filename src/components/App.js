@@ -8,7 +8,7 @@ import KimNavbar from './Navbar';
 import PageTabs from './PageTabs';
 // import NoMatch from './NoMatch';
 import './css/App.css';
-import firebase, { facebookProvider } from './FirebaseConfig';
+import firebase, { facebookProvider } from '../../FirebaseConfig';
 import {connect} from 'react-redux';
 // import {firebaseConnect, isLoaded, isEmpty, dataToJS} from 'react-redux-firebase';
 import * as actions from '../actions/actions';
@@ -66,7 +66,7 @@ class App extends Component {
 App.propTypes = {
     logInUser: PropTypes.func.isRequired,
     logOutUser: PropTypes.func.isRequired,
-    currentUser: PropTypes.any.isRequired
+    currentUser: PropTypes.any
 };
 
 function mapDispatchToProps (dispatch) {

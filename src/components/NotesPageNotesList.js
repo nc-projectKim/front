@@ -10,13 +10,13 @@ import './css/NotesList.css';
 import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
 import addNote from '../utilities/addNote.utilities';
 
-class NotesList extends Component {
+class NotesPageNotesList extends Component {
     constructor (props) {
         super(props);
         this.state = {
             newSubmit: false,
             add: false,
-            view: false
+            view: true
         };
         this.submitNote = this.submitNote.bind(this);
         this.addNewNote = this.addNewNote.bind(this);
@@ -125,9 +125,9 @@ class NotesList extends Component {
 //     }
 // }
 
-export default NotesList;
+export default NotesPageNotesList;
 
-NotesList.propTypes = {
+NotesPageNotesList.propTypes = {
     // view: PropTypes.bool.isRequired,
     add: PropTypes.bool.isRequired,
     addNewNote: PropTypes.func.isRequired,

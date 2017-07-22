@@ -1,0 +1,7 @@
+export const LOG_IN_USER = 'LOG_IN_USER';
+export const LOG_OUT_USER = 'LOG_OUT_USER';
+
+export const GET_NOTES_REQUEST = 'GET_NOTES_REQUEST';
+export const GET_NOTES_SUCCESS = 'GET_NOTES_SUCCESS';
+export const GET_NOTES_ERROR = 'GET_NOTES_ERROR';
+

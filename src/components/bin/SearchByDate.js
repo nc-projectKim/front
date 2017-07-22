@@ -4,7 +4,7 @@ import React from 'react';
 import './css/AddNote.css';
 import 'react-datepicker/dist/react-datepicker.css';
 import OneDateSearch from './OneDateSearch';
-import BetweenSearch from './BetweenSearch';
+// import BetweenSearch from './BetweenSearch';
 
 
 class SearchByDate extends React.Component {
@@ -13,7 +13,7 @@ class SearchByDate extends React.Component {
         return (
             <div className="panel-body">
                 <OneDateSearch/>
-                <BetweenSearch/>
+                {/*<BetweenSearch/>*/}
             </div>
         );
     }

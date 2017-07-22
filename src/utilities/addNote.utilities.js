@@ -1,4 +1,4 @@
-import firebase, { facebookProvider, auth, database } from '../components/FirebaseConfig';
+import firebase, { facebookProvider, auth, database } from '../../FirebaseConfig';
 
 export default function addNote (data) {
     const note = {

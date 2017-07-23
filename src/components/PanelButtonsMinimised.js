@@ -15,12 +15,11 @@ class PanelButtonsMinimised extends Component {
                         &nbsp; Expand
                 </button>
 
-                <button
+                <Link to="/notes/add"><button
                     type="button"
-                    onClick={this.props.addNewNote}
                     className="btn btn-info "><i className="fa fa-plus" aria-hidden="true"></i>
                      &nbsp; Add A Note
-                    </button>
+                    </button></Link>
 
 
                 <Link to="/notes/search" ><button type="button"
@@ -36,5 +35,4 @@ export default PanelButtonsMinimised;
 
 PanelButtonsMinimised.propTypes = {
     viewMore: PropTypes.func.isRequired,
-    addNewNote: PropTypes.func.isRequired
 };

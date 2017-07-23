@@ -11,14 +11,11 @@ class LatestNotes extends Component {
         super(props);
         this.state = {
             view: true,
-            add: false,
             edit: false,
             noteId: '',
             notes: null
         };
-        this.addNewNote = this.addNewNote.bind(this);
         this.editNote = this.editNote.bind(this);
-        // this.editNoteSubmit = this.editNoteSubmit.bind(this);
     }
     componentDidMount () {
         this.props.getNotes();
@@ -36,9 +33,7 @@ class LatestNotes extends Component {
                     heading={'Latest Notes'}
                     view={this.state.view}
                     notes={this.props.notes}
-                    addNewNote={this.addNewNote}
                     viewMore={this.viewMore}
-                    add={this.state.add}
                     editNote={this.editNote}
                 />
                 }
@@ -51,12 +46,6 @@ class LatestNotes extends Component {
             noteId: id
         });
     }
-    addNewNote () {
-        this.setState({
-            add: !this.state.add
-        });
-    }
-    
 }
 
 function mapDispatchToProps(dispatch) {
@@ -75,7 +64,7 @@ function mapStateToProps(state) {
 
 
 LatestNotes.propTypes = {
-    notes: PropTypes.object.isRequired,
+    notes: PropTypes.any,
     getNotes: PropTypes.func.isRequired
 };
 export default connect(mapStateToProps, mapDispatchToProps)(LatestNotes);

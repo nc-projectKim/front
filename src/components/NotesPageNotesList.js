@@ -19,12 +19,6 @@ class NotesPageNotesList extends Component {
         const alteredValues = alterValues(this.props.notes);
         return (
             <div>
-                {this.props.newSubmit &&
-                    <div>
-                        <div>Note submitted!</div>
-                        <Redirect to='/notes'/>
-                    </div>
-                }
                     <div className='panel panel-default'>
                         <div className="panel-heading">
 
@@ -36,12 +30,6 @@ class NotesPageNotesList extends Component {
                                 </button>
                                 </Link>
                             </span>
-                            {/* <h3 className="panel-title"><span>{this.props.heading}</span>/</h3>
-                                <Link to="/notes/search" ><button type="button"
-                                    className="btn btn-info srch-btn">
-                                    <i className="fa fa-search" aria-hidden="true"></i>
-                                    </button>
-                                </Link>*/}
                         </div>
 
                         <div className="panel-body">
@@ -58,9 +46,6 @@ class NotesPageNotesList extends Component {
                             </div>
                         </div>
                     </div>
-                {this.props.add
-                    ? <AddNote submitNote={this.props.submitNote}/* addNewNote={this.props.addNewNote}*/ />
-                    : null}
             </div>
         );
     }

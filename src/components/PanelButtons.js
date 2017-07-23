@@ -13,8 +13,8 @@ class PanelButtons extends Component {
                     className="btn btn-info collapse-btn"><i className="fa fa-arrow-up" aria-hidden="true"></i>
                     &nbsp; Collapse</button>
 
-                    <button onClick={this.props.addNewNote}type="button" className="btn btn-info"><i className="fa fa-plus" aria-hidden="true"></i>
-                     &nbsp; Add A Note</button>
+                    <Link to={'/notes/add'}><button onClick={this.props.addNewNote}type="button" className="btn btn-info"><i className="fa fa-plus" aria-hidden="true"></i>
+                     &nbsp; Add A Note</button></Link>
                     <Link to="/notes"><button type="button" className="btn btn-info view-more-notes-btn"><i className="fa fa-eye" aria-hidden="true"></i>
                     &nbsp; View More Notes</button></Link>
             </div>

@@ -19,7 +19,7 @@ class EditNote extends React.Component {
     }
     render () {
         return (
-            <form onSubmit={this.props.handleSubmit}>
+            <form onSubmit={this.editNoteSubmit}>
                 <div>
                     <label htmlFor="Title">Title</label>
                     <br />
@@ -74,8 +74,14 @@ class EditNote extends React.Component {
     }
     editNoteSubmit (e) {
         e.preventDefault();
-        console.log('submit');
         console.dir(e.target);
+        const newTags = e.target[2].value.split(',').concat(this.state.tags);
+        const editedNote = {
+            title: e.target[0].value,
+            text: e.target[1].value,
+            tags: newTags
+        };
+        console.log(editedNote);
     }
 }
 
@@ -86,7 +92,6 @@ function findIndex (tags, name) {
         }
     }
 }
-
 
 export default EditNote;
 // reduxForm({

@@ -10,13 +10,11 @@ class MainNotesPage extends Component {
         super(props);
         this.state = {
             view: true,
-            add: false,
             edit: false,
             noteId: '',
             notes: null
         };
         this.viewMore = this.viewMore.bind(this);
-        this.addNewNote = this.addNewNote.bind(this);
         this.editNote = this.editNote.bind(this);
     }
     componentDidMount () {
@@ -27,17 +25,6 @@ class MainNotesPage extends Component {
             notes: this.props.notes
         });
     }
-    // componentWillReceiveProps(newProps) {
-    //     console.log('new Props');
-    //     if (this.props.notes && newProps.notes !== this.props.notes) {
-    //         newProps.getNotes();
-    //         this.setState({
-    //             view: true,
-    //             add: false,
-    //             notes: newProps.notes
-    //         });
-    //     }
-    // }
     render () {
         return (
             <div>
@@ -46,9 +33,7 @@ class MainNotesPage extends Component {
                     : <MainNotesList
                         heading={'My Notes'}
                         notes={this.props.notes}
-                        addNewNote={this.addNewNote}
                         viewMore={this.viewMore}
-                        add={this.state.add}
                         editNote={this.editNote}
                     />
                 }
@@ -65,11 +50,6 @@ class MainNotesPage extends Component {
     viewMore () {
         this.setState({
             view: !this.state.view
-        });
-    }
-    addNewNote () {
-        this.setState({
-            add: !this.state.add
         });
     }
 }
@@ -89,7 +69,7 @@ function mapStateToProps(state) {
 }
 
 MainNotesPage.propTypes = {
-    notes: PropTypes.object.isRequired,
+    notes: PropTypes.any.isRequired,
     getNotes: PropTypes.func.isRequired
 };
 export default connect(mapStateToProps, mapDispatchToProps)(MainNotesPage);

@@ -10,6 +10,7 @@ import NotesSearch from './NotesSearch';
 import Welcome from './Welcome';
 import MainNotesPage from './MainNotesPage';
 import FilteredNotes from './FilteredNotes';
+import AddNote from './AddNote';
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
@@ -29,7 +30,7 @@ class NotesList extends Component {
                     messageTitle={'Kim\'s notes'} />
                 <Switch>
                     <Route exact path='/notes' component={MainNotesPage}/>
-                    <Route exact path='/notes/add' component={MainNotesPage}/>
+                    <Route exact path='/notes/add' component={AddNote}/>
                     <Route exact path='/notes/search' component={NotesSearch} />
                     <Route path='/notes/search/result' component={FilteredNotes} />
                 </Switch>

@@ -12,15 +12,12 @@ class MainNotesList extends Component {
         super(props);
         this.state = {
             view: true,
-            add: false,
             edit: false,
             noteId: '',
             notes: null,
             newSubmit: false
         };
-        this.addNewNote = this.addNewNote.bind(this);
         this.editNote = this.editNote.bind(this);
-        this.submitNote = this.submitNote.bind(this);
     }
     componentDidMount () {
         this.props.getNotes();
@@ -41,13 +38,11 @@ class MainNotesList extends Component {
         return (
             <div>
                 { this.state.edit
-                ? <EditNote editNote={this.editNote} note={this.state.notes[this.state.noteId]}/>
+                ? <EditNote editNote={this.editNote} note={this.props.notes[this.state.noteId]}/>
                 : <NotesPageNotesList
                     heading={'Latest Notes'}
                     notes={this.props.notes}
-                    addNewNote={this.addNewNote}
                     viewMore={this.viewMore}
-                    add={this.state.add}
                     editNote={this.editNote}
                     submitNote={this.submitNote}
                     newSubmit={this.state.newSubmit}
@@ -61,34 +56,6 @@ class MainNotesList extends Component {
             edit: !this.state.edit,
             noteId: id
         });
-    }
-    addNewNote () {
-        this.setState({
-            add: !this.state.add
-        });
-    }
-    submitNote (e) {
-        e.preventDefault();
-        const newNoteObj = {
-            title: e.target[0].value,
-            text: e.target[1].value,
-            tags: e.target[2].value.split(',')
-        };
-        addNote(newNoteObj)
-            .then(() => {
-                this.props.getNotes();
-            })
-            .then(() => {
-                return (
-                    this.setState({
-                        newSubmit: !this.state.newSubmit,
-                        add: !this.state.add,
-                    })
-                );
-            })
-            .catch(err => {
-                console.log(err);
-            });
     }
 }
 

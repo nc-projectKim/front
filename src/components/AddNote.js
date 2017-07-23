@@ -1,8 +1,7 @@
 import React from 'react';
-// import {Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 import './css/AddNote.css';
-import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect } from 'react-router-dom';
 import addNote from '../utilities/addNote.utilities';
 
 class AddNote extends React.Component {

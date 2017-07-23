@@ -1,22 +1,31 @@
 import React, { Component } from 'react';
 import LatestNotes from './LatestNotes';
-// import NotesSearch from './NotesSearch';
 import PageTop from './PageTop';
 import './css/Entries.css';
-// import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+import PropTypes from 'prop-types';
 
 
 class Entries extends Component {
     render () {
         return (
             <div className="entries-main">
-                <PageTop />
+                <PageTop name={this.props.currentUser.displayName.split(' ')[0]} picture={this.props.currentUser.photoURL}/>
                 <LatestNotes />
             </div>
         );
     }
 }
-export default Entries;
+
+function mapStateToProps (state) {
+  return {
+    currentUser: state.currentUser
+  };
+}
+
+export default connect(mapStateToProps)(Entries);
 
 Entries.propTypes = {
+    currentUser: PropTypes.object
 };

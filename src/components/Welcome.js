@@ -7,7 +7,7 @@ class Welcome extends Component {
         return (
                 <div className="media">
                     <div className="media-left">
-                            <img src="http://www.aminoapps.com/static/bower/emojify.js/images/emoji/information_desk_person.png" className="media-object" /></div>
+                            <img src={this.props.picture} className="media-object" /></div>
                     <div className="welcomeText media-body">
                         <h3 className="media-heading">{this.props.messageTitle}</h3>
                         <p>{this.props.messageBody}</p>
@@ -20,5 +20,6 @@ export default Welcome;
 
 Welcome.propTypes = {
     messageTitle: PropTypes.string.isRequired,
-    messageBody: PropTypes.string
+    messageBody: PropTypes.string,
+    picture: PropTypes.string.isRequired
 };

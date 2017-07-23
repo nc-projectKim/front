@@ -1,5 +1,4 @@
 import React from 'react';
-// import {Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 import './css/EditNote.css';
 
@@ -74,7 +73,6 @@ class EditNote extends React.Component {
     }
     editNoteSubmit (e) {
         e.preventDefault();
-        console.dir(e.target);
         const newTags = e.target[2].value.split(',').concat(this.state.tags);
         const editedNote = {
             title: e.target[0].value,
@@ -94,9 +92,6 @@ function findIndex (tags, name) {
 }
 
 export default EditNote;
-// reduxForm({
-//     form : 'addNote'
-// })();
 
 EditNote.propTypes = {
     note: PropTypes.object.isRequired,

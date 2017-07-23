@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Welcome from './Welcome';
 import './css/PageTop.css';
+import PropTypes from 'prop-types';
 
 
 class PageTop extends Component {
@@ -8,10 +9,16 @@ class PageTop extends Component {
         return (
             <div className='component-PageTop'>
                 <Welcome
-                    messageTitle={'Welcome Back Kim'}
-                    messageBody={'What can I help you with today?'} />
+                    messageTitle={`Welcome Back ${this.props.name}`}
+                    messageBody={'What can I help you with today?'}
+                    picture={this.props.picture} />
             </div>
         );
     }
 }
 export default PageTop;
+
+PageTop.propTypes = {
+    name: PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired
+};

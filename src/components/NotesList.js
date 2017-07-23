@@ -27,7 +27,6 @@ class NotesList extends Component {
                     ?
                     <div className='panel panel-default'>
                         <div className="panel-heading">
-
                             <span>
                                 <h3 className="panel-title"><span>{this.props.heading}</span></h3>
                                 <Link to="/notes/search" ><button type="button"

@@ -4,13 +4,15 @@ import React, { Component } from 'react';
 // import PanelButtons from './PanelButtons';
 // import PanelButtonsMinimised from './PanelButtonsMinimised';
 // import { map } from 'underscore';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import NotesSearch from './NotesSearch';
 // import AddNote from './AddNote';
 import Welcome from './Welcome';
 import MainNotesPage from './MainNotesPage';
 import FilteredNotes from './FilteredNotes';
 import AddNote from './AddNote';
+import { connect } from 'react-redux';
+
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
@@ -24,10 +26,13 @@ class NotesList extends Component {
     }
 
     render () {
+        const userFirstName = this.props.currentUser.displayName.split(' ')[0];
         return (
             <div className='notes-page'>
                 <Welcome className='notes-welcome'
-                    messageTitle={'Kim\'s notes'} />
+                    picture={this.props.currentUser.photoURL}
+                    messageTitle={`${userFirstName}'s notes`} 
+                    />
                 <Switch>
                     <Route exact path='/notes' component={MainNotesPage}/>
                     <Route exact path='/notes/add' component={AddNote}/>
@@ -38,8 +43,15 @@ class NotesList extends Component {
         );
     }
 }
-export default NotesList;
+
+function mapStateToProps (state) {
+  return {
+    currentUser: state.currentUser
+  };
+}
+
+export default connect(mapStateToProps)(NotesList);
 
 NotesList.propTypes = {
-
+    currentUser: PropTypes.object.isRequired,
 };

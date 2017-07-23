@@ -6,7 +6,6 @@ import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
 import addNote from '../utilities/addNote.utilities';
 
-
 class MainNotesList extends Component {
     constructor (props) {
         super(props);
@@ -25,15 +24,6 @@ class MainNotesList extends Component {
             notes: this.props.notes
         });
     }
-    // componentWillReceiveProps(newProps) {
-    //     if (this.props.notes && newProps.notes !== this.props.notes) {
-    //     console.log(this.props.notes, newProps.notes);
-    //         newProps.getNotes();
-    //         this.setState({
-    //             add: false,
-    //         });
-    //     }
-    // }
     render () {
         return (
             <div>
@@ -59,7 +49,7 @@ class MainNotesList extends Component {
     }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
     return {
         getNotes: () => {
             dispatch(actions.getNotes());

@@ -22,7 +22,6 @@ class LatestNotes extends Component {
         this.setState({
             notes: this.props.notes
         });
-
     }
     render () {
         return (
@@ -48,7 +47,7 @@ class LatestNotes extends Component {
     }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
     return {
         getNotes: () => {
             dispatch(actions.getNotes());
@@ -56,7 +55,7 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
     return {
         notes: state.data,
     };

@@ -47,9 +47,9 @@ class NotesPageNotesList extends Component {
                         <div className="panel-body">
                             <div className="container">
                                 <RowTitle />
-                                {map(alteredValues, function (note, key) {
+                                {map(alteredValues, function (note) {
                                     return (
-                                        <NoteCard iD={key} key={note.created} note={note} editNote={editNote} />
+                                        <NoteCard iD={note[0]} key={note[1].created} note={note[1]} editNote={editNote} />
                                     );
                                 })}
                                 <PanelButtons

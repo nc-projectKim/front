@@ -18,18 +18,20 @@ class LatestNotes extends Component {
         };
         this.addNewNote = this.addNewNote.bind(this);
         this.editNote = this.editNote.bind(this);
+        // this.editNoteSubmit = this.editNoteSubmit.bind(this);
     }
     componentDidMount () {
         this.props.getNotes();
         this.setState({
             notes: this.props.notes
         });
+
     }
     render () {
         return (
             <div>
                 { this.state.edit
-                ? <EditNote editNote={this.editNote} note={this.state.notes[this.state.noteId]}/>
+                ? <EditNote editNote={this.editNote} note={this.props.notes[this.state.noteId]}/>
                 : <NotesList
                     heading={'Latest Notes'}
                     view={this.state.view}
@@ -54,6 +56,7 @@ class LatestNotes extends Component {
             add: !this.state.add
         });
     }
+    
 }
 
 function mapDispatchToProps(dispatch) {

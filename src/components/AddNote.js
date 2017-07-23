@@ -12,7 +12,7 @@ const AddNote = (props) => {
                 </div>
                 <div className="panel-body">
                     <div className="container">
-                        <form onSubmit={props.submitNote}>
+                        <form onSubmit={props.submitNote} method="post">
                             <div>
                                 <label htmlFor="Title">Title</label>
                                 <br />

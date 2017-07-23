@@ -25,6 +25,6 @@ class PanelButtons extends Component {
 export default PanelButtons;
 
 PanelButtons.propTypes = {
-    viewMore: PropTypes.func.isRequired,
+    viewMore: PropTypes.func,
     addNewNote: PropTypes.func.isRequired
 };

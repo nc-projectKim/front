@@ -29,6 +29,7 @@ class NotesList extends Component {
                     messageTitle={'Kim\'s notes'} />
                 <Switch>
                     <Route exact path='/notes' component={MainNotesPage}/>
+                    <Route exact path='/notes/add' component={MainNotesPage}/>
                     <Route exact path='/notes/search' component={NotesSearch} />
                     <Route path='/notes/search/result' component={FilteredNotes} />
                 </Switch>

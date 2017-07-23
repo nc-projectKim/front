@@ -26,7 +26,6 @@ class NotesList extends Component {
     render () {
         const editNote = this.props.editNote;
         const notesAltered = alterValues (this.props.notes).slice(0, 10);
-        console.log('na', notesAltered);
         return (
             <div>
                 {this.state.newSubmit &&
@@ -59,9 +58,9 @@ class NotesList extends Component {
                         <div className="panel-body">
                             <div className="container">
                                 <RowTitle />
-                                {map(notesAltered, function (note, key) {
+                                {map(notesAltered, function (note, i) {
                                     return (
-                                        <NoteCard iD={key} key={note.created} note={note} editNote={editNote} />
+                                        <NoteCard iD={note[0]} key={note.created} note={note[1]} editNote={editNote} />
                                     );
                                 })}
                                 <PanelButtons

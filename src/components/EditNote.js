@@ -10,10 +10,12 @@ class EditNote extends React.Component {
         this.state = {
             title: this.props.note.title,
             text: this.props.note.text,
-            tags: this.props.note.tags
+            tags: this.props.note.tags,
+
         };
         this.titleChange = this.titleChange.bind(this);
         this.textChange = this.textChange.bind(this);
+        this.editNoteSubmit = this.editNoteSubmit.bind(this);
     }
     render () {
         return (
@@ -69,6 +71,11 @@ class EditNote extends React.Component {
         this.setState({
             tags: newTags
         });
+    }
+    editNoteSubmit (e) {
+        e.preventDefault();
+        console.log('submit');
+        console.dir(e.target);
     }
 }
 

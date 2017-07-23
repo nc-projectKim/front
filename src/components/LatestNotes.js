@@ -4,6 +4,7 @@ import EditNote from './EditNote';
 import PropTypes from 'prop-types';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
+import _ from 'underscore';
 
 class LatestNotes extends Component {
     constructor (props) {
@@ -24,16 +25,6 @@ class LatestNotes extends Component {
             notes: this.props.notes
         });
     }
-    // componentWillReceiveProps(newProps) {
-    //     if (this.props.notes && newProps.notes !== this.props.notes) {
-    //         newProps.getNotes();
-    //         this.setState({
-    //             view: true,
-    //             add: false,
-    //             notes: newProps.notes
-    //         });
-    //     }
-    // }
     render () {
         return (
             <div>

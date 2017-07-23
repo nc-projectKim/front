@@ -30,7 +30,7 @@ class NoteCard extends Component {
                     <div className="col-xs-6"><div><strong>{this.props.note.title.substring(0, 30)}</strong></div>
                         {this.state.displayAll
                             ? <div>{this.props.note.text}</div>
-                            : <div>{formatNote(this.props.note.text)}</div>
+                            : <div className="text-body">{formatNote(this.props.note.text)}</div>
                         }
                     </div>
                     <div className="col-xs-2">{this.props.note.tags.map((tag, i) => {

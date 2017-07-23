@@ -3,12 +3,13 @@ import RowTitle from './RowTitle';
 import NoteCard from './NoteCard';
 import PanelButtons from './PanelButtons';
 import PanelButtonsMinimised from './PanelButtonsMinimised';
-import { map } from 'underscore';
+import { map, values } from 'underscore';
 import PropTypes from 'prop-types';
 import AddNote from './AddNote';
 import './css/NotesList.css';
 import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
 import addNote from '../utilities/addNote.utilities';
+import alterValues from './component-utilities/alterValues';
 
 class NotesList extends Component {
     constructor (props) {
@@ -24,6 +25,8 @@ class NotesList extends Component {
     }
     render () {
         const editNote = this.props.editNote;
+        const notesAltered = alterValues (this.props.notes).slice(0, 10);
+        console.log('na', notesAltered);
         return (
             <div>
                 {this.state.newSubmit &&
@@ -56,7 +59,7 @@ class NotesList extends Component {
                         <div className="panel-body">
                             <div className="container">
                                 <RowTitle />
-                                {map(this.props.notes, function (note, key) {
+                                {map(notesAltered, function (note, key) {
                                     return (
                                         <NoteCard iD={key} key={note.created} note={note} editNote={editNote} />
                                     );
@@ -136,3 +139,5 @@ NotesList.propTypes = {
     editNote: PropTypes.func.isRequired,
     heading: PropTypes.string.isRequired
 };
+
+ 

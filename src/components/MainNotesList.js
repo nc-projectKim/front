@@ -4,6 +4,8 @@ import EditNote from './EditNote';
 import PropTypes from 'prop-types';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
+import addNote from '../utilities/addNote.utilities';
+
 
 class MainNotesList extends Component {
     constructor (props) {
@@ -13,10 +15,12 @@ class MainNotesList extends Component {
             add: false,
             edit: false,
             noteId: '',
-            notes: null
+            notes: null,
+            newSubmit: false
         };
         this.addNewNote = this.addNewNote.bind(this);
         this.editNote = this.editNote.bind(this);
+        this.submitNote = this.submitNote.bind(this);
     }
     componentDidMount () {
         this.props.getNotes();
@@ -24,16 +28,15 @@ class MainNotesList extends Component {
             notes: this.props.notes
         });
     }
-    componentWillReceiveProps(newProps) {
-        if (this.props.notes && newProps.notes !== this.props.notes) {
-            newProps.getNotes();
-            this.setState({
-                view: true,
-                add: false,
-                notes: newProps.notes
-            });
-        }
-    }
+    // componentWillReceiveProps(newProps) {
+    //     if (this.props.notes && newProps.notes !== this.props.notes) {
+    //     console.log(this.props.notes, newProps.notes);
+    //         newProps.getNotes();
+    //         this.setState({
+    //             add: false,
+    //         });
+    //     }
+    // }
     render () {
         return (
             <div>
@@ -46,6 +49,8 @@ class MainNotesList extends Component {
                     viewMore={this.viewMore}
                     add={this.state.add}
                     editNote={this.editNote}
+                    submitNote={this.submitNote}
+                    newSubmit={this.state.newSubmit}
                 />
                 }
             </div>
@@ -61,6 +66,29 @@ class MainNotesList extends Component {
         this.setState({
             add: !this.state.add
         });
+    }
+    submitNote (e) {
+        e.preventDefault();
+        const newNoteObj = {
+            title: e.target[0].value,
+            text: e.target[1].value,
+            tags: e.target[2].value.split(',')
+        };
+        addNote(newNoteObj)
+            .then(() => {
+                this.props.getNotes();
+            })
+            .then(() => {
+                return (
+                    this.setState({
+                        newSubmit: !this.state.newSubmit,
+                        add: !this.state.add,
+                    })
+                );
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
 }
 

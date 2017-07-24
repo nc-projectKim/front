@@ -57,7 +57,7 @@ function mapDispatchToProps (dispatch) {
     };
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
     return {
         notes: state.data,
     };

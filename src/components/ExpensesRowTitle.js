@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './css/ExpenseCard.css';
 
 class ExpensesRowTitle extends Component {
-    render() {
+    render () {
         return (
             <div className="container-fluid component-ExpenseCard">
                 <div className="col-xs-2"><div>Date</div>

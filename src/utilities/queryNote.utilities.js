@@ -9,7 +9,7 @@ const query = {
     findWord: 'labore',
     queryTags: ['Sticky']
 };
-export default function queryNotes(query) {
+export default function queryNotes (query) {
     const userId = firebase.auth().currentUser.uid;
     return database.ref(`/notes/${userId}/`).once('value')
     .then(function (data) {
@@ -40,9 +40,9 @@ export default function queryNotes(query) {
         return dataObj;
     });  
 }
-function filterByTag(note) {
+function filterByTag (note) {
     const regexes = query.queryTags.map((ele) => {
-        return new RegExp(ele, 'i')
+        return new RegExp(ele, 'i');
     });
     if (note.tags) {
         var containsAll = true;

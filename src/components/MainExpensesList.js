@@ -27,17 +27,17 @@ class MainExpensesList extends Component {
     render () {
         return (
             <div>
-                {/*{ this.state.edit*/}
-                {/*? <EditExpense id={this.state.noteId} editNote={this.editNote} note={this.props.notes[this.state.noteId]}/>*/}
+                {/* { this.state.edit*/}
+                {/* ? <EditExpense id={this.state.noteId} editNote={this.editNote} note={this.props.notes[this.state.noteId]}/>*/}
                 <ExpensesPageExpensesList
                     heading={'Latest Expenses'}
                     expenses={this.props.expenses}
                     viewMore={this.viewMore}
-                    /*editNote={this.editNote}*/
-                    /*submitNote={this.submitNote}*/
+                    /* editNote={this.editNote}*/
+                    /* submitNote={this.submitNote}*/
                     newSubmit={this.state.newSubmit}
                 />
-                {/*}*/}
+                {/* }*/}
             </div>
         );
     }

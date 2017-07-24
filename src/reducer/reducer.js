@@ -42,6 +42,27 @@ export default function reducer (prevState = initialState, action) {
         });
     }
 
+    if (action.type === types.QUERY_NOTES_REQUEST) {
+        return Object.assign({}, prevState, {
+            filteredData: action.filteredData,
+            loading: true,
+
+        });
+    }
+    if (action.type === types.QUERY_NOTES_SUCCESS) {
+        return Object.assign({}, prevState, {
+            filteredData: Object.assign({}, action.filteredData),
+            loading: false,
+        });
+    }
+
+    if (action.type === types.QUERY_NOTES_ERROR) {
+        return Object.assign({}, prevState, {
+            loading: false,
+            filteredData: action.filteredData
+        });
+    }
+
     else {
         return prevState;
     }

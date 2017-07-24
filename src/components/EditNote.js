@@ -6,9 +6,8 @@ import editNote from '../utilities/editNote.utilities';
 import { BrowserRouter as Router, Redirect } from 'react-router-dom';
 
 
-
 class EditNote extends React.Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             title: this.props.note.title,
@@ -22,7 +21,7 @@ class EditNote extends React.Component {
         this.editNoteSubmit = this.editNoteSubmit.bind(this);
         this.deleteNote = this.deleteNote.bind(this);
     }
-    render() {
+    render () {
         return (
             <div>
                 {this.state.justDeleted &&
@@ -65,19 +64,19 @@ class EditNote extends React.Component {
             </div>
         );
     }
-    titleChange(e) {
+    titleChange (e) {
         e.preventDefault();
         this.setState = {
             title: e.target.value
         };
     }
-    textChange(e) {
+    textChange (e) {
         e.preventDefault();
         this.setState = {
             title: e.target.value
         };
     }
-    removeTag(tag) {
+    removeTag (tag) {
         const newTags = [...this.state.tags];
         const i = findIndex(newTags, tag);
         newTags.splice(i, 1);
@@ -85,7 +84,7 @@ class EditNote extends React.Component {
             tags: newTags
         });
     }
-    editNoteSubmit(e) {
+    editNoteSubmit (e) {
         e.preventDefault();
         const newTags = e.target[2].value.split(',').concat(this.state.tags);
         const editedNote = {
@@ -104,7 +103,7 @@ class EditNote extends React.Component {
             console.log(err);
         });
     }
-    deleteNote(id) {
+    deleteNote (id) {
         // e.preventDefault();
         deleteNote(id)
             .then(() => {
@@ -120,7 +119,7 @@ class EditNote extends React.Component {
     }
 }
 
-function findIndex(tags, name) {
+function findIndex (tags, name) {
     for (let i = 0; i < tags.length; i++) {
         if (tags[i] === name) {
             return i;

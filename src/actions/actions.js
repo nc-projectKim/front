@@ -1,5 +1,6 @@
 import * as types from './types';
 import getAllNotes from '../utilities/getAllNotes.utilities';
+import queryNote from '../utilities/queryNote.utilities';
 
 export const logInUser = (currentUser) => {
     return {
@@ -44,5 +45,38 @@ export function getNotesError (err) {
     return {
         type: types.GET_NOTES_ERROR,
         data: err
+    };
+}
+
+export function queryNotes () {
+    return function (dispatch) {
+        dispatch(queryNotesRequest());
+        return queryNote()
+        .then (res => {
+            dispatch(queryNotesSuccess(res));
+        })
+        .catch(err => {
+            dispatch(queryNotesError(err));
+        });
+    };
+}
+
+export function queryNotesRequest () {
+    return {
+        type: types.QUERY_NOTES_REQUEST
+    };
+}
+
+export function queryNotesSuccess (filteredNotes) {
+    return {
+        type: types.QUERY_NOTES_SUCCESS,
+        filteredData: filteredNotes
+    };
+}
+
+export function queryNotesError (err) {
+    return {
+        type: types.QUERY_NOTES_ERROR,
+        filteredData: err
     };
 }

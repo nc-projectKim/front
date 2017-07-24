@@ -56,4 +56,37 @@ describe('actions', () => {
             });
         });
     });
+
+        describe('#QUERY_NOTES_REQUEST', () => {
+        it('is a function', () => {
+            expect(typeof actions.queryNotesRequest).toBe('function');
+        });
+        it('returns expected result', () => {
+            expect(actions.queryNotesRequest()).toEqual({
+                type: types.QUERY_NOTES_REQUEST
+            });
+        });
+    });
+    describe('#QUERY_NOTES_SUCCESS', () => {
+        it('is a function', () => {
+            expect(typeof actions.queryNotesSuccess).toBe('function');
+        });
+        it('returns expected result', () => {
+            expect(actions.queryNotesSuccess('let there be notes')).toEqual({
+                type: types.QUERY_NOTES_SUCCESS,
+                filteredData: 'let there be notes'
+            });
+        });
+    });
+    describe('#QUERY_NOTES_ERROR', () => {
+        it('is a function', () => {
+            expect(typeof actions.queryNotesError).toBe('function');
+        });
+        it('returns expected result', () => {
+            expect(actions.queryNotesError('err')).toEqual({
+                type: types.QUERY_NOTES_ERROR,
+                filteredData: 'err'
+            });
+        });
+    });
 });

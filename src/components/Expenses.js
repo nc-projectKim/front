@@ -12,6 +12,7 @@ import MainExpensesPage from './MainExpensesPage';
 // import FilteredExpenses from './FilteredExpenses';
 // import AddExpense from './AddExpense';
 import { connect } from 'react-redux';
+import NoMatch from './NoMatch';
 // import DeleteExpense from './DeleteExpense';
 
 
@@ -37,10 +38,11 @@ class Expenses extends Component {
                     />
                 <Switch>
                     <Route exact path='/expenses' component={MainExpensesPage}/>
-                    {/*<Route exact path='/notes/add' component={AddNote}/>*/}
-                    {/*<Route exact path='/notes/search' component={NotesSearch} />*/}
-                    {/*<Route path='/notes/search/result' component={FilteredNotes} />*/}
-                    {/*<Route path='/notes/deleted' component={DeleteNote} />*/}
+                    {/* <Route exact path='/notes/add' component={AddNote}/>*/}
+                    {/* <Route exact path='/notes/search' component={NotesSearch} />*/}
+                    {/* <Route path='/notes/search/result' component={FilteredNotes} />*/}
+                    {/* <Route path='/notes/deleted' component={DeleteNote} />*/}
+                    <Route component={NoMatch} />
                 </Switch>
             </div>
         );

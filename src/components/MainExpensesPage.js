@@ -71,15 +71,15 @@ class MainExpensesPage extends Component {
     render () {
         return (
             <div>
-                {/*{this.state.edit
+                {/* {this.state.edit
                     ? <EditNote id={this.state.noteId} editNote={this.editNote} note={this.props.notes[this.state.noteId]} />*/}
                      <MainExpensesList
                         heading={'My Expenses'}
                         expenses={expenses}
                         viewMore={this.viewMore}
-                        /*editNote={this.editNote}*/
+                        /* editNote={this.editNote}*/
                     />
-                {/*}*/}
+                {/* }*/}
 
             </div>
         );

@@ -14,6 +14,7 @@ import AddNote from './AddNote';
 import { connect } from 'react-redux';
 import DeleteNote from './DeleteNote';
 import NoteHasBeenEdited from './NoteHasBeenEdited';
+import NoMatch from './NoMatch';
 
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
@@ -42,6 +43,7 @@ class NotesList extends Component {
                     <Route path='/notes/search/result' component={FilteredNotes} />
                     <Route path='/notes/deleted' component={DeleteNote} />
                     <Route path='/notes/edited' component={NoteHasBeenEdited} />
+                    <Route component={NoMatch} />
                 </Switch>
             </div>
         );

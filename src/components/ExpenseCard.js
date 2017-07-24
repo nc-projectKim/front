@@ -9,25 +9,25 @@ const timeFormat = 'HH:mm';
 
 
 class ExpenseCard extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             displayAll: false
         };
         this.displayExpenseDescription = this.displayExpenseDescription.bind(this);
     }
-    render() {
+    render () {
         return (
             <div className="container-fluid component-ExpenseCard">
                 <div className="row">
-                    {/*Date*/}
-                    <div className="col-xs-2"><div>{moment(this.props.expense.created).format(dateFormat)}</div>
+                    {/* Date*/}
+                    <div className="col-xs-2"><div>{moment(this.props.expense.expenseDate).format(dateFormat)}</div>
                         <div>{moment(this.props.expense.created).format(timeFormat)}</div>
                     </div>
-                    {/*Amount -2*/}
-                    <div className="col-xs-2">{`£${this.props.expense.amount}`}</div>
+                    {/* Amount -2*/}
+                    <div className="col-xs-2">{`£${this.props.expense.amount.toFixed(2)}`}</div>
 
-                    {/*ChargeTo 4*/}
+                    {/* ChargeTo 4*/}
                     <div className="col-xs-4">
                         <div><strong>{this.props.expense.chargeTo}</strong></div>
                         {
@@ -37,7 +37,7 @@ class ExpenseCard extends Component {
                         }
                         
                     </div>
-                    {/*Have Receipt 2*/}
+                    {/* Have Receipt 2*/}
                     <div className="col-xs-2">{`${this.props.expense.haveReceipt}`}</div>
                     {this.state.displayAll
                         ? <div className="col-xs-1"><button onClick={this.displayExpenseDescription}>Collapse</button></div>
@@ -49,7 +49,7 @@ class ExpenseCard extends Component {
             </div>
         );
     }
-    displayExpenseDescription() {
+    displayExpenseDescription () {
         this.setState({
             displayAll: !this.state.displayAll
         });

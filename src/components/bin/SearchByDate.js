@@ -13,7 +13,7 @@ class SearchByDate extends React.Component {
         return (
             <div className="panel-body">
                 <OneDateSearch/>
-                {/*<BetweenSearch/>*/}
+                {/* <BetweenSearch/>*/}
             </div>
         );
     }

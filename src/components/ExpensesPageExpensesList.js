@@ -37,11 +37,11 @@ class ExpensesPageExpensesList extends Component {
                                 <ExpensesRowTitle />
                                 {map(alteredValues, function (expense) {
                                     return (
-                                        <ExpenseCard iD={expense[0]} key={expense[1].created} expense={expense[1]} /*editNote={editExpense}*/ />
+                                        <ExpenseCard iD={expense[0]} key={expense[1].created} expense={expense[1]} /* editNote={editExpense}*/ />
                                     );
                                 })}
                                 <ExpensesPanelButtons
-                                    /*addNewExpense={this.props.addNewExpense}*/
+                                    /* addNewExpense={this.props.addNewExpense}*/
                                     viewMore={this.viewMore} />
                             </div>
                         </div>

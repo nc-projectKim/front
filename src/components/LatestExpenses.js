@@ -57,7 +57,7 @@ const expenses = {
 		'chargeTo': 'Pouros and Sons',
 		'lastEditTime': 1489153024000
 	}
-}
+};
 
 class LatestExpenses extends Component {
     constructor (props) {
@@ -79,14 +79,14 @@ class LatestExpenses extends Component {
     render () {
         return (
             <div>
-                {/*{ this.state.edit
+                {/* { this.state.edit
                 ? <EditNote editNote={this.editNote} note={this.props.notes[this.state.noteId]}/>
                 : <NotesList*/}
                 <ExpensesList
                     heading={'Latest Expenses'}
                     view={this.state.view}
                     expenses={this.props.expenses}
-                    /*editNote={this.editNote}*/
+                    /* editNote={this.editNote}*/
                 />
             </div>
         );

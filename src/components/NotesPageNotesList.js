@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import AddNote from './AddNote';
 import './css/NotesList.css';
 import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
-import alterValues from './component-utilities/alterValues'
+import alterValues from './component-utilities/alterValues';
 
 class NotesPageNotesList extends Component {
     constructor (props) {

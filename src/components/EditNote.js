@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './css/EditNote.css';
 import deleteNote from '../utilities/deleteNote.utilities';
+import editNote from '../utilities/editNote.utilities';
 import { BrowserRouter as Router, Redirect } from 'react-router-dom';
 
 
@@ -14,6 +15,7 @@ class EditNote extends React.Component {
             text: this.props.note.text,
             tags: this.props.note.tags,
             justDeleted: false,
+            justEdited: false
         };
         this.titleChange = this.titleChange.bind(this);
         this.textChange = this.textChange.bind(this);
@@ -21,10 +23,14 @@ class EditNote extends React.Component {
         this.deleteNote = this.deleteNote.bind(this);
     }
     render() {
+        console.log(this.props.id);
         return (
             <div>
                 {this.state.justDeleted &&
                     <Redirect to={'/notes/deleted'}/>
+                }
+                {this.state.justEdited &&
+                    <Redirect to={'/notes/edited'}/>
                 }
                 <form onSubmit={this.editNoteSubmit}>
                     <div>
@@ -87,9 +93,18 @@ class EditNote extends React.Component {
             title: e.target[0].value,
             text: e.target[1].value,
             tags: newTags,
-            id: this.props.id
+            noteId: this.props.id
         };
-        console.log(editedNote);
+        editNote(editedNote)
+        .then(() => {
+            console.log('edited');
+                this.setState({
+                    justEdited: true
+                });
+        })
+        .catch((err) => {
+            console.log(err);
+        })
     }
     deleteNote(id) {
         console.log('deleting');

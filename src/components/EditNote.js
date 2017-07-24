@@ -97,20 +97,20 @@ class EditNote extends React.Component {
         };
         editNote(editedNote)
         .then(() => {
-            console.log('edited');
-                this.setState({
-                    justEdited: true
-                });
+            this.setState({
+                justEdited: true
+            }).bind(this);
         })
         .catch((err) => {
             console.log(err);
-        })
+        });
     }
     deleteNote(id) {
         console.log('deleting');
         // e.preventDefault();
         deleteNote(id)
             .then(() => {
+                console.log(this);
                 console.log('deleted');
                 this.setState({
                     justDeleted: true

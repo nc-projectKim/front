@@ -5,6 +5,7 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 import {BrowserRouter as Router, Link} from 'react-router-dom';
+import queryNotes from '../utilities/queryNote.utilities';
 
 
 const inputStyles = {
@@ -114,15 +115,41 @@ class NotesSearch extends React.Component {
         let searchBetweenDateStart = moment(this.state.startDate._d).format('x');
         let searchBetweenDateEnd = moment(this.state.endDate._d).format('x');
 
-        let obj = {};
-        if (searchTerm.includes('#')) obj.tags = searchTerm;
-        else if (searchTerm.length > 0) obj.searchTerm = searchTerm;
-        if (this.state.searchOneDateClicked && !this.state.searchStartDateClicked) obj.searchOneDate = searchOneDate;
-        if (this.state.searchStartDateClicked) {
-            obj.searchBetweenStartDate = searchBetweenDateStart;
-            obj.searchBetweenEndDate = searchBetweenDateEnd;
+        let obj = {
+            dateItems: {}
+        };
+        if (searchTerm.includes('#')) obj.queryTags = searchTerm;
+        else if (searchTerm.length > 0) {
+            obj.findWord = searchTerm;
+            obj.queryTags = [];
         }
-        console.log(obj);
+        else {
+            obj.findWord = null;
+            obj.queryTags = [];
+        }
+        
+        if (this.state.searchOneDateClicked && !this.state.searchStartDateClicked) {
+            obj.dateItems.from = searchOneDate;
+            obj.dateItems.to = searchOneDate;
+            obj.dateItems.dateChosen = 'lastEditTime';
+        }
+        else if (this.state.searchStartDateClicked) {
+            obj.dateItems.from = searchBetweenDateStart;
+            obj.dateItems.to = searchBetweenDateEnd;
+            obj.dateItems.dateChosen = 'lastEditTime';
+        }
+        else {
+            obj.dateItems.from = null;
+            obj.dateItems.to = null;
+            obj.dateItems.dateChosen = 'lastEditTime';
+        }
+    return queryNotes(obj)
+        .then (res => {
+            console.log('this is res', res);
+        })
+        .catch (err => {
+            console.log(err);
+        });
     }
 }
 

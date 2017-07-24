@@ -32,8 +32,8 @@ export default function addNote (data) {
     }; 
     console.log(ADDNOTEURL);
 return axios.post(`${ADDNOTEURL}`, note)
-  .then((response) => {
-      console.log('rk', response);
+  .then(() => {
+      console.log('note edited');
     })
   .catch((error) => {
     console.log(error);

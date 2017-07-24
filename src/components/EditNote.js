@@ -1,5 +1,4 @@
 import React from 'react';
-// import {Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 import './css/EditNote.css';
 
@@ -10,14 +9,16 @@ class EditNote extends React.Component {
         this.state = {
             title: this.props.note.title,
             text: this.props.note.text,
-            tags: this.props.note.tags
+            tags: this.props.note.tags,
+
         };
         this.titleChange = this.titleChange.bind(this);
         this.textChange = this.textChange.bind(this);
+        this.editNoteSubmit = this.editNoteSubmit.bind(this);
     }
     render () {
         return (
-            <form onSubmit={this.props.handleSubmit}>
+            <form onSubmit={this.editNoteSubmit}>
                 <div>
                     <label htmlFor="Title">Title</label>
                     <br />
@@ -70,6 +71,16 @@ class EditNote extends React.Component {
             tags: newTags
         });
     }
+    editNoteSubmit (e) {
+        e.preventDefault();
+        const newTags = e.target[2].value.split(',').concat(this.state.tags);
+        const editedNote = {
+            title: e.target[0].value,
+            text: e.target[1].value,
+            tags: newTags
+        };
+        console.log(editedNote);
+    }
 }
 
 function findIndex (tags, name) {
@@ -80,11 +91,7 @@ function findIndex (tags, name) {
     }
 }
 
-
 export default EditNote;
-// reduxForm({
-//     form : 'addNote'
-// })();
 
 EditNote.propTypes = {
     note: PropTypes.object.isRequired,

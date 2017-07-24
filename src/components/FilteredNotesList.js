@@ -4,7 +4,6 @@ import NoteCard from './NoteCard';
 import PanelButtons from './PanelButtons';
 import { map } from 'underscore';
 import PropTypes from 'prop-types';
-import AddNote from './AddNote';
 import {BrowserRouter as Router, Link} from 'react-router-dom';
 
 class NotesList extends Component {
@@ -34,15 +33,11 @@ class NotesList extends Component {
                                         );
                                     })}
                                     <PanelButtons
-                                        addNewNote={this.props.addNewNote}
                                         viewMore={this.props.viewMore} />
                                 </div>
                             </div>
                         </div>
                     </div>
-                {this.props.add
-                    ? <AddNote addNewNote={this.props.addNewNote} />
-                    : null}
             </div>
         );
     }

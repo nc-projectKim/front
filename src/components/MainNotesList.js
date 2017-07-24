@@ -1,43 +1,43 @@
 import React, { Component } from 'react';
-import MainNotesList from './MainNotesList';
+import NotesPageNotesList from './NotesPageNotesList';
 import EditNote from './EditNote';
 import PropTypes from 'prop-types';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
+import addNote from '../utilities/addNote.utilities';
 
-class MainNotesPage extends Component {
+class MainNotesList extends Component {
     constructor (props) {
         super(props);
         this.state = {
             view: true,
             edit: false,
             noteId: '',
-            notes: null
+            notes: null,
+            newSubmit: false
         };
-        this.viewMore = this.viewMore.bind(this);
         this.editNote = this.editNote.bind(this);
     }
     componentDidMount () {
         this.props.getNotes();
         this.setState({
-            view: true,
-            add: false,
             notes: this.props.notes
         });
     }
     render () {
         return (
             <div>
-                {this.state.edit
-                    ? <EditNote editNote={this.editNote} note={notes[this.state.noteId]} />
-                    : <MainNotesList
-                        heading={'My Notes'}
-                        notes={this.props.notes}
-                        viewMore={this.viewMore}
-                        editNote={this.editNote}
-                    />
+                { this.state.edit
+                ? <EditNote editNote={this.editNote} note={this.props.notes[this.state.noteId]}/>
+                : <NotesPageNotesList
+                    heading={'Latest Notes'}
+                    notes={this.props.notes}
+                    viewMore={this.viewMore}
+                    editNote={this.editNote}
+                    submitNote={this.submitNote}
+                    newSubmit={this.state.newSubmit}
+                />
                 }
-
             </div>
         );
     }
@@ -47,14 +47,9 @@ class MainNotesPage extends Component {
             noteId: id
         });
     }
-    viewMore () {
-        this.setState({
-            view: !this.state.view
-        });
-    }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
     return {
         getNotes: () => {
             dispatch(actions.getNotes());
@@ -64,12 +59,13 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
     return {
-        notes: state.data
+        notes: state.data,
     };
 }
 
-MainNotesPage.propTypes = {
-    notes: PropTypes.any.isRequired,
+
+MainNotesList.propTypes = {
+    notes: PropTypes.object.isRequired,
     getNotes: PropTypes.func.isRequired
 };
-export default connect(mapStateToProps, mapDispatchToProps)(MainNotesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(MainNotesList);

@@ -2,31 +2,26 @@ import React, { Component } from 'react';
 import RowTitle from './RowTitle';
 import NoteCard from './NoteCard';
 import PanelButtons from './PanelButtons';
-import PanelButtonsMinimised from './PanelButtonsMinimised';
+// import PanelButtonsMinimised from './PanelButtonsMinimised';
 import { map } from 'underscore';
 import PropTypes from 'prop-types';
+import AddNote from './AddNote';
 import './css/NotesList.css';
 import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
-import alterValues from './component-utilities/alterValues';
+import alterValues from './component-utilities/alterValues'
 
-class NotesList extends Component {
+class NotesPageNotesList extends Component {
     constructor (props) {
         super(props);
-        this.state = {
-            newSubmit: false,
-            view: false
-        };
-        this.viewMore = this.viewMore.bind(this);
     }
     render () {
         const editNote = this.props.editNote;
-        const notesAltered = alterValues (this.props.notes).slice(0, 10);
+        const alteredValues = alterValues(this.props.notes);
         return (
             <div>
-                {this.state.view
-                    ?
                     <div className='panel panel-default'>
                         <div className="panel-heading">
+
                             <span>
                                 <h3 className="panel-title"><span>{this.props.heading}</span></h3>
                                 <Link to="/notes/search" ><button type="button"
@@ -40,52 +35,31 @@ class NotesList extends Component {
                         <div className="panel-body">
                             <div className="container">
                                 <RowTitle />
-                                {map(notesAltered, function (note) {
+                                {map(alteredValues, function (note) {
                                     return (
-                                        <NoteCard iD={note[0]} key={note.created} note={note[1]} editNote={editNote} />
+                                        <NoteCard iD={note[0]} key={note[1].created} note={note[1]} editNote={editNote} />
                                     );
                                 })}
                                 <PanelButtons
+                                    addNewNote={this.props.addNewNote}
                                     viewMore={this.viewMore} />
                             </div>
                         </div>
                     </div>
-                    : <div>
-                        <div className="panel panel-default">
-                            <div className="panel-heading">
-                                <h3 className="panel-title">Latest Notes</h3>
-                                <PanelButtonsMinimised
-                                    viewMore={this.viewMore} />
-                            </div>
-                        </div>
-                    </div>
-                }
             </div>
         );
     }
-    viewMore () {
-        this.setState({
-            view: !this.state.view
-        });
-    }
 }
 
-// function mapDispatchToProps(dispatch) {
-//     return {
-//         addNote: (note) => {
-//             dispatch(actions.)
-//         }
-//     }
-// }
 
-export default NotesList;
+export default NotesPageNotesList;
 
-NotesList.propTypes = {
-    // view: PropTypes.bool.isRequired,
-    notes: PropTypes.object,
-    // viewMore: PropTypes.func.isRequired,
+NotesPageNotesList.propTypes = {
+    add: PropTypes.bool.isRequired,
+    addNewNote: PropTypes.func.isRequired,
+    notes: PropTypes.object.isRequired,
     editNote: PropTypes.func.isRequired,
-    heading: PropTypes.string.isRequired
+    heading: PropTypes.string.isRequired,
+    submitNote: PropTypes.func.isRequired,
+    newSubmit: PropTypes.bool.isRequired
 };
-
- 

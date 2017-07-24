@@ -4,18 +4,17 @@ import EditNote from './EditNote';
 import PropTypes from 'prop-types';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
+import _ from 'underscore';
 
 class LatestNotes extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            view: false,
-            add: false,
+            view: true,
             edit: false,
             noteId: '',
             notes: null
         };
-        this.addNewNote = this.addNewNote.bind(this);
         this.editNote = this.editNote.bind(this);
     }
     componentDidMount () {
@@ -24,28 +23,16 @@ class LatestNotes extends Component {
             notes: this.props.notes
         });
     }
-    componentWillReceiveProps(newProps) {
-        if (this.props.notes && newProps.notes !== this.props.notes) {
-            newProps.getNotes();
-            this.setState({
-                view: true,
-                add: false,
-                notes: newProps.notes
-            });
-        }
-    }
     render () {
         return (
             <div>
                 { this.state.edit
-                ? <EditNote editNote={this.editNote} note={this.state.notes[this.state.noteId]}/>
+                ? <EditNote editNote={this.editNote} note={this.props.notes[this.state.noteId]}/>
                 : <NotesList
                     heading={'Latest Notes'}
                     view={this.state.view}
                     notes={this.props.notes}
-                    addNewNote={this.addNewNote}
                     viewMore={this.viewMore}
-                    add={this.state.add}
                     editNote={this.editNote}
                 />
                 }
@@ -58,14 +45,9 @@ class LatestNotes extends Component {
             noteId: id
         });
     }
-    addNewNote () {
-        this.setState({
-            add: !this.state.add
-        });
-    }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
     return {
         getNotes: () => {
             dispatch(actions.getNotes());
@@ -73,14 +55,15 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
     return {
-        notes: state.data
+        notes: state.data,
     };
 }
 
 
 LatestNotes.propTypes = {
-    notes: PropTypes.object.isRequired
+    notes: PropTypes.any,
+    getNotes: PropTypes.func.isRequired
 };
 export default connect(mapStateToProps, mapDispatchToProps)(LatestNotes);

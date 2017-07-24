@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MainExpensesList from './MainExpensesList';
 // import EditNote from './EditNote';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 // import * as actions from '../actions/actions';
 // import { connect } from 'react-redux';
 
@@ -113,8 +113,8 @@ class MainExpensesPage extends Component {
 // }
 
 MainExpensesPage.propTypes = {
-    expenses: PropTypes.any.isRequired,
-    getNotes: PropTypes.func.isRequired
+    // expenses: PropTypes.any.isRequired,
+    // getNotes: PropTypes.func.isRequired
 };
 // export default connect(mapStateToProps, mapDispatchToProps)(MainExpensesPage);
 export default MainExpensesPage;

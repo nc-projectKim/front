@@ -14,7 +14,7 @@ class NoMatch extends Component {
             <div className="container">
                 <div className="jumbotron">
                     <h1>/4 0 4/</h1>
-                    <p>Can't Find The Page Requested</p>
+                    <p>{'Can\'t Find The Page Requested'}</p>
                     <p><Link to="/"><button className="btn btn-danger">Go Back</button></Link></p>
                 </div>
             </div>

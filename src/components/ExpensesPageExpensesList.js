@@ -7,7 +7,7 @@ import { map } from 'underscore';
 import PropTypes from 'prop-types';
 // import AddExpense from './AddNote';
 import './css/ExpensesList.css';
-import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import alterValues from './component-utilities/alterValues';
 
 class ExpensesPageExpensesList extends Component {

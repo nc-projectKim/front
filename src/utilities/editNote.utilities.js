@@ -1,4 +1,4 @@
-import firebase, { facebookProvider, auth, database } from '../../FirebaseConfig';
+import firebase/* , /*{ facebookProvider, auth, database }*/ from '../../FirebaseConfig';
 import {EDITNOTEURL} from '../../config';
 import axios from 'axios';
 

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ExpensesList from './ExpensesList';
 // import EditExpense from './EditExpenses';
-import PropTypes from 'prop-types';
-import * as actions from '../actions/actions';
-import { connect } from 'react-redux';
-import _ from 'underscore';
+// import PropTypes from 'prop-types';
+// import * as actions from '../actions/actions';
+// import { connect } from 'react-redux';
+// import _ from 'underscore';
 
 const expenses = {
 	'expense0': {

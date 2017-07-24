@@ -6,8 +6,8 @@ import ExpensesPanelButtonsMinimised from './ExpensesPanelButtonsMinimised';
 import { map, each } from 'underscore';
 import PropTypes from 'prop-types';
 import './css/ExpensesList.css';
-import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
-import alterValues from './component-utilities/alterValues';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
+// import alterValues from './component-utilities/alterValues';
 
 import { CSVLink, CSVDownload } from 'react-csv';
 
@@ -66,12 +66,12 @@ const data = map(expenses, (x, key) => {
     return newArr;
 });
 
-const jsonExp = JSON.stringify(expenses, null, "\t");
+const jsonExp = JSON.stringify(expenses, null, '\t');
 
 console.log(data);
 
 class ExpensesList extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             newSubmit: false,
@@ -81,9 +81,9 @@ class ExpensesList extends Component {
         // this.convertToCSV = this.convertToCSV.bind(this);
 
     }
-    render() {
+    render () {
         console.log(expenses);
-        const editNote = this.props.editNote;
+        // const editNote = this.props.editNote;
         // const notesAltered = alterValues (this.props.notes).slice(0, 10);
         return (
             <div>
@@ -109,7 +109,7 @@ class ExpensesList extends Component {
                                 <ExpensesRowTitle />
                                 {map(expenses, function (expense, key) {
                                     return (
-                                        <ExpenseCard iD={key} key={expense.created} expense={expense} editNote={editNote} />
+                                        <ExpenseCard iD={key} key={expense.created} expense={expense} />
                                     );
                                 })}
                                 <ExpensesPanelButtons
@@ -132,7 +132,7 @@ class ExpensesList extends Component {
             </div>
         );
     }
-    viewMore() {
+    viewMore () {
         this.setState({
             view: !this.state.view
         });
@@ -153,7 +153,7 @@ ExpensesList.propTypes = {
     // view: PropTypes.bool.isRequired,
     notes: PropTypes.object,
     // viewMore: PropTypes.func.isRequired,
-    editNote: PropTypes.func.isRequired,
+    // editNote: PropTypes.func.isRequired,
     heading: PropTypes.string.isRequired
 };
 

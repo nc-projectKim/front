@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Link} from 'react-router-dom';
 import './css/NotesPanelButtons.css';
 import PropTypes from 'prop-types';
 
-class PanelButtons extends Component {
+class NotesPanelButtons extends Component {
     render () {
         return ( 
             <div className="row component-PanelButtons">
@@ -22,9 +22,9 @@ class PanelButtons extends Component {
     }
 }
 
-export default PanelButtons;
+export default NotesPanelButtons;
 
-PanelButtons.propTypes = {
+NotesPanelButtons.propTypes = {
     viewMore: PropTypes.func,
-    addNewNote: PropTypes.func.isRequired
+    // addNewNote: PropTypes.func.isRequired
 };

@@ -60,7 +60,7 @@ function mapStateToProps (state) {
 }
 
 MainNotesPage.propTypes = {
-    notes: PropTypes.any.isRequired,
+    // notes: PropTypes.any.isRequired,
     getNotes: PropTypes.func.isRequired
 };
 export default connect(mapStateToProps, mapDispatchToProps)(MainNotesPage);

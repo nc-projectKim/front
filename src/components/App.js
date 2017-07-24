@@ -13,7 +13,7 @@ import {connect} from 'react-redux';
 // import {firebaseConnect, isLoaded, isEmpty, dataToJS} from 'react-redux-firebase';
 import * as actions from '../actions/actions';
 import Expenses from './Expenses';
-import MAINPAGE from './MAINPAGE';
+// import MAINPAGE from './MAINPAGE';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 

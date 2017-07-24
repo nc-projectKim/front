@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './css/PageTop.css';
-import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink } from 'react-router-dom';
 import './css/PageTabs.css';
 
 class PageTabs extends Component {

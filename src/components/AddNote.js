@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import './css/AddNote.css';
-import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
+import { BrowserRouter as Redirect, Link } from 'react-router-dom';
 import addNote from '../utilities/addNote.utilities';
 
 class AddNote extends React.Component {
@@ -80,6 +80,6 @@ class AddNote extends React.Component {
 export default AddNote;
 
 AddNote.propTypes = {
-    addNewNote: PropTypes.func.isRequired,
-    submitNote: PropTypes.func.isRequired
+    // addNewNote: PropTypes.func.isRequired,
+    // submitNote: PropTypes.func.isRequired
 };

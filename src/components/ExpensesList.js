@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import NoteRowTitle from './NoteRowTitle';
-import NoteCard from './NoteCard';
-import NotesPanelButtons from './NotesPanelButtons';
-import NotesPanelButtonsMinimised from './NotesPanelButtonsMinimised';
+import ExpensesRowTitle from './ExpensesRowTitle';
+import ExpenseCard from './ExpenseCard';
+// import ExpensesPanelButtons from './ExpensesPanelButtons';
+// import ExpensesPanelButtonsMinimised from './ExpensesPanelButtonsMinimised';
 import { map } from 'underscore';
 import PropTypes from 'prop-types';
-import './css/NotesList.css';
+import './css/ExpensesList.css';
 import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
 import alterValues from './component-utilities/alterValues';
 
-class NotesList extends Component {
+class ExpensesList extends Component {
     constructor (props) {
         super(props);
         this.state = {
@@ -39,13 +39,13 @@ class NotesList extends Component {
 
                         <div className="panel-body">
                             <div className="container">
-                                <NoteRowTitle />
+                                <ExpensesRowTitle />
                                 {map(notesAltered, function (note) {
                                     return (
-                                        <NoteCard iD={note[0]} key={note.created} note={note[1]} editNote={editNote} />
+                                        <ExpenseCard iD={note[0]} key={note.created} note={note[1]} editNote={editNote} />
                                     );
                                 })}
-                                <NotesPanelButtons
+                                <ExpensesPanelButtons
                                     viewMore={this.viewMore} />
                             </div>
                         </div>
@@ -54,7 +54,7 @@ class NotesList extends Component {
                         <div className="panel panel-default">
                             <div className="panel-heading">
                                 <h3 className="panel-title">Latest Notes</h3>
-                                <NotesPanelButtonsMinimised
+                                <ExpensesPanelButtonsMinimised
                                     viewMore={this.viewMore} />
                             </div>
                         </div>
@@ -78,9 +78,9 @@ class NotesList extends Component {
 //     }
 // }
 
-export default NotesList;
+export default ExpensesList;
 
-NotesList.propTypes = {
+ExpensesList.propTypes = {
     // view: PropTypes.bool.isRequired,
     notes: PropTypes.object,
     // viewMore: PropTypes.func.isRequired,

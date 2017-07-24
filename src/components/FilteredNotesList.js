@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import RowTitle from './RowTitle';
+import NoteRowTitle from './NoteRowTitle';
 import NoteCard from './NoteCard';
-import PanelButtons from './PanelButtons';
+import NotesPanelButtons from './NotesPanelButtons';
 import { map } from 'underscore';
 import PropTypes from 'prop-types';
 import {BrowserRouter as Router, Link} from 'react-router-dom';
@@ -26,13 +26,13 @@ class NotesList extends Component {
 
                             <div className="panel-body">
                                 <div className="container">
-                                    <RowTitle />
+                                    <NoteRowTitle />
                                     {map(this.props.notes, function (note, key) {
                                         return (
                                             <NoteCard iD={key} key={note.created} note={note} editNote={editNote} />
                                         );
                                     })}
-                                    <PanelButtons
+                                    <NotesPanelButtons
                                         viewMore={this.props.viewMore} />
                                 </div>
                             </div>

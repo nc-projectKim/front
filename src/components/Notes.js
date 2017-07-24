@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 // import RowTitle from './RowTitle';
 // import NoteCard from './NoteCard';
-// import PanelButtons from './PanelButtons';
-// import PanelButtonsMinimised from './PanelButtonsMinimised';
+// import NotesPanelButtons from './NotesPanelButtons';
+// import NotesPanelButtonsMinimised from './NotesPanelButtonsMinimised';
 // import { map } from 'underscore';
 import PropTypes from 'prop-types';
 import NotesSearch from './NotesSearch';

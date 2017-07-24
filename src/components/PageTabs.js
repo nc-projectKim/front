@@ -17,10 +17,10 @@ class PageTabs extends Component {
                 <NavLink activeClassName='selected' className='navlink' to={'/welcome'}>
                     Home
                 </NavLink>
-                <NavLink activeClassName='selected' className='navlink' to={'#'}>
+                <NavLink activeClassName='selected' className='navlink' to={'/expenses'}>
                     Expenses
                 </NavLink>
-                <NavLink activeClassName='selected' className='navlink' to={'#'}>
+                <NavLink activeClassName='selected' className='navlink' to={'/billing'}>
                     Billing
                 </NavLink>
                 <NavLink activeClassName='selected' className='navlink' to={'/notes'}>

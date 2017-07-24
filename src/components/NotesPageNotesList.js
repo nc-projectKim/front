@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import RowTitle from './RowTitle';
+import NoteRowTitle from './NoteRowTitle';
 import NoteCard from './NoteCard';
-import PanelButtons from './PanelButtons';
-// import PanelButtonsMinimised from './PanelButtonsMinimised';
+import NotesPanelButtons from './NotesPanelButtons';
+// import NotesPanelButtonsMinimised from './NotesPanelButtonsMinimised';
 import { map } from 'underscore';
 import PropTypes from 'prop-types';
 import AddNote from './AddNote';
@@ -34,13 +34,13 @@ class NotesPageNotesList extends Component {
 
                         <div className="panel-body">
                             <div className="container">
-                                <RowTitle />
+                                <NoteRowTitle />
                                 {map(alteredValues, function (note) {
                                     return (
                                         <NoteCard iD={note[0]} key={note[1].created} note={note[1]} editNote={editNote} />
                                     );
                                 })}
-                                <PanelButtons
+                                <NotesPanelButtons
                                     addNewNote={this.props.addNewNote}
                                     viewMore={this.viewMore} />
                             </div>

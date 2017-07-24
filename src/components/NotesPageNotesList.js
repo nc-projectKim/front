@@ -16,7 +16,9 @@ class NotesPageNotesList extends Component {
     }
     render () {
         const editNote = this.props.editNote;
+        console.log(this.props.notes);
         const alteredValues = alterValues(this.props.notes);
+        console.log(alteredValues);
         return (
             <div>
                     <div className='panel panel-default'>
@@ -37,7 +39,15 @@ class NotesPageNotesList extends Component {
                                 <NoteRowTitle />
                                 {map(alteredValues, function (note) {
                                     return (
-                                        <NoteCard iD={note[0]} key={note[1].created} note={note[1]} editNote={editNote} />
+                                        <div>
+                                    {console.log(note[0])}
+                                        {note[0] !== 'undefined'
+                                        ? <div>
+                                            {console.log('in', note[0])}
+                                            <NoteCard iD={note[0]} key={note[1].created} note={note[1]} editNote={editNote} />
+                                            </div>
+                                        : null}
+                                        </div>
                                     );
                                 })}
                                 <NotesPanelButtons

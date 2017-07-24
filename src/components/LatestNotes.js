@@ -27,7 +27,7 @@ class LatestNotes extends Component {
         return (
             <div>
                 { this.state.edit
-                ? <EditNote editNote={this.editNote} note={this.props.notes[this.state.noteId]}/>
+                ? <EditNote id={this.state.noteId} editNote={this.editNote} note={this.props.notes[this.state.noteId]}/>
                 : <NotesList
                     heading={'Latest Notes'}
                     view={this.state.view}

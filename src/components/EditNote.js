@@ -23,7 +23,7 @@ class EditNote extends React.Component {
         this.deleteNote = this.deleteNote.bind(this);
     }
     render() {
-        console.log(this.props.id);
+        console.log('id', this.props.id);
         return (
             <div>
                 {this.state.justDeleted &&

@@ -21,13 +21,19 @@ class NoteCard extends Component {
         this.displayNote = this.displayNote.bind(this);
     }
     render () {
+        console.log(this.props.iD)
         return (
             <div>
+                {console.log(this.props.note)}
                 <div className="container-fluid component-NoteCard">
                     <div className="col-xs-2"><div>{moment(this.props.note.created).format(dateFormat)}</div>
                         <div>{moment(this.props.note.created).format(timeFormat)}</div>
                     </div>
-                    <div className="col-xs-6"><div><strong>{this.props.note.title.substring(0, 30)}</strong></div>
+                    <div className="col-xs-6"><div><strong>{
+                        this.props.note.title
+                        ? this.props.note.title.substring(0, 30)
+                        : null
+                        }</strong></div>
                         {this.state.displayAll
                             ? <div>{this.props.note.text}</div>
                             : <div className="text-body">{formatNote(this.props.note.text)}</div>

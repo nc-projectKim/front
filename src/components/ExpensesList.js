@@ -3,7 +3,7 @@ import ExpensesRowTitle from './ExpensesRowTitle';
 import ExpenseCard from './ExpenseCard';
 import ExpensesPanelButtons from './ExpensesPanelButtons';
 import ExpensesPanelButtonsMinimised from './ExpensesPanelButtonsMinimised';
-import { map } from 'underscore';
+import { map, each } from 'underscore';
 import PropTypes from 'prop-types';
 import './css/ExpensesList.css';
 import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
@@ -54,10 +54,21 @@ const expenses = {
         'lastEditTime': 1494510765000
     }
 };
-const headers = [expenseId, created, expenseDate, amount, currency, description, haveReceipt, chargeTo,]
+const headers = ['expenseId', 'created', 'expenseDate', 'amount', 'currency', 'description', 'haveReceipt', 'chargeTo','lastEditTime'];
+
+const data = map(expenses, (x, key) => {
+    const newArr = [];
+    newArr.push(key);
+    each(x, (y) => {
+        console.log(y);
+        newArr.push(y);
+    });
+    return newArr;
+});
 
 const jsonExp = JSON.stringify(expenses, null, "\t");
 
+console.log(data);
 
 class ExpensesList extends Component {
     constructor(props) {
@@ -77,7 +88,7 @@ class ExpensesList extends Component {
         return (
             <div>
                 <button>
-                <CSVLink data={jsonExp} header={headers}> Download CSV</CSVLink>
+                <CSVLink data={data} header={headers}> Download CSV</CSVLink>
                 </button>
                 {this.state.view
                     ?

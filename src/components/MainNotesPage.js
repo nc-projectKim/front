@@ -15,7 +15,7 @@ class MainNotesPage extends Component {
             notes: null
         };
         this.viewMore = this.viewMore.bind(this);
-        this.editNote = this.editNote.bind(this);
+        // this.editNote = this.editNote.bind(this);
     }
     componentDidMount () {
         this.props.getNotes();
@@ -28,25 +28,26 @@ class MainNotesPage extends Component {
     render () {
         return (
             <div>
-                {this.state.edit
-                    ? <EditNote editNote={this.editNote} note={notes[this.state.noteId]} />
-                    : <MainNotesList
+                {/*{this.state.edit
+                    ? <EditNote id={this.state.noteId} editNote={this.editNote} note={this.props.notes[this.state.noteId]} />*/}
+                     <MainNotesList
                         heading={'My Notes'}
                         notes={this.props.notes}
                         viewMore={this.viewMore}
                         editNote={this.editNote}
                     />
-                }
+                {/*}*/}
 
             </div>
         );
     }
-    editNote (id) {
-        this.setState({
-            edit: !this.state.edit,
-            noteId: id
-        });
-    }
+    // editNote (id) {
+    //     console.log('id', id);
+    //     this.setState({
+    //         edit: !this.state.edit,
+    //         noteId: id
+    //     });
+    // }
     viewMore () {
         this.setState({
             view: !this.state.view

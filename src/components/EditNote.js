@@ -15,6 +15,7 @@ class EditNote extends React.Component {
         this.titleChange = this.titleChange.bind(this);
         this.textChange = this.textChange.bind(this);
         this.editNoteSubmit = this.editNoteSubmit.bind(this);
+        this.deleteNote = this.deleteNote.bind(this);
     }
     render () {
         return (
@@ -46,7 +47,7 @@ class EditNote extends React.Component {
                 <div>
                     <button className="btn btn-success" type="submit">Save Changes</button>
                     <button className="btn btn-warning" onClick={this.props.editNote} type="button">Cancel</button>
-                    <button className="btn btn-danger" type="button">Delete</button>
+                    <button className="btn btn-danger" onClick={this.deleteNote} type="button">Delete</button>
                 </div>
             </form>
         );
@@ -77,9 +78,14 @@ class EditNote extends React.Component {
         const editedNote = {
             title: e.target[0].value,
             text: e.target[1].value,
-            tags: newTags
+            tags: newTags,
+            id: this.props.id
         };
         console.log(editedNote);
+    }
+    deleteNote (e) {
+        e.preventDefault();
+        console.log(this.props.id);
     }
 }
 
@@ -96,5 +102,6 @@ export default EditNote;
 EditNote.propTypes = {
     note: PropTypes.object.isRequired,
     editNote: PropTypes.func.isRequired,
-    handleSubmit: PropTypes.func.isRequired
+    handleSubmit: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired
 };

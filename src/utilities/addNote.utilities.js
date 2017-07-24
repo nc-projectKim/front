@@ -1,4 +1,5 @@
 import firebase, { facebookProvider, auth, database } from '../../FirebaseConfig';
+import {ADDNOTEURL} from '../../config';
 import axios from 'axios';
 
 // export default function addNote (data) {
@@ -26,15 +27,14 @@ export default function addNote (data) {
         title: data.title,
         text: data.text,
         tags: [...data.tags],
-        lastEditTime: Date.now()
-    };
-    const userId = firebase.auth().currentUser.uid;
-
-axios.post('https://us-central1-project-kim-6b8cc.cloudfunctions.net/noteHTTPValidation', note)
+        lastEditTime: Date.now(), 
+        userId: firebase.auth().currentUser.uid
+    }; 
+    console.log(ADDNOTEURL);
+return axios.post(`${ADDNOTEURL}`, note)
   .then((response) => {
-      console.log(response)
+      console.log('rk', response);
     })
-    
   .catch((error) => {
     console.log(error);
   });

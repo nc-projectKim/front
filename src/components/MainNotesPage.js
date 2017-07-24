@@ -18,6 +18,7 @@ class MainNotesPage extends Component {
         // this.editNote = this.editNote.bind(this);
     }
     componentDidMount () {
+        console.log('cdn');
         this.props.getNotes();
         this.setState({
             view: true,
@@ -25,6 +26,10 @@ class MainNotesPage extends Component {
             notes: this.props.notes
         });
     }
+    // componentWillReceiveProps (newProps) {
+    //     console.log('propsRec');
+        
+    // }
     render () {
         return (
             <div>

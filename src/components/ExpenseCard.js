@@ -7,50 +7,45 @@ import './css/ExpenseCard.css';
 const dateFormat = 'D MMM YYYY';
 const timeFormat = 'HH:mm';
 
-function formatNote (text) {
-    if (text.length < 100) return text;
-    return `${text.substring(0, 100)}...`;
-}
 
 class ExpenseCard extends Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.state = {
             displayAll: false
         };
-        this.displayNote = this.displayNote.bind(this);
+        this.displayExpense = this.displayExpense.bind(this);
     }
-    render () {
+    render() {
+        console.log(this.props.expense);
         return (
-            <div>
-                <div className="container-fluid component-ExpenseCard">
-                    <div className="col-xs-2"><div>{moment(this.props.note.created).format(dateFormat)}</div>
-                        <div>{moment(this.props.note.created).format(timeFormat)}</div>
+            <div className="container-fluid component-ExpenseCard">
+                <div className="row">
+                    {/*Date*/}
+                    <div className="col-xs-2"><div>{moment(this.props.expense.created).format(dateFormat)}</div>
+                        <div>{moment(this.props.expense.created).format(timeFormat)}</div>
                     </div>
-                    <div className="col-xs-6"><div><strong>{this.props.note.title.substring(0, 30)}</strong></div>
-                        {this.state.displayAll
-                            ? <div>{this.props.note.text}</div>
-                            : <div className="text-body">{formatNote(this.props.note.text)}</div>
-                        }
+                    {/*Amount -2*/}
+                    <div className="col-xs-2">{`£${this.props.expense.amount}`}</div>
+
+                    {/*ChargeTo 4*/}
+                    <div className="col-xs-4">
+                        <div><strong>{this.props.expense.chargeTo}</strong></div>
+                        <div>{this.props.expense.description.substring(0, 30)}</div>
                     </div>
-                    <div className="col-xs-2">{this.props.note.tags.map((tag, i) => {
-                        return (
-                            <span key={`${tag}${i}`}>
-                                {`#${tag}  `}
-                            </span>
-                        );
-                    })}</div>
+                    {/*Have Receipt 2*/}
+                    <div className="col-xs-2">{`${this.props.expense.haveReceipt}`}</div>
                     {this.state.displayAll
-                        ? <div className="col-xs-1"><button onClick={this.displayNote}>Collapse</button></div>
-                        : <div className="col-xs-1"><button onClick={this.displayNote}>View</button></div>
+                        ? <div className="col-xs-1"><button onClick={this.displayExpense}>Collapse</button></div>
+                        : <div className="col-xs-1"><button onClick={this.displayExpense}>View</button></div>
 
                     }
-                    <div className="col-xs-1"><button type="submit" value={this.props.iD} onClick={this.props.editNote.bind(this, this.props.iD)}>Edit</button></div>
+                    <div className="col-xs-1"><button type="submit" value={this.props.iD} >Edit</button></div>
                 </div>
             </div>
         );
     }
-    displayNote () {
+    displayExpense() {
         this.setState({
             displayAll: !this.state.displayAll
         });
@@ -59,7 +54,7 @@ class ExpenseCard extends Component {
 export default ExpenseCard;
 
 ExpenseCard.propTypes = {
-    note: PropTypes.object.isRequired,
+    expense: PropTypes.object.isRequired,
     iD: PropTypes.string.isRequired,
     editNote: PropTypes.func.isRequired
 };

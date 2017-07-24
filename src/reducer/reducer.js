@@ -4,6 +4,7 @@ const initialState = {
     currentUser: null,
     notes: {},
     loading: false,
+    filteredData: {}
 
 };
 

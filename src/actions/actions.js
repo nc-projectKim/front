@@ -1,6 +1,6 @@
 import * as types from './types';
 import getAllNotes from '../utilities/getAllNotes.utilities';
-import queryNote from '../utilities/queryNote.utilities';
+import queryNotes from '../utilities/queryNote.utilities';
 
 export const logInUser = (currentUser) => {
     return {
@@ -48,10 +48,10 @@ export function getNotesError (err) {
     };
 }
 
-export function queryNotes () {
+export function getQueryNotes (obj) {
     return function (dispatch) {
         dispatch(queryNotesRequest());
-        return queryNote()
+        return queryNotes(obj)
         .then (res => {
             dispatch(queryNotesSuccess(res));
         })

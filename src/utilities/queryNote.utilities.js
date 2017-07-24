@@ -10,6 +10,7 @@ const query = {
     queryTags: ['Sticky']
 };
 export default function queryNotes (query) {
+    console.log('q', query);
     const userId = firebase.auth().currentUser.uid;
     return database.ref(`/notes/${userId}/`).once('value')
     .then(function (data) {

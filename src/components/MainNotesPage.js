@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MainNotesList from './MainNotesList';
-import EditNote from './EditNote';
+// import EditNote from './EditNote';
 import PropTypes from 'prop-types';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';

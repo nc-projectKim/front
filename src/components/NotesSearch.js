@@ -1,11 +1,13 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './css/NotesSearch.css';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
-import {BrowserRouter as Router, Link} from 'react-router-dom';
-import queryNotes from '../utilities/queryNote.utilities';
+import {BrowserRouter as Router, Link, Redirect} from 'react-router-dom';
+// import queryNote from '../utilities/queryNote.utilities';
+import * as actions from '../actions/actions';
+import {connect} from 'react-redux';
 
 
 const inputStyles = {
@@ -20,7 +22,8 @@ class NotesSearch extends React.Component {
             endDate: moment().utc(),
             searchOneDateClicked: false,
             searchStartDateClicked: false,
-            searchEndDateClicked: false
+            searchEndDateClicked: false,
+            notesQueried: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -31,6 +34,10 @@ class NotesSearch extends React.Component {
     render () {
         return (
             <div>
+                {
+                    this.state.notesQueried &&
+                    <Redirect to={'/notes/search/result'} />
+                }
                 <div className="panel panel-default">
                     <div className="panel-heading">
 
@@ -143,18 +150,25 @@ class NotesSearch extends React.Component {
             obj.dateItems.to = null;
             obj.dateItems.dateChosen = 'lastEditTime';
         }
-    return queryNotes(obj)
-        .then (res => {
-            console.log('this is res', res);
-        })
-        .catch (err => {
-            console.log(err);
+        this.setState({
+            notesQueried: true
         });
+    return this.props.getFilteredNotes(obj);
     }
 }
 
+function mapDispatchToProps (dispatch) {
+    return {
+        getFilteredNotes: (obj) => {
+            dispatch(actions.getQueryNotes(obj));
+        }
+    };
+}
 
-export default NotesSearch;
+
+// export default NotesSearch;
+export default connect (null, mapDispatchToProps)(NotesSearch);
 
 NotesSearch.propTypes = {
+    getFilteredNotes: PropTypes.func.isRequired
 };

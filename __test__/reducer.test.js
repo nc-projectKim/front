@@ -78,4 +78,43 @@ describe('reducer', () => {
             expect(newState).not.toBe(initialState);
         });
     });
+
+
+    describe('#action: QUERY_NOTES_REQUEST', () => {
+        it('should set loading to true', () => {
+            const action = actions.queryNotesRequest();
+            const newState = reducer(initialState, action);
+            expect(newState.loading).toBe(true);
+            expect(newState).not.toBe(initialState);
+        });
+    });
+    describe('#action: QUERY_NOTES_SUCCESS', () => {
+        it('should set loading to true', () => {
+            const action = actions.queryNotesSuccess({filteredNotes: 'notes'});
+            const newState = reducer(initialState, action);
+            expect(newState.loading).toBe(false);
+            expect(newState.filteredData).toEqual({
+                filteredNotes: 'notes'
+            });
+            expect(newState.filteredData).not.toBe({
+                filteredNotes: 'notes'
+            });
+            expect(newState).not.toBe(initialState);
+        });
+    });
+    describe('#action: QUERY_NOTES_ERROR', () => {
+        it('should set loading to true', () => {
+            const action = actions.queryNotesError({error: 'error'});
+            const newState = reducer(initialState, action);
+            expect(newState.loading).toBe(false);
+            expect(newState.filteredData).toEqual({
+                error: 'error'
+            });
+            expect(newState.filteredData).not.toBe({
+                error: 'error'
+            });
+            expect(newState).not.toBe(initialState);
+        });
+    });
+
 });

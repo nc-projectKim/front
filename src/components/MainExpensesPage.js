@@ -61,7 +61,6 @@ class MainExpensesPage extends Component {
         // this.editNote = this.editNote.bind(this);
     }
     // componentDidMount () {
-    //     console.log('cdn');
     //     // this.props.getNotes();
     //     this.setState({
     //         view: true,

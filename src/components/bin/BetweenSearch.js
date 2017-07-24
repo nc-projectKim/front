@@ -51,7 +51,6 @@ class BetweenSearch extends React.Component {
         e.preventDefault();
         let startDate = moment(this.state.startDate._d).format('x');
         let endDate = moment(this.state.startDate._d).format('x');
-        console.log(startDate, endDate);
     }
 }
 

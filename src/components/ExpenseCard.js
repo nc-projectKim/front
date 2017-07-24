@@ -17,7 +17,6 @@ class ExpenseCard extends Component {
         this.displayExpenseDescription = this.displayExpenseDescription.bind(this);
     }
     render() {
-        console.log(this.props.expense);
         return (
             <div className="container-fluid component-ExpenseCard">
                 <div className="row">

@@ -29,7 +29,6 @@ export default function reducer (prevState = initialState, action) {
         });
     }
     if (action.type === types.GET_NOTES_SUCCESS) {
-        console.log('getnotessuccess');
         return Object.assign({}, prevState, {
             data: Object.assign({}, action.data),
             loading: false,

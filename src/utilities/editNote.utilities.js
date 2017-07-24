@@ -32,7 +32,7 @@ export default function editNote (data) {
     }; 
 return axios.put(`${EDITNOTEURL}`, note)
   .then((response) => {
-      console.log('rk', response);
+      ('rk', response);
     })
   .catch((error) => {
     console.log(error);

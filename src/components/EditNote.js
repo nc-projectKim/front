@@ -23,7 +23,6 @@ class EditNote extends React.Component {
         this.deleteNote = this.deleteNote.bind(this);
     }
     render() {
-        console.log('id', this.props.id);
         return (
             <div>
                 {this.state.justDeleted &&
@@ -106,11 +105,9 @@ class EditNote extends React.Component {
         });
     }
     deleteNote(id) {
-        console.log('deleting');
         // e.preventDefault();
         deleteNote(id)
             .then(() => {
-                console.log(this);
                 console.log('deleted');
                 this.setState({
                     justDeleted: true

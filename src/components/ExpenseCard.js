@@ -14,7 +14,7 @@ class ExpenseCard extends Component {
         this.state = {
             displayAll: false
         };
-        this.displayExpense = this.displayExpense.bind(this);
+        this.displayExpenseDescription = this.displayExpenseDescription.bind(this);
     }
     render() {
         console.log(this.props.expense);
@@ -31,13 +31,18 @@ class ExpenseCard extends Component {
                     {/*ChargeTo 4*/}
                     <div className="col-xs-4">
                         <div><strong>{this.props.expense.chargeTo}</strong></div>
-                        <div>{this.props.expense.description.substring(0, 30)}</div>
+                        {
+                            this.state.displayAll
+                            ? <div>{this.props.expense.description}</div>
+                            : <div>{this.props.expense.description.substring(0, 50)}</div>
+                        }
+                        
                     </div>
                     {/*Have Receipt 2*/}
                     <div className="col-xs-2">{`${this.props.expense.haveReceipt}`}</div>
                     {this.state.displayAll
-                        ? <div className="col-xs-1"><button onClick={this.displayExpense}>Collapse</button></div>
-                        : <div className="col-xs-1"><button onClick={this.displayExpense}>View</button></div>
+                        ? <div className="col-xs-1"><button onClick={this.displayExpenseDescription}>Collapse</button></div>
+                        : <div className="col-xs-1"><button onClick={this.displayExpenseDescription}>View</button></div>
 
                     }
                     <div className="col-xs-1"><button type="submit" value={this.props.iD} >Edit</button></div>
@@ -45,7 +50,7 @@ class ExpenseCard extends Component {
             </div>
         );
     }
-    displayExpense() {
+    displayExpenseDescription() {
         this.setState({
             displayAll: !this.state.displayAll
         });

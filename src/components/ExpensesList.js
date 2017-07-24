@@ -137,30 +137,6 @@ class ExpensesList extends Component {
             view: !this.state.view
         });
     }
-
-    /*convertToCSV() {
-        let obj = expenses;
-        console.log(obj);
-        const jsonObj = JSON.stringify(obj);
-        const csv = this.convertToCSV(jsonObj);
-        const exportedFile = 'ExpensesCSV' + '.csv' || 'export.csv';
-        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-        if (window.navigator.msSaveBlob) {
-            window.navigator.msSaveBlob(blob, exportedFile);
-        }
-        else {
-            const link = document.createElement('a');
-            if (link.download !== undefined) {
-                const url = URL.createObjectURL(blob);
-                link.setAttribute('href', url);
-                link.setAttribute('download', exportedFile);
-                link.style.visibility = 'hidden';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
-        }
-    }*/
 }
 
 // function mapDispatchToProps(dispatch) {

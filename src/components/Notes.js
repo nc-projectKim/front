@@ -12,6 +12,7 @@ import MainNotesPage from './MainNotesPage';
 import FilteredNotes from './FilteredNotes';
 import AddNote from './AddNote';
 import { connect } from 'react-redux';
+import DeleteNote from './DeleteNote';
 
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
@@ -38,6 +39,7 @@ class NotesList extends Component {
                     <Route exact path='/notes/add' component={AddNote}/>
                     <Route exact path='/notes/search' component={NotesSearch} />
                     <Route path='/notes/search/result' component={FilteredNotes} />
+                    <Route path='/notes/deleted' component={DeleteNote} />
                 </Switch>
             </div>
         );

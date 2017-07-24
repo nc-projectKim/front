@@ -50,7 +50,7 @@ const expenses = {
 		'chargeTo': 'Wehner, Bartoletti and Wiegand',
 		'lastEditTime': 1494510765000
 	}
-}
+};
 
 
 class ExpensesList extends Component {

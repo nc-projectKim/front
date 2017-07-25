@@ -21,6 +21,7 @@ class NoteCard extends Component {
         this.displayNote = this.displayNote.bind(this);
     }
     render () {
+        console.log(this.props.note);
         return (
             <div>
                 <div className="container-fluid component-NoteCard">
@@ -37,13 +38,19 @@ class NoteCard extends Component {
                             : <div className="text-body">{formatNote(this.props.note.text)}</div>
                         }
                     </div>
-                    <div className="col-xs-2">{this.props.note.tags.map((tag, i) => {
-                        return (
-                            <span key={`${tag}${i}`}>
-                                {`#${tag}  `}
-                            </span>
-                        );
-                    })}</div>
+                    <div className="col-xs-2">
+                        {this.props.note.tags 
+                        ?
+                        this.props.note.tags.map((tag, i) => {
+                            return (
+                                <span key={`${tag}${i}`}>
+                                  {`#${tag}  `}
+                                </span>
+                            );
+                        })
+                        : null
+                        }
+                    </div>
                     {this.state.displayAll
                         ? <div className="col-xs-1"><button onClick={this.displayNote}>Collapse</button></div>
                         : <div className="col-xs-1"><button onClick={this.displayNote}>View</button></div>

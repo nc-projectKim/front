@@ -134,7 +134,7 @@ class ExpensesSearch extends React.Component {
             queryItems: {}
         };
         if (searchParameters === 'Charge To') {
-            obj.findWord = null;
+            obj.findWord = searchTerm;
             obj.queryItems.chargeTo = searchTerm;
         }
         else if (searchTerm.length > 0) {

@@ -12,7 +12,7 @@ class Entries extends Component {
     render () {
         return (
             <div className="entries-main">
-                <PageTop name={'Kim'} picture={''}/>
+                <PageTop name={'Kim'} picture={this.props.currentUser.photoURL}/>
                 <LatestExpenses />
                 <LatestNotes />
             </div>

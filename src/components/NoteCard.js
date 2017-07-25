@@ -27,19 +27,29 @@ class NoteCard extends Component {
                     <div className="col-xs-2"><div>{moment(this.props.note.created).format(dateFormat)}</div>
                         <div>{moment(this.props.note.created).format(timeFormat)}</div>
                     </div>
-                    <div className="col-xs-6"><div><strong>{this.props.note.title.substring(0, 30)}</strong></div>
+                    <div className="col-xs-6"><div><strong>{
+                        this.props.note.title
+                        ? this.props.note.title.substring(0, 30)
+                        : null
+                        }</strong></div>
                         {this.state.displayAll
                             ? <div>{this.props.note.text}</div>
                             : <div className="text-body">{formatNote(this.props.note.text)}</div>
                         }
                     </div>
-                    <div className="col-xs-2">{this.props.note.tags.map((tag, i) => {
-                        return (
-                            <span key={`${tag}${i}`}>
-                                {`#${tag}  `}
-                            </span>
-                        );
-                    })}</div>
+                    <div className="col-xs-2">
+                        {this.props.note.tags 
+                        ?
+                        this.props.note.tags.map((tag, i) => {
+                            return (
+                                <span key={`${tag}${i}`}>
+                                  {`#${tag}  `}
+                                </span>
+                            );
+                        })
+                        : null
+                        }
+                    </div>
                     {this.state.displayAll
                         ? <div className="col-xs-1"><button onClick={this.displayNote}>Collapse</button></div>
                         : <div className="col-xs-1"><button onClick={this.displayNote}>View</button></div>

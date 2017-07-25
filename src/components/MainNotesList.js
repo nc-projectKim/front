@@ -4,7 +4,7 @@ import EditNote from './EditNote';
 import PropTypes from 'prop-types';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
-import addNote from '../utilities/addNote.utilities';
+// import addNote from '../utilities/addNote.utilities';
 
 class MainNotesList extends Component {
     constructor (props) {
@@ -25,6 +25,7 @@ class MainNotesList extends Component {
         });
     }
     render () {
+        console.log(this.props.notes)
         return (
             <div>
                 { this.state.edit
@@ -57,7 +58,7 @@ function mapDispatchToProps (dispatch) {
     };
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
     return {
         notes: state.data,
     };
@@ -65,7 +66,7 @@ function mapStateToProps(state) {
 
 
 MainNotesList.propTypes = {
-    notes: PropTypes.object.isRequired,
+    notes: PropTypes.any,
     getNotes: PropTypes.func.isRequired
 };
 export default connect(mapStateToProps, mapDispatchToProps)(MainNotesList);

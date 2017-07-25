@@ -7,7 +7,7 @@ import { map } from 'underscore';
 import PropTypes from 'prop-types';
 // import AddExpense from './AddNote';
 import './css/ExpensesList.css';
-import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import alterValues from './component-utilities/alterValues';
 
 class ExpensesPageExpensesList extends Component {
@@ -24,7 +24,7 @@ class ExpensesPageExpensesList extends Component {
 
                             <span>
                                 <h3 className="panel-title"><span>{this.props.heading}</span></h3>
-                                <Link to="/notes/search" ><button type="button"
+                                <Link to="/expenses/search" ><button type="button"
                                     className="btn btn-info srch-btn">
                                     <i className="fa fa-search" aria-hidden="true"></i>
                                 </button>
@@ -37,12 +37,14 @@ class ExpensesPageExpensesList extends Component {
                                 <ExpensesRowTitle />
                                 {map(alteredValues, function (expense) {
                                     return (
-                                        <ExpenseCard iD={expense[0]} key={expense[1].created} expense={expense[1]} /*editNote={editExpense}*/ />
+                                        <ExpenseCard iD={expense[0]} key={expense[1].created} expense={expense[1]} /* editNote={editExpense}*/ />
                                     );
                                 })}
                                 <ExpensesPanelButtons
-                                    /*addNewExpense={this.props.addNewExpense}*/
-                                    viewMore={this.viewMore} />
+                                    /* addNewExpense={this.props.addNewExpense}*/
+                                    viewMore={this.viewMore} 
+                                    expenses={this.props.expenses}
+                                    />
                             </div>
                         </div>
                     </div>

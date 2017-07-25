@@ -4,7 +4,7 @@ import EditNote from './EditNote';
 import PropTypes from 'prop-types';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
-import _ from 'underscore';
+// import _ from 'underscore';
 
 class LatestNotes extends Component {
     constructor (props) {
@@ -27,7 +27,7 @@ class LatestNotes extends Component {
         return (
             <div>
                 { this.state.edit
-                ? <EditNote editNote={this.editNote} note={this.props.notes[this.state.noteId]}/>
+                ? <EditNote id={this.state.noteId} editNote={this.editNote} note={this.props.notes[this.state.noteId]}/>
                 : <NotesList
                     heading={'Latest Notes'}
                     view={this.state.view}

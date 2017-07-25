@@ -2,29 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './css/EditNote.css';
 import deleteNote from '../utilities/deleteNote.utilities';
+import editNote from '../utilities/editNote.utilities';
 import { BrowserRouter as Router, Redirect } from 'react-router-dom';
 
 
-
 class EditNote extends React.Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             title: this.props.note.title,
             text: this.props.note.text,
             tags: this.props.note.tags,
             justDeleted: false,
+            justEdited: false
         };
         this.titleChange = this.titleChange.bind(this);
         this.textChange = this.textChange.bind(this);
         this.editNoteSubmit = this.editNoteSubmit.bind(this);
         this.deleteNote = this.deleteNote.bind(this);
     }
-    render() {
+    render () {
         return (
             <div>
                 {this.state.justDeleted &&
                     <Redirect to={'/notes/deleted'}/>
+                }
+                {this.state.justEdited &&
+                    <Redirect to={'/notes/edited'}/>
                 }
                 <form onSubmit={this.editNoteSubmit}>
                     <div>
@@ -60,19 +64,19 @@ class EditNote extends React.Component {
             </div>
         );
     }
-    titleChange(e) {
+    titleChange (e) {
         e.preventDefault();
-        this.setState = {
+        this.setState({
             title: e.target.value
-        };
+        });
     }
-    textChange(e) {
+    textChange (e) {
         e.preventDefault();
-        this.setState = {
+        this.setState({
             title: e.target.value
-        };
+        });
     }
-    removeTag(tag) {
+    removeTag (tag) {
         const newTags = [...this.state.tags];
         const i = findIndex(newTags, tag);
         newTags.splice(i, 1);
@@ -80,19 +84,29 @@ class EditNote extends React.Component {
             tags: newTags
         });
     }
-    editNoteSubmit(e) {
+    editNoteSubmit (e) {
         e.preventDefault();
         const newTags = e.target[2].value.split(',').concat(this.state.tags);
         const editedNote = {
             title: e.target[0].value,
             text: e.target[1].value,
             tags: newTags,
-            id: this.props.id
+            noteId: this.props.id
         };
-        console.log(editedNote);
+        editNote(editedNote)
+        .then(() => {
+            console.log('noteEdited');
+            return (
+            this.setState({
+                justEdited: !this.state.justEdited
+            })
+            );
+        })
+        .catch((err) => {
+            console.log(err);
+        });
     }
-    deleteNote(id) {
-        console.log('deleting');
+    deleteNote (id) {
         // e.preventDefault();
         deleteNote(id)
             .then(() => {
@@ -108,7 +122,7 @@ class EditNote extends React.Component {
     }
 }
 
-function findIndex(tags, name) {
+function findIndex (tags, name) {
     for (let i = 0; i < tags.length; i++) {
         if (tags[i] === name) {
             return i;
@@ -121,6 +135,6 @@ export default EditNote;
 EditNote.propTypes = {
     note: PropTypes.object.isRequired,
     editNote: PropTypes.func.isRequired,
-    handleSubmit: PropTypes.func.isRequired,
+    // handleSubmit: PropTypes.func.isRequired,
     id: PropTypes.string.isRequired
 };

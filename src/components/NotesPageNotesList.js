@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import AddNote from './AddNote';
 import './css/NotesList.css';
 import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
-import alterValues from './component-utilities/alterValues'
+import alterValues from './component-utilities/alterValues';
 
 class NotesPageNotesList extends Component {
     constructor (props) {
@@ -37,7 +37,13 @@ class NotesPageNotesList extends Component {
                                 <NoteRowTitle />
                                 {map(alteredValues, function (note) {
                                     return (
-                                        <NoteCard iD={note[0]} key={note[1].created} note={note[1]} editNote={editNote} />
+                                        <div>
+                                        {note[0] !== 'undefined'
+                                        ? <div>
+                                            <NoteCard iD={note[0]} key={note[1].created} note={note[1]} editNote={editNote} />
+                                            </div>
+                                        : null}
+                                        </div>
                                     );
                                 })}
                                 <NotesPanelButtons
@@ -55,11 +61,11 @@ class NotesPageNotesList extends Component {
 export default NotesPageNotesList;
 
 NotesPageNotesList.propTypes = {
-    add: PropTypes.bool.isRequired,
-    addNewNote: PropTypes.func.isRequired,
-    notes: PropTypes.object.isRequired,
+    // add: PropTypes.bool.isRequired,
+    // addNewNote: PropTypes.func.isRequired,
+    // notes: PropTypes.object.isRequired,
     editNote: PropTypes.func.isRequired,
     heading: PropTypes.string.isRequired,
-    submitNote: PropTypes.func.isRequired,
+    // submitNote: PropTypes.func.isRequired,
     newSubmit: PropTypes.bool.isRequired
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './css/NotesSearch.css';
+// import './css/NotesqSearch.css';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -14,7 +14,7 @@ const inputStyles = {
     fontFamily: 'Arial, FontAwesome'
 };
 
-class NotesSearch extends React.Component {
+class ExpensesSearch extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
@@ -23,7 +23,7 @@ class NotesSearch extends React.Component {
             searchOneDateClicked: false,
             searchStartDateClicked: false,
             searchEndDateClicked: false,
-            notesQueried: false
+            expensesQueried: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -35,20 +35,26 @@ class NotesSearch extends React.Component {
         return (
             <div>
                 {
-                    this.state.notesQueried &&
-                    <Redirect to={'/notes/search/result'} />
+                    this.state.expensesQueried &&
+                    <Redirect to={'/expenses/search/result'} />
                 }
                 <div className="panel panel-default">
                     <div className="panel-heading">
 
-                        <h3 className="panel-title">Search Notes</h3>
-                        <Link to="/notes"> <button type="button"
-                            className="btn btn-info">Return to Notes</button>
+                        <h3 className="panel-title">Search Expenses</h3>
+                        <Link to="/expenses"> <button type="button"
+                            className="btn btn-info">Return to Expenses</button>
                             </Link>
                     </div>
                     <form onSubmit={this.handleSubmit}>
                         <input className="word-search" style={inputStyles} type="text" name="Search Word" placeholder="&#xf002; Search" />
-                        <p>If you want to search for a tag, put a # before your search term</p>
+                        <select>
+                            <optgroup label="Choose how to search">
+                                <option value="Search all">All</option>
+                                <option value="Search charge to">Charge To</option>
+                            </optgroup>
+                        </select>
+                        
                         <h4>Search on Date</h4>
                         <DatePicker
                             placeholderText='Click to select a date'
@@ -118,57 +124,66 @@ class NotesSearch extends React.Component {
     handleSubmit (e) {
         e.preventDefault();
         let searchTerm = e.target[0].value;
+        let searchParameters = e.target[1].selectedOptions[0].text;
         let searchOneDate = moment(this.state.startDate._d).format('x');
         let searchBetweenDateStart = moment(this.state.startDate._d).format('x');
         let searchBetweenDateEnd = moment(this.state.endDate._d).format('x');
 
         let obj = {
-            dateItems: {}
+            dateItems: {},
+            queryItems: {}
         };
-        if (searchTerm.includes('#')) obj.queryTags = searchTerm;
+        if (searchParameters === 'Charge To') {
+            obj.findWord = searchTerm;
+            obj.queryItems.chargeTo = searchTerm;
+        }
         else if (searchTerm.length > 0) {
             obj.findWord = searchTerm;
-            obj.queryTags = [];
+            obj.queryItems.chargeTo = null;
         }
         else {
             obj.findWord = null;
-            obj.queryTags = [];
+            obj.queryItems.chargeTo = null;
         }
         
         if (this.state.searchOneDateClicked && !this.state.searchStartDateClicked) {
             obj.dateItems.from = searchOneDate;
             obj.dateItems.to = searchOneDate;
-            obj.dateItems.dateChosen = 'lastEditTime';
+            obj.dateItems.dateChosen = 'expenseDate';
         }
         else if (this.state.searchStartDateClicked) {
             obj.dateItems.from = searchBetweenDateStart;
             obj.dateItems.to = searchBetweenDateEnd;
-            obj.dateItems.dateChosen = 'lastEditTime';
+            obj.dateItems.dateChosen = 'expenseDate';
         }
         else {
             obj.dateItems.from = null;
             obj.dateItems.to = null;
-            obj.dateItems.dateChosen = 'lastEditTime';
+            obj.dateItems.dateChosen = 'expenseDate';
         }
+
+        obj.queryItems.haveReceipt = null;
+        
         this.setState({
-            notesQueried: true
+            expensesQueried: true
         });
-    return this.props.getFilteredNotes(obj);
+        console.log(obj);
+        return this.props.getFilteredExpenses(obj);
     }
 }
 
 function mapDispatchToProps (dispatch) {
     return {
-        getFilteredNotes: (obj) => {
-            dispatch(actions.getQueryNotes(obj));
+        getFilteredExpenses: (obj) => {
+            dispatch(actions.getQueryExpenses(obj));
         }
     };
 }
 
 
-// export default NotesSearch;
-export default connect (null, mapDispatchToProps)(NotesSearch);
+// export default ExpensesSearch;
+export default connect (null, mapDispatchToProps)(ExpensesSearch);
 
-NotesSearch.propTypes = {
-    getFilteredNotes: PropTypes.func.isRequired
-};
+// NotesSearch.propTypes = {
+//     getFilteredNotes: PropTypes.func.isRequired
+// };

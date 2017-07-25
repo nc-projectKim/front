@@ -11,9 +11,11 @@ class AddExpense extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
-            newSubmit: false
+            newSubmit: false,
+            dateSelect: moment().utc()
         };
         this.submitExpense = this.submitExpense.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
     render () {
         return (
@@ -38,7 +40,7 @@ class AddExpense extends React.Component {
                                     <DatePicker
                                         placeholderText='Click to select a date'
                                         dateFormat="DD/MM/YYYY"
-                                        selected={this.state.startDate}
+                                        selected={this.state.dateSelect}
                                         onChange={this.handleChange}
                                         isClearable={true}
                                     />
@@ -50,19 +52,24 @@ class AddExpense extends React.Component {
                                     <span><input className="expenseInput" name="expenseAmount" type="text" placeholder="5.99" /></span>
                                 </div>
                                 <div>
-                                    <label htmlFor="Title">Title</label>
+                                    <label htmlFor="chargeTo">Charge To</label>
                                     <br />
-                                    <input className="titleInput" type="text" name="Title" placeholder="title" />
+                                    <input className="titleInput" type="text" name="chargeTo" placeholder="Client Name" />
                                 </div>
                                 <div>
-                                    <label htmlFor="expense">My Expense</label>
+                                    <label htmlFor="expenseDescription">Expense Description</label>
                                     <br />
-                                    <textarea className="expenseInput" name="expense" type="text" placeholder="write your expense here..." />
+                                    <textarea className="expenseInput" name="expenseDescription" type="text" placeholder="expense description..." />
                                 </div>
                                 <div>
                                     <label htmlFor="Tags">Have Receipt?</label>
                                     <br />
-                                    <input name="Tags" type="text" placeholder="true/false" />
+                                    <select>
+                                        <optgroup label="Do you have a receipt?">
+                                            <option value="no">no</option>
+                                            <option value="yes">Yes</option>
+                                        </optgroup>
+                                    </select>
                                 </div>
                                 <div>
                                     <button className="btn btn-success" type="submit">Submit</button>
@@ -75,15 +82,24 @@ class AddExpense extends React.Component {
             </div>
         );
     }
+    handleChange (date) {
+        this.setState({
+            dateSelect: date,
+            // searchOneDateClicked: true
+        });
+    }
     submitExpense (e) {
         e.preventDefault();
+        console.dir(e.target);
         const newExpenseObj = {
-            date: e.target[0].value,
+            expenseDate: e.target[0].value,
+            currency: 'GBP',
             amount: e.target[1].value,
-            title: e.target[2].value,
-            myExpense: e.target[3].value,
+            chargeTo: e.target[2].value,
+            description: e.target[3].value,
             haveReceipt: e.target[4].value
         };
+        console.log(newExpenseObj);
         addExpense(newExpenseObj)
             .then(() => {
                 return (

@@ -7,7 +7,6 @@ export default function queryExpenses (query) {
         .then(function (data) {
             const dataObj = {};
             data.forEach(function (childData) {
-                console.log(query);
                 const childObject = childData.val();
                 let testDate;
                 if (query.dateItems.from === null && query.dateItems.to === null) testDate = true;
@@ -24,13 +23,10 @@ export default function queryExpenses (query) {
                 if (query.findWord !== null) {
                     const regex = new RegExp(query.findWord, 'i');
                     let testWord;
-                    console.log(query.queryItems.chargeTo);
                     if (query.queryItems.chargeTo !== null) {
-                        console.log('ct', childObject.chargeTo);
                         testWord = regex.test(childObject.chargeTo);
                     }
                     else {
-                        console.log('else');
                         testWord = regex.test(childObject.description) || 
                             regex.test(childObject.chargeTo);
                     }

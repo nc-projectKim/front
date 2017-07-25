@@ -42,7 +42,9 @@ class ExpensesPageExpensesList extends Component {
                                 })}
                                 <ExpensesPanelButtons
                                     /* addNewExpense={this.props.addNewExpense}*/
-                                    viewMore={this.viewMore} />
+                                    viewMore={this.viewMore} 
+                                    expenses={this.props.expenses}
+                                    />
                             </div>
                         </div>
                     </div>

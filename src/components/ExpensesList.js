@@ -9,24 +9,6 @@ import './css/ExpensesList.css';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 // import alterValues from './component-utilities/alterValues';
 
-// import { CSVLink, CSVDownload } from 'react-csv';
-// const expenses = this.props.expenses;
-// const headers = ['expenseId', 'created', 'expenseDate', 'amount', 'currency', 'description', 'haveReceipt', 'chargeTo','lastEditTime'];
-
-// const data = map(expenses, (x, key) => {
-//     const newArr = [];
-//     newArr.push(key);
-//     each(x, (y) => {
-//         console.log(y);
-//         newArr.push(y);
-//     });
-//     return newArr;
-// });
-
-// const jsonExp = JSON.stringify(this.props.expenses, null, '\t');
-
-// console.log(data);
-
 class ExpensesList extends Component {
     constructor (props) {
         super(props);
@@ -35,7 +17,6 @@ class ExpensesList extends Component {
             view: false
         };
         this.viewMore = this.viewMore.bind(this);
-        // this.convertToCSV = this.convertToCSV.bind(this);
 
     }
     render () {
@@ -44,9 +25,6 @@ class ExpensesList extends Component {
         // const notesAltered = alterValues (this.props.notes).slice(0, 10);
         return (
             <div>
-                <button>
-                {/* <CSVLink data={data} header={headers}> Download CSV</CSVLink>*/}
-                </button>
                 {this.state.view
                     ?
                     <div className='panel panel-default'>
@@ -71,6 +49,7 @@ class ExpensesList extends Component {
                                 })}
                                 <ExpensesPanelButtons
                                     viewMore={this.viewMore}
+                                    expenses={this.props.expenses}
                                 />
                             </div>
                         </div>

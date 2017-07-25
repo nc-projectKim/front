@@ -14,7 +14,7 @@ class ExpensesPanelButtons extends Component {
                     &nbsp; Collapse
                     </button>
 
-                    <Link to={'/notes/add'}><button type="button" className="btn btn-info"><i className="fa fa-plus" aria-hidden="true"></i>
+                    <Link to={'/expenses/add'}><button type="button" className="btn btn-info"><i className="fa fa-plus" aria-hidden="true"></i>
                      &nbsp; Add A Expense</button></Link>
 
                     <Link to="/expenses"><button type="button" className="btn btn-info view-more-notes-btn"><i className="fa fa-eye" aria-hidden="true"></i>

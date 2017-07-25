@@ -117,4 +117,41 @@ describe('reducer', () => {
         });
     });
 
+        describe('#action: GET_EXPENSES_REQUEST', () => {
+        it('should set loading to true', () => {
+            const action = actions.getExpensesRequest();
+            const newState = reducer(initialState, action);
+            expect(newState.loading).toBe(true);
+            expect(newState).not.toBe(initialState);
+        });
+    });
+    describe('#action: GET_Expenses_SUCCESS', () => {
+        it('should set loading to true', () => {
+            const action = actions.getExpensesSuccess({expenses: 'expenses'});
+            const newState = reducer(initialState, action);
+            expect(newState.loading).toBe(false);
+            expect(newState.expenses).toEqual({
+                expenses: 'expenses'
+            });
+            expect(newState.expenses).not.toBe({
+                expenses: 'expenses'
+            });
+            expect(newState).not.toBe(initialState);
+        });
+    });
+    describe('#action: GET_EXPENSES_ERROR', () => {
+        it('should set loading to true', () => {
+            const action = actions.getExpensesError({error: 'error'});
+            const newState = reducer(initialState, action);
+            expect(newState.loading).toBe(false);
+            expect(newState.expenses).toEqual({
+                error: 'error'
+            });
+            expect(newState.expenses).not.toBe({
+                error: 'error'
+            });
+            expect(newState).not.toBe(initialState);
+        });
+    });
+
 });

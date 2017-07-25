@@ -1,4 +1,4 @@
-/*import React, { Component } from 'react';
+import React, { Component } from 'react';
 import EditNote from './EditNote';
 import FilteredExpensesList from './FilteredExpensesList';
 import PropTypes from 'prop-types';
@@ -49,10 +49,10 @@ function mapStateToProps (state) {
     };
 }
 
-FilteredNotes.propTypes = {
+FilteredExpenses.propTypes = {
     filteredNotes: PropTypes.any.isRequired,
     getFilteredNotes: PropTypes.func.isRequired
 };
 
 // export default FilteredNotes;
-export default connect(mapStateToProps)(FilteredNotes);*/
+export default connect(mapStateToProps)(FilteredExpenses);

@@ -2,24 +2,6 @@ import firebase/* , { facebookProvider, auth, database }*/ from '../../FirebaseC
 import {ADDNOTEURL} from '../../config';
 import axios from 'axios';
 
-// export default function addNote (data) {
-//     const note = {
-//         created: Date.now(),
-//         title: data.title,
-//         text: data.text,
-//         tags: [...data.tags],
-//         lastEditTime: Date.now()
-//     };
-//     const userId = firebase.auth().currentUser.uid;
-//     const notesRef = database.ref(`/notes/${userId}`);
-//     return notesRef.push(note)
-//         .then(res => {
-//             note.key = res.key;
-//         })
-//         .catch(err => {
-//             console.log(err);
-//         });
-// }
 
 export default function addNote (data) {
     const note = {
@@ -32,7 +14,7 @@ export default function addNote (data) {
     }; 
     console.log(note);
 return axios.post(`${ADDNOTEURL}`, note)
-  .then((res) => {
+  .then(res => {
       console.log(res);
       console.log('note added');
     })

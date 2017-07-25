@@ -96,7 +96,7 @@ class ExpensesList extends Component {
                         <div className="panel-heading">
                             <span>
                                 <h3 className="panel-title"><span>Latest Expenses</span></h3>
-                                <Link to="/notes/search" ><button type="button"
+                                <Link to="/expenses/search" ><button type="button"
                                     className="btn btn-info srch-btn">
                                     <i className="fa fa-search" aria-hidden="true"></i>
                                 </button>

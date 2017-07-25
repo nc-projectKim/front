@@ -69,7 +69,7 @@ class FilteredExpenses extends Component {
                 {/*{this.state.edit 
                     ? <EditExpense editNote={this.editNote} note={this.props.filteredNotes[this.state.noteId]} />*/}
                      <FilteredExpensesList
-                        filteredExpense={expenses}
+                        filteredExpenses={expenses}
                         /*addNewExpense={this.addNewExpense}*/
                         viewMore={this.viewMore}
                         /*editExpense={this.editExpense}*/

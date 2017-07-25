@@ -11,6 +11,7 @@ class FilteredExpensesList extends Component {
         super(props);
     }
     render () {
+        console.log(this.props.filteredExpenses);
         // const editNote = this.props.editNote;
         return (
             <div>
@@ -27,7 +28,7 @@ class FilteredExpensesList extends Component {
                             <div className="panel-body">
                                 <div className="container">
                                     <ExpensesRowTitle />
-                                    {map(this.props.expenses, function (expense, key) {
+                                    {map(this.props.filteredExpenses, function (expense, key) {
                                         return (
                                             <ExpenseCard iD={key} key={expense.created} expense={expense} /*editExpense={editExpense}*/ />
                                         );
@@ -48,8 +49,8 @@ FilteredExpensesList.propTypes = {
     // view: PropTypes.bool.isRequired,
     // add: PropTypes.bool.isRequired,
     // addNewNote: PropTypes.func.isRequired,
-    // notes: PropTypes.object.isRequired,
-    // viewMore: PropTypes.func.isRequired,
+    filteredExpenses: PropTypes.object.isRequired,
+    viewMore: PropTypes.func.isRequired,
     // editNote: PropTypes.func.isRequired,
     // toggleNoteSearch: PropTypes.func.isRequired
 

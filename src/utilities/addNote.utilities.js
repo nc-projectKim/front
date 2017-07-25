@@ -30,7 +30,7 @@ export default function addNote (data) {
         lastEditTime: Date.now(), 
         userId: firebase.auth().currentUser.uid
     }; 
-    console.log(ADDNOTEURL);
+    console.log(note);
 return axios.post(`${ADDNOTEURL}`, note)
   .then(() => {
       console.log('note edited');

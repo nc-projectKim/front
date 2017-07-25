@@ -4,10 +4,11 @@ import MainExpensesList from './MainExpensesList';
 import PropTypes from 'prop-types';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
-
+import { CSVLink, CSVDownload } from 'react-csv';
+import { map, each } from 'underscore';
 
 class MainExpensesPage extends Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.state = {
             view: true,
@@ -17,7 +18,7 @@ class MainExpensesPage extends Component {
         };
         this.viewMore = this.viewMore.bind(this);
     }
-    componentDidMount () {
+    componentDidMount() {
         this.props.getExpenses();
         this.setState({
             view: true,
@@ -25,17 +26,17 @@ class MainExpensesPage extends Component {
             expenses: this.props.expenses
         });
     }
-    render () {
+    render() {
         return (
             <div>
                 {/* {this.state.edit
                     ? <EditNote id={this.state.noteId} editNote={this.editNote} note={this.props.notes[this.state.noteId]} />*/}
-                     <MainExpensesList
-                        heading={'My Expenses'}
-                        expenses={this.props.expenses}
-                        viewMore={this.viewMore}
-                        /* editNote={this.editNote}*/
-                    />
+                <MainExpensesList
+                    heading={'My Expenses'}
+                    expenses={this.props.expenses}
+                    viewMore={this.viewMore}
+                /* editNote={this.editNote}*/
+                />
                 {/* }*/}
 
             </div>
@@ -48,7 +49,7 @@ class MainExpensesPage extends Component {
     //         noteId: id
     //     });
     // }
-    viewMore () {
+    viewMore() {
         this.setState({
             view: !this.state.view
         });

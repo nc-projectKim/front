@@ -168,7 +168,7 @@ class ExpensesSearch extends React.Component {
             expensesQueried: true
         });
         console.log(obj);
-    // return this.props.getFilteredExpenses(obj);
+        // return this.props.getFilteredExpenses(obj);
     }
 }
 

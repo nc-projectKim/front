@@ -33,7 +33,7 @@ export default function addNote (data) {
     console.log(note);
 return axios.post(`${ADDNOTEURL}`, note)
   .then(() => {
-      console.log('note edited');
+      console.log('note added');
     })
   .catch((error) => {
     console.log(error);

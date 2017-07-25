@@ -45,7 +45,7 @@ class ExpensesList extends Component {
         return (
             <div>
                 <button>
-                {/*<CSVLink data={data} header={headers}> Download CSV</CSVLink>*/}
+                {/* <CSVLink data={data} header={headers}> Download CSV</CSVLink>*/}
                 </button>
                 {this.state.view
                     ?

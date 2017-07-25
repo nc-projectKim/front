@@ -5,14 +5,14 @@ import { BrowserRouter as Redirect, Link } from 'react-router-dom';
 import addExpense from '../utilities/addExpense.utilities';
 
 class AddExpense extends React.Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             newSubmit: false
         };
         this.submitExpense = this.submitExpense.bind(this);
     }
-    render() {
+    render () {
         return (
             <div>
                 {
@@ -65,7 +65,7 @@ class AddExpense extends React.Component {
             </div>
         );
     }
-    submitExpense(e) {
+    submitExpense (e) {
         e.preventDefault();
         const newExpenseObj = {
             date: e.target[0].value,

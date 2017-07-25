@@ -106,7 +106,7 @@ class ExpenseCard extends Component {
                     <div className="col-xs-1"><button type="submit" value={this.props.iD} >Edit</button></div>
                 </div>
                 <button>
-                {/*<CSVLink data={data} header={headers}>CSV</CSVLink>*/}
+                {/* <CSVLink data={data} header={headers}>CSV</CSVLink>*/}
                 </button>
             </div>
         );

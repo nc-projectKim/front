@@ -3,6 +3,7 @@ import firebase, {database} from '../../FirebaseConfig';
 export default function queryExpenses (query) {
         console.log('q', query);
         const userId = firebase.auth().currentUser.uid;
+        console.log(userId);
         return database.ref(`/expenses/${userId}/`)
         .once('value')
         .then(function (data) {
@@ -29,8 +30,8 @@ export default function queryExpenses (query) {
                 }
             });
             return dataObj; 
-        })
-        .then(function (obj) {
-            console.log(obj);
         });
+        // .then(function (obj) {
+        //     console.log(obj);
+        // });
 }

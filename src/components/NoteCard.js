@@ -21,7 +21,6 @@ class NoteCard extends Component {
         this.displayNote = this.displayNote.bind(this);
     }
     render () {
-        console.log(this.props.note);
         return (
             <div>
                 <div className="container-fluid component-NoteCard">

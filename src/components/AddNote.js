@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import './css/AddNote.css';
-import { BrowserRouter as Redirect, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
 import addNote from '../utilities/addNote.utilities';
 
 class AddNote extends React.Component {
@@ -17,10 +17,7 @@ class AddNote extends React.Component {
         <div>
             {
                 this.state.newSubmit &&
-                <div>
-                    <div>Note submitted!</div>
-                    <Redirect to="/notes"/>
-                </div>
+                    <Redirect to={'/notes'}/>
             }
             <div className='panel panel-default'>
                 <div className="panel-heading">
@@ -64,6 +61,7 @@ class AddNote extends React.Component {
         };
         addNote(newNoteObj)
             .then(() => {
+                console.log('note added');
                 return (
                     this.setState({
                         newSubmit: !this.state.newSubmit,

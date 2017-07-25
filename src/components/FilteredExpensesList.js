@@ -20,7 +20,7 @@ class FilteredExpensesList extends Component {
                             <div className="panel-heading">
                                 <h3 className="panel-title">Search results</h3>
                                 <Link to="/expenses/search" ><button type="button"
-                                    /*onClick={this.props.toggleExpensesSearch}*/
+                                    /* onClick={this.props.toggleExpensesSearch}*/
                                     className="btn btn-info">Change Search</button>
                                 </Link>
                             </div>
@@ -30,7 +30,7 @@ class FilteredExpensesList extends Component {
                                     <ExpensesRowTitle />
                                     {map(this.props.filteredExpenses, function (expense, key) {
                                         return (
-                                            <ExpenseCard iD={key} key={expense.created} expense={expense} /*editExpense={editExpense}*/ />
+                                            <ExpenseCard iD={key} key={expense.created} expense={expense} /* editExpense={editExpense}*/ />
                                         );
                                     })}
                                     <ExpensesPanelButtons

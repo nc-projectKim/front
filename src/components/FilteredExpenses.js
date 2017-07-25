@@ -66,13 +66,13 @@ class FilteredExpenses extends Component {
     render () {
         return (
             <div className="FilteredExpenses-main">
-                {/*{this.state.edit 
+                {/* {this.state.edit 
                     ? <EditExpense editNote={this.editNote} note={this.props.filteredNotes[this.state.noteId]} />*/}
                      <FilteredExpensesList
                         filteredExpenses={expenses}
-                        /*addNewExpense={this.addNewExpense}*/
+                        /* addNewExpense={this.addNewExpense}*/
                         viewMore={this.viewMore}
-                        /*editExpense={this.editExpense}*/
+                        /* editExpense={this.editExpense}*/
                     />
             </div>
         );

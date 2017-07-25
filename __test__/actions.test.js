@@ -89,4 +89,37 @@ describe('actions', () => {
             });
         });
     });
+
+    describe('#GET_EXPENSES_REQUEST', () => {
+        it('is a function', () => {
+            expect(typeof actions.getExpensesRequest).toBe('function');
+        });
+        it('returns expected result', () => {
+            expect(actions.getExpensesRequest()).toEqual({
+                type: types.GET_EXPENSES_REQUEST
+            });
+        });
+    });
+    describe('#GET_EXPENSES_SUCCESS', () => {
+        it('is a function', () => {
+            expect(typeof actions.getExpensesSuccess).toBe('function');
+        });
+        it('returns expected result', () => {
+            expect(actions.getExpensesSuccess('let there be expenses')).toEqual({
+                type: types.GET_EXPENSES_SUCCESS,
+                data: 'let there be expenses'
+            });
+        });
+    });
+    describe('#GET_EXPENSES_ERROR', () => {
+        it('is a function', () => {
+            expect(typeof actions.getExpensesError).toBe('function');
+        });
+        it('returns expected result', () => {
+            expect(actions.getExpensesError('err')).toEqual({
+                type: types.GET_EXPENSES_ERROR,
+                data: 'err'
+            });
+        });
+    });
 });

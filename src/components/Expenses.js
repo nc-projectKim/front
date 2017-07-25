@@ -5,21 +5,22 @@ import React, { Component } from 'react';
 // import NotesPanelButtonsMinimised from './NotesPanelButtonsMinimised';
 // import { map } from 'underscore';
 import PropTypes from 'prop-types';
-import NotesSearch from './NotesSearch';
+// import NotesSearch from './NotesSearch';
 // import AddNote from './AddNote';
 import Welcome from './Welcome';
-import MainNotesPage from './MainNotesPage';
-import FilteredNotes from './FilteredNotes';
-import AddNote from './AddNote';
+import MainExpensesPage from './MainExpensesPage';
+// import FilteredExpenses from './FilteredExpenses';
+// import AddExpense from './AddExpense';
 import { connect } from 'react-redux';
-import DeleteNote from './DeleteNote';
+// import DeleteExpense from './DeleteExpense';
 
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-import './css/Notes.css';
+import './css/Expenses.css';
 
-class NotesList extends Component {
+
+class Expenses extends Component {
     constructor (props) {
         super(props);
         this.state = {
@@ -29,17 +30,17 @@ class NotesList extends Component {
     render () {
         const userFirstName = this.props.currentUser.displayName.split(' ')[0];
         return (
-            <div className='notes-page'>
-                <Welcome className='notes-welcome'
+            <div className='expenses-page'>
+                <Welcome className='expenses-welcome'
                     picture={this.props.currentUser.photoURL}
-                    messageTitle={`${userFirstName}'s notes`} 
+                    messageTitle={`${userFirstName}'s Expenses`} 
                     />
                 <Switch>
-                    <Route exact path='/notes' component={MainNotesPage}/>
-                    <Route exact path='/notes/add' component={AddNote}/>
-                    <Route exact path='/notes/search' component={NotesSearch} />
-                    <Route path='/notes/search/result' component={FilteredNotes} />
-                    <Route path='/notes/deleted' component={DeleteNote} />
+                    <Route exact path='/expenses' component={MainExpensesPage}/>
+                    {/*<Route exact path='/notes/add' component={AddNote}/>*/}
+                    {/*<Route exact path='/notes/search' component={NotesSearch} />*/}
+                    {/*<Route path='/notes/search/result' component={FilteredNotes} />*/}
+                    {/*<Route path='/notes/deleted' component={DeleteNote} />*/}
                 </Switch>
             </div>
         );
@@ -52,8 +53,9 @@ function mapStateToProps (state) {
   };
 }
 
-export default connect(mapStateToProps)(NotesList);
+export default connect(mapStateToProps)(Expenses);
+// export default Expenses;
 
-NotesList.propTypes = {
+Expenses.propTypes = {
     currentUser: PropTypes.object.isRequired,
 };

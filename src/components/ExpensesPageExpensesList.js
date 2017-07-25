@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
-import NoteRowTitle from './NoteRowTitle';
-import NoteCard from './NoteCard';
-import NotesPanelButtons from './NotesPanelButtons';
+import ExpensesRowTitle from './ExpensesRowTitle';
+import ExpenseCard from './ExpenseCard';
+import ExpensesPanelButtons from './ExpensesPanelButtons';
 // import NotesPanelButtonsMinimised from './NotesPanelButtonsMinimised';
 import { map } from 'underscore';
 import PropTypes from 'prop-types';
-import AddNote from './AddNote';
-import './css/NotesList.css';
+// import AddExpense from './AddNote';
+import './css/ExpensesList.css';
 import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
-import alterValues from './component-utilities/alterValues'
+import alterValues from './component-utilities/alterValues';
 
-class NotesPageNotesList extends Component {
+class ExpensesPageExpensesList extends Component {
     constructor (props) {
         super(props);
     }
     render () {
-        const editNote = this.props.editNote;
-        const alteredValues = alterValues(this.props.notes);
+        // const editNote = this.props.editNote;
+        const alteredValues = alterValues(this.props.expenses);
         return (
             <div>
                     <div className='panel panel-default'>
@@ -34,14 +34,14 @@ class NotesPageNotesList extends Component {
 
                         <div className="panel-body">
                             <div className="container">
-                                <NoteRowTitle />
-                                {map(alteredValues, function (note) {
+                                <ExpensesRowTitle />
+                                {map(alteredValues, function (expense) {
                                     return (
-                                        <NoteCard iD={note[0]} key={note[1].created} note={note[1]} editNote={editNote} />
+                                        <ExpenseCard iD={expense[0]} key={expense[1].created} expense={expense[1]} /*editNote={editExpense}*/ />
                                     );
                                 })}
-                                <NotesPanelButtons
-                                    addNewNote={this.props.addNewNote}
+                                <ExpensesPanelButtons
+                                    /*addNewExpense={this.props.addNewExpense}*/
                                     viewMore={this.viewMore} />
                             </div>
                         </div>
@@ -52,14 +52,14 @@ class NotesPageNotesList extends Component {
 }
 
 
-export default NotesPageNotesList;
+export default ExpensesPageExpensesList;
 
-NotesPageNotesList.propTypes = {
+ExpensesPageExpensesList.propTypes = {
     add: PropTypes.bool.isRequired,
-    addNewNote: PropTypes.func.isRequired,
-    notes: PropTypes.object.isRequired,
-    editNote: PropTypes.func.isRequired,
+    // addNewExpense: PropTypes.func.isRequired,
+    expenses: PropTypes.object.isRequired,
+    // editExpense: PropTypes.func.isRequired,
     heading: PropTypes.string.isRequired,
-    submitNote: PropTypes.func.isRequired,
+    // submitExpense: PropTypes.func.isRequired,
     newSubmit: PropTypes.bool.isRequired
 };

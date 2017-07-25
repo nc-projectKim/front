@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import './css/PanelButtons.css';
+import './css/NotesPanelButtons.css';
 
-class PanelButtonsMinimised extends Component {
+class ExpensesPanelButtonsMinimised extends Component {
     render () {
         return (
-            <div className="row component-PanelButtons">
+            <div className="row component-NotesPanelButtons">
                 <button
                     onClick={this.props.viewMore}
                     type="button"
@@ -18,7 +18,7 @@ class PanelButtonsMinimised extends Component {
                 <Link to="/notes/add"><button
                     type="button"
                     className="btn btn-info "><i className="fa fa-plus" aria-hidden="true"></i>
-                     &nbsp; Add A Note
+                     &nbsp; Add An Expense
                     </button></Link>
 
 
@@ -31,8 +31,8 @@ class PanelButtonsMinimised extends Component {
         );
     }
 }
-export default PanelButtonsMinimised;
+export default ExpensesPanelButtonsMinimised;
 
-PanelButtonsMinimised.propTypes = {
+ExpensesPanelButtonsMinimised.propTypes = {
     viewMore: PropTypes.func.isRequired,
 };

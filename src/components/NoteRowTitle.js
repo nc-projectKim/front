@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './css/NoteCard.css';
 
 
-class RowTitle extends Component {
+class NoteRowTitle extends Component {
     render () {
         return (
             <div className="container-fluid component-NoteCard">
@@ -18,4 +18,4 @@ class RowTitle extends Component {
         );
     }
 }
-export default RowTitle;
+export default NoteRowTitle;

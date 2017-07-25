@@ -12,6 +12,7 @@ import firebase, { facebookProvider } from '../../FirebaseConfig';
 import {connect} from 'react-redux';
 // import {firebaseConnect, isLoaded, isEmpty, dataToJS} from 'react-redux-firebase';
 import * as actions from '../actions/actions';
+import Expenses from './Expenses';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -46,6 +47,7 @@ class App extends Component {
                             <Switch>
                                 <Route exact path='/welcome' component={LoggedInHome} />
                                 <Route path='/notes' component={Notes} />
+                                <Route path="/expenses" component={Expenses} />
                             </Switch>
                         </div>
                     }

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import RowTitle from './RowTitle';
+import NoteRowTitle from './NoteRowTitle';
 import NoteCard from './NoteCard';
-import PanelButtons from './PanelButtons';
-import PanelButtonsMinimised from './PanelButtonsMinimised';
+import NotesPanelButtons from './NotesPanelButtons';
+import NotesPanelButtonsMinimised from './NotesPanelButtonsMinimised';
 import { map } from 'underscore';
 import PropTypes from 'prop-types';
 import './css/NotesList.css';
@@ -39,13 +39,13 @@ class NotesList extends Component {
 
                         <div className="panel-body">
                             <div className="container">
-                                <RowTitle />
+                                <NoteRowTitle />
                                 {map(notesAltered, function (note) {
                                     return (
                                         <NoteCard iD={note[0]} key={note.created} note={note[1]} editNote={editNote} />
                                     );
                                 })}
-                                <PanelButtons
+                                <NotesPanelButtons
                                     viewMore={this.viewMore} />
                             </div>
                         </div>
@@ -54,7 +54,7 @@ class NotesList extends Component {
                         <div className="panel panel-default">
                             <div className="panel-heading">
                                 <h3 className="panel-title">Latest Notes</h3>
-                                <PanelButtonsMinimised
+                                <NotesPanelButtonsMinimised
                                     viewMore={this.viewMore} />
                             </div>
                         </div>

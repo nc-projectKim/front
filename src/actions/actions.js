@@ -2,6 +2,7 @@ import * as types from './types';
 import getAllNotes from '../utilities/getAllNotes.utilities';
 import getAllExpenses from '../utilities/getAllExpenses.utilities';
 import queryNotes from '../utilities/queryNote.utilities';
+// import queryExpenses from '../utilities/queryExpense.utilities';
 
 export const logInUser = (currentUser) => {
     return {
@@ -115,35 +116,35 @@ export function getExpensesError (err) {
     };
 }
 
-export function getQueryExpenses (obj) {
-    return function (dispatch) {
-        dispatch(queryExpensesRequest());
-        return queryExpenses(obj)
-        .then (res => {
-            dispatch(queryExpensesSuccess(res));
-        })
-        .catch(err => {
-            dispatch(queryExpensesError(err));
-        });
-    };
-}
+// export function getQueryExpenses (obj) {
+//     return function (dispatch) {
+//         dispatch(queryExpensesRequest());
+//         // return queryExpenses(obj)
+//         .then (res => {
+//             dispatch(queryExpensesSuccess(res));
+//         })
+//         .catch(err => {
+//             dispatch(queryExpensesError(err));
+//         });
+//     };
+// }
 
-export function queryExpensesRequest () {
-    return {
-        type: types.QUERY_NOTES_REQUEST
-    };
-}
+// export function queryExpensesRequest () {
+//     return {
+//         type: types.QUERY_EXPENSES_REQUEST
+//     };
+// }
 
-export function queryExpensesSuccess (filteredExpenses) {
-    return {
-        type: types.QUERY_NOTES_SUCCESS,
-        filteredData: filteredNotes
-    };
-}
+// export function queryExpensesSuccess (filteredExpenses) {
+//     return {
+//         type: types.QUERY_EXPENSES_SUCCESS,
+//         filteredExpenses: filteredExpenses
+//     };
+// }
 
-export function queryNotesError (err) {
-    return {
-        type: types.QUERY_NOTES_ERROR,
-        filteredData: err
-    };
-}
+// export function queryExpensesError (err) {
+//     return {
+//         type: types.QUERY_EXPENSES_ERROR,
+//         filteredExpenses: err
+//     };
+// }

@@ -1,19 +1,6 @@
 import firebase, {database} from '../../FirebaseConfig';
 
-const query = {
-    dateItems: {
-        dateChosen: 'expenseDate',
-        from: 1484335371000,
-        to: 1501197395000
-    },
-    findWord: null,
-    queryItems: {
-        haveReceipt: null,
-        chargeTo: null
-    }
-};
-
-function queryExpenses (query) {
+export default function queryExpenses (query) {
         console.log('q', query);
         const userId = firebase.auth().currentUser.uid;
         return database.ref(`/expenses/${userId}/`)
@@ -47,5 +34,3 @@ function queryExpenses (query) {
             console.log(obj);
         });
 }
-
-console.log(queryExpenses(query));

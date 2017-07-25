@@ -134,7 +134,7 @@ class ExpensesSearch extends React.Component {
             queryItems: {}
         };
         if (searchParameters === 'Charge To') {
-            obj.findWord = null;
+            obj.findWord = searchTerm;
             obj.queryItems.chargeTo = searchTerm;
         }
         else if (searchTerm.length > 0) {
@@ -168,21 +168,21 @@ class ExpensesSearch extends React.Component {
             expensesQueried: true
         });
         console.log(obj);
-        // return this.props.getFilteredExpenses(obj);
+        return this.props.getFilteredExpenses(obj);
     }
 }
 
-// function mapDispatchToProps (dispatch) {
-//     return {
-//         getFilteredNotes: (obj) => {
-//             dispatch(actions.getQueryNotes(obj));
-//         }
-//     };
-// }
+function mapDispatchToProps (dispatch) {
+    return {
+        getFilteredExpenses: (obj) => {
+            dispatch(actions.getQueryExpenses(obj));
+        }
+    };
+}
 
 
-export default ExpensesSearch;
-// export default connect (null, mapDispatchToProps)(NotesSearch);
+// export default ExpensesSearch;
+export default connect (null, mapDispatchToProps)(ExpensesSearch);
 
 // NotesSearch.propTypes = {
 //     getFilteredNotes: PropTypes.func.isRequired

@@ -57,7 +57,7 @@ describe('actions', () => {
         });
     });
 
-        describe('#QUERY_NOTES_REQUEST', () => {
+    describe('#QUERY_NOTES_REQUEST', () => {
         it('is a function', () => {
             expect(typeof actions.queryNotesRequest).toBe('function');
         });
@@ -119,6 +119,39 @@ describe('actions', () => {
             expect(actions.getExpensesError('err')).toEqual({
                 type: types.GET_EXPENSES_ERROR,
                 data: 'err'
+            });
+        });
+    });
+
+        describe('#QUERY_EXPENSES_REQUEST', () => {
+        it('is a function', () => {
+            expect(typeof actions.queryExpensesRequest).toBe('function');
+        });
+        it('returns expected result', () => {
+            expect(actions.queryExpensesRequest()).toEqual({
+                type: types.QUERY_EXPENSES_REQUEST
+            });
+        });
+    });
+    describe('#QUERY_EXPENSES_SUCCESS', () => {
+        it('is a function', () => {
+            expect(typeof actions.queryExpensesSuccess).toBe('function');
+        });
+        it('returns expected result', () => {
+            expect(actions.queryExpensesSuccess('let there be expenses')).toEqual({
+                type: types.QUERY_EXPENSES_SUCCESS,
+                filteredData: 'let there be expenses'
+            });
+        });
+    });
+    describe('#QUERY_EXPENSES_ERROR', () => {
+        it('is a function', () => {
+            expect(typeof actions.queryExpensesError).toBe('function');
+        });
+        it('returns expected result', () => {
+            expect(actions.queryExpensesError('err')).toEqual({
+                type: types.QUERY_EXPENSES_ERROR,
+                filteredData: 'err'
             });
         });
     });

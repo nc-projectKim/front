@@ -1,18 +1,21 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 // import './css/AddExpense.css';
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+import 'react-datepicker/dist/react-datepicker.css';
 import { BrowserRouter as Redirect, Link } from 'react-router-dom';
 import addExpense from '../utilities/addExpense.utilities';
 
 class AddExpense extends React.Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             newSubmit: false
         };
         this.submitExpense = this.submitExpense.bind(this);
     }
-    render() {
+    render () {
         return (
             <div>
                 {
@@ -30,14 +33,21 @@ class AddExpense extends React.Component {
                         <div className="container">
                             <form onSubmit={this.submitExpense} method="post">
                                 <div>
-                                    <label htmlFor="expense">Date</label>
+                                    <label htmlFor="dateOfExpense">Date of Expense</label>
                                     <br />
-                                    <input className="expenseInput" name="expense" type="text" placeholder="11/04/1996" />
+                                    <DatePicker
+                                        placeholderText='Click to select a date'
+                                        dateFormat="DD/MM/YYYY"
+                                        selected={this.state.startDate}
+                                        onChange={this.handleChange}
+                                        isClearable={true}
+                                    />
                                 </div>
                                 <div>
-                                    <label htmlFor="expense">Amount</label>
+                                    <label htmlFor="expenseAmount">Amount</label>
                                     <br />
-                                    <input className="expenseInput" name="expense" type="text" placeholder="£5.99" />
+                                    <span>£</span>
+                                    <span><input className="expenseInput" name="expenseAmount" type="text" placeholder="5.99" /></span>
                                 </div>
                                 <div>
                                     <label htmlFor="Title">Title</label>
@@ -65,7 +75,7 @@ class AddExpense extends React.Component {
             </div>
         );
     }
-    submitExpense(e) {
+    submitExpense (e) {
         e.preventDefault();
         const newExpenseObj = {
             date: e.target[0].value,

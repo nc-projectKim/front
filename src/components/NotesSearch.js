@@ -153,21 +153,21 @@ class NotesSearch extends React.Component {
         this.setState({
             notesQueried: true
         });
-    // return this.props.getFilteredNotes(obj);
+    return this.props.getFilteredNotes(obj);
     }
 }
 
-// function mapDispatchToProps (dispatch) {
-//     return {
-//         getFilteredNotes: (obj) => {
-//             dispatch(actions.getQueryNotes(obj));
-//         }
-//     };
-// }
+function mapDispatchToProps (dispatch) {
+    return {
+        getFilteredNotes: (obj) => {
+            dispatch(actions.getQueryNotes(obj));
+        }
+    };
+}
 
 
-export default NotesSearch;
-// export default connect (null, mapDispatchToProps)(NotesSearch);
+// export default NotesSearch;
+export default connect (null, mapDispatchToProps)(NotesSearch);
 
 NotesSearch.propTypes = {
     getFilteredNotes: PropTypes.func.isRequired

@@ -56,7 +56,7 @@ class MainExpensesPage extends Component {
     }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
     return {
         getExpenses: () => {
             dispatch(actions.getExpenses());
@@ -64,7 +64,7 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
     return {
         expenses: state.expenses
     };

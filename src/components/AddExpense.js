@@ -4,7 +4,7 @@ import React from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
-import { BrowserRouter as Redirect, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
 import addExpense from '../utilities/addExpense.utilities';
 
 class AddExpense extends React.Component {
@@ -24,7 +24,7 @@ class AddExpense extends React.Component {
                     this.state.newSubmit &&
                     <div>
                         <div>Expense submitted!</div>
-                        <Redirect to="/expenses" />
+                        <Redirect to={'/expenses'} />
                     </div>
                 }
                 <div className='panel panel-default'>

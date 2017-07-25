@@ -24,7 +24,7 @@ class LatestExpenses extends Component {
         });
     }
     render () {
-		console.log(this.props.expenses)
+		console.log(this.props.expenses);
         return (
             <div>
                 {/* { this.state.edit

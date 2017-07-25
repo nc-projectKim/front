@@ -1,7 +1,6 @@
 import firebase, {database} from '../../FirebaseConfig';
 
 export default function queryExpenses (query) {
-        console.log('q', query);
         const userId = firebase.auth().currentUser.uid;
         return database.ref(`/expenses/${userId}/`)
         .once('value')
@@ -9,8 +8,12 @@ export default function queryExpenses (query) {
             const dataObj = {};
             data.forEach(function (childData) {
                 const childObject = childData.val();
-                const testDate = childObject[query.dateItems.dateChosen] >= query.dateItems.from
-                                && childObject[query.dateItems.dateChosen] <= query.dateItems.to;
+                let testDate;
+                if (query.dateItems.from === null && query.dateItems.to === null) testDate = true;
+                else {
+                testDate = childObject[query.dateItems.dateChosen] >= query.dateItems.from
+                && childObject[query.dateItems.dateChosen] <= query.dateItems.to;
+                }
                 let include = true;
                 for (let key of Object.keys(query.queryItems)) {
                     if (query.queryItems[key] !== null && childObject[key] !== query.queryItems[key]) {
@@ -19,9 +22,14 @@ export default function queryExpenses (query) {
                 }
                 if (query.findWord !== null) {
                     const regex = new RegExp(query.findWord, 'i');
-                    const testWord = regex.test(childObject.description) || 
-                            regex.test(childObject.note) ||
-                            regex.test(childObject.client);
+                    let testWord;
+                    if (query.queryItems.chargeTo !== null) {
+                        testWord = regex.test(childObject.chargeTo);
+                    }
+                    else {
+                        testWord = regex.test(childObject.description) || 
+                            regex.test(childObject.chargeTo);
+                    }
                     if (!testWord) include = false;
                 }
                 if (include && testDate) {
@@ -29,8 +37,5 @@ export default function queryExpenses (query) {
                 }
             });
             return dataObj; 
-        })
-        .then(function (obj) {
-            console.log(obj);
         });
 }

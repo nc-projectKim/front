@@ -84,7 +84,8 @@ class ExpenseCard extends Component {
                         <div>{moment(this.props.expense.created).format(timeFormat)}</div>
                     </div>
                     {/* Amount -2*/}
-                    <div className="col-xs-2">{`£${this.props.expense.amount.toFixed(2)}`}</div>
+                    {/*<div className="col-xs-2">{`£${this.props.expense.amount.toFixed(2)}`}</div>*/}
+                    <div className="col-xs-2">{`£${this.props.expense.amount}`}</div>
 
                     {/* ChargeTo 4*/}
                     <div className="col-xs-4">
@@ -106,7 +107,7 @@ class ExpenseCard extends Component {
                     <div className="col-xs-1"><button type="submit" value={this.props.iD} >Edit</button></div>
                 </div>
                 <button>
-                {/*<CSVLink data={data} header={headers}>CSV</CSVLink>*/}
+                {/* <CSVLink data={data} header={headers}>CSV</CSVLink>*/}
                 </button>
             </div>
         );

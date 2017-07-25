@@ -1,13 +1,12 @@
-import firebase from 'firebase';
-import {CONFIG} from './config.js';
+const firebase = require('firebase');
+const {CONFIG} = require('./config.js');
 // import {reactReduxFirebase} from 'react-redux-firebase';
 // import {compose} from 'redux';
 
 firebase.initializeApp(CONFIG);
+const auth = firebase.auth();
+const facebookProvider = new firebase.auth.FacebookAuthProvider();
+// const storage = firebase.storage();
+const database = firebase.database();
 
-export default firebase;
-
-export const auth = firebase.auth();
-export const facebookProvider = new firebase.auth.FacebookAuthProvider();
-// export const storage = firebase.storage();
-export const database = firebase.database();
+module.exports = {firebase, auth, facebookProvider, database};

@@ -1,5 +1,5 @@
 import firebase/* , { facebookProvider, auth, database }*/ from '../../FirebaseConfig';
-import {ADD_EXPENSE_URL} from '../../config';
+import {ADDEXPENSEURL} from '../../config';
 import axios from 'axios';
 
 // export default function addNote (data) {
@@ -22,18 +22,22 @@ import axios from 'axios';
 // }
 
 export default function addExpense (data) {
+  const receipt = data.haveReceipt === 'yes' ? true : false;
     const expense = {
         created: Date.now(),
-        date: data.date,
+        expenseDate: data.date,
         amount: data.amount,
-        title: data.title,
-        myExpense: data.myExpense,
+        currency: data.currency,
+        chargeTo: data.chargeTo,
+        description: data.description,
         lastEditTime: Date.now(), 
+        haveReceipt: receipt,
         userId: firebase.auth().currentUser.uid
     }; 
-    console.log(ADD_EXPENSE_URL);
-return axios.post(`${ADD_EXPENSE_URL}`, expense)
-  .then(() => {
+    console.log(ADDEXPENSEURL);
+return axios.post(`${ADDEXPENSEURL}`, expense)
+  .then((res) => {
+      console.log('r', res);
       console.log('expense added');
     })
   .catch((error) => {

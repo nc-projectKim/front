@@ -16,7 +16,6 @@ class ExpensesPanelButtons extends Component {
             const newArr = [];
             newArr.push(key);
             each(x, (y) => {
-                console.log(y);
                 newArr.push(y);
             });
             return newArr;

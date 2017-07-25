@@ -114,3 +114,36 @@ export function getExpensesError (err) {
         data: err
     };
 }
+
+export function getQueryExpenses (obj) {
+    return function (dispatch) {
+        dispatch(queryExpensesRequest());
+        return queryExpenses(obj)
+        .then (res => {
+            dispatch(queryExpensesSuccess(res));
+        })
+        .catch(err => {
+            dispatch(queryExpensesError(err));
+        });
+    };
+}
+
+export function queryExpensesRequest () {
+    return {
+        type: types.QUERY_NOTES_REQUEST
+    };
+}
+
+export function queryExpensesSuccess (filteredExpenses) {
+    return {
+        type: types.QUERY_NOTES_SUCCESS,
+        filteredData: filteredNotes
+    };
+}
+
+export function queryNotesError (err) {
+    return {
+        type: types.QUERY_NOTES_ERROR,
+        filteredData: err
+    };
+}

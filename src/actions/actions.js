@@ -1,5 +1,6 @@
 import * as types from './types';
 import getAllNotes from '../utilities/getAllNotes.utilities';
+import getAllExpenses from '../utilities/getAllExpenses.utilities';
 import queryNotes from '../utilities/queryNote.utilities';
 
 export const logInUser = (currentUser) => {
@@ -78,5 +79,38 @@ export function queryNotesError (err) {
     return {
         type: types.QUERY_NOTES_ERROR,
         filteredData: err
+    };
+}
+
+export function getExpenses () {
+    return function (dispatch) {
+        dispatch(getExpensesRequest());
+        return getAllExpenses()
+        .then (res => {
+            dispatch(getExpensesSuccess(res));
+        })
+        .catch(err => {
+            dispatch(getExpensesError(err));
+        });
+    };
+}
+
+export function getExpensesRequest () {
+    return {
+        type: types.GET_EXPENSES_REQUEST
+    };
+}
+
+export function getExpensesSuccess (expenses) {
+    return {
+        type: types.GET_EXPENSES_SUCCESS,
+        data: expenses
+    };
+}
+
+export function getExpensesError (err) {
+    return {
+        type: types.GET_EXPENSES_ERROR,
+        data: err
     };
 }

@@ -64,6 +64,27 @@ export default function reducer (prevState = initialState, action) {
         });
     }
 
+    if (action.type === types.GET_EXPENSES_REQUEST) {
+        return Object.assign({}, prevState, {
+            expenses: action.data,
+            loading: true,
+
+        });
+    }
+    if (action.type === types.GET_EXPENSES_SUCCESS) {
+        return Object.assign({}, prevState, {
+            expenses: Object.assign({}, action.data),
+            loading: false,
+        });
+    }
+
+    if (action.type === types.GET_EXPENSES_ERROR) {
+        return Object.assign({}, prevState, {
+            loading: false,
+            expenses: action.data
+        });
+    }
+
     else {
         return prevState;
     }

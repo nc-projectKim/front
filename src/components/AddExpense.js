@@ -74,17 +74,17 @@ class AddExpense extends React.Component {
             myExpense: e.target[3].value,
             haveReceipt: e.target[4].value
         };
-        // addexpense(newExpenseObj)
-        //     .then(() => {
-        //         return (
-        //             this.setState({
-        //                 newSubmit: !this.state.newSubmit,
-        //             })
-        //         );
-        //     })
-        //     .catch(err => {
-        //         console.log(err);
-        //     });
+        addexpense(newExpenseObj)
+            .then(() => {
+                return (
+                    this.setState({
+                        newSubmit: !this.state.newSubmit,
+                    })
+                );
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
 }
 

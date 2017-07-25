@@ -5,11 +5,11 @@ import React, { Component } from 'react';
 // import NotesPanelButtonsMinimised from './NotesPanelButtonsMinimised';
 // import { map } from 'underscore';
 import PropTypes from 'prop-types';
-// import NotesSearch from './NotesSearch';
+import ExpensesSearch from './ExpensesSearch';
 // import AddNote from './AddNote';
 import Welcome from './Welcome';
 import MainExpensesPage from './MainExpensesPage';
-// import FilteredExpenses from './FilteredExpenses';
+import FilteredExpenses from './FilteredExpenses';
 // import AddExpense from './AddExpense';
 import { connect } from 'react-redux';
 import NoMatch from './NoMatch';
@@ -39,8 +39,8 @@ class Expenses extends Component {
                 <Switch>
                     <Route exact path='/expenses' component={MainExpensesPage}/>
                     {/* <Route exact path='/notes/add' component={AddNote}/>*/}
-                    {/* <Route exact path='/notes/search' component={NotesSearch} />*/}
-                    {/* <Route path='/notes/search/result' component={FilteredNotes} />*/}
+                     <Route exact path='/expenses/search' component={ExpensesSearch} />
+                     <Route path='/expenses/search/result' component={FilteredExpenses} />
                     {/* <Route path='/notes/deleted' component={DeleteNote} />*/}
                     <Route component={NoMatch} />
                 </Switch>

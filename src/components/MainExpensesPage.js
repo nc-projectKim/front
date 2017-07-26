@@ -8,7 +8,7 @@ import { CSVLink, CSVDownload } from 'react-csv';
 import { map, each } from 'underscore';
 
 class MainExpensesPage extends Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             view: true,
@@ -19,7 +19,7 @@ class MainExpensesPage extends Component {
         this.viewMore = this.viewMore.bind(this);
         // this.editExpense = this.editExpense.bind(this);
     }
-    componentDidMount() {
+    componentDidMount () {
         this.props.getExpenses();
         this.setState({
             view: true,
@@ -27,7 +27,7 @@ class MainExpensesPage extends Component {
             expenses: this.props.expenses
         });
     }
-    render() {
+    render () {
         return (
             <div>
                 <MainExpensesList
@@ -40,7 +40,7 @@ class MainExpensesPage extends Component {
             </div>
         );
     }
-    viewMore() {
+    viewMore () {
         this.setState({
             view: !this.state.view
         });

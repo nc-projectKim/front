@@ -26,7 +26,7 @@ class ExpenseCard extends Component {
                         <div>{moment(this.props.expense.expenseDate).format(timeFormat)}</div>
                     </div>
                     {/* Amount -2*/}
-                    {/*<div className="col-xs-2">{`£${this.props.expense.amount.toFixed(2)}`}</div>*/}
+                    {/* <div className="col-xs-2">{`£${this.props.expense.amount.toFixed(2)}`}</div>*/}
                     <div className="col-xs-2">{`£${this.props.expense.amount}`}</div>
 
                     {/* ChargeTo 4*/}

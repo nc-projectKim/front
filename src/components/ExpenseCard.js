@@ -45,11 +45,8 @@ class ExpenseCard extends Component {
                         : <div className="col-xs-1"><button onClick={this.displayExpenseDescription}>View</button></div>
 
                     }
-                    <div className="col-xs-1"><button type="submit" value={this.props.iD} >Edit</button></div>
+                    <div className="col-xs-1"><button type="submit" value={this.props.iD} onClick={this.props.editExpense.bind(this, this.props.iD)} >Edit</button></div>
                 </div>
-                <button>
-                {/* <CSVLink data={data} header={headers}>CSV</CSVLink>*/}
-                </button>
             </div>
         );
     }

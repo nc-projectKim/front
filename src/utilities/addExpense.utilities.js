@@ -25,9 +25,11 @@ export default function addExpense (data) {
     const expense = {
         created: Date.now(),
         date: data.date,
+        currency: data.currency,
         amount: data.amount,
-        title: data.title,
-        myExpense: data.myExpense,
+        chargeTo: data.chargeTo,
+        description: data.description,
+        haveReceipt: data.haveReceipt,
         lastEditTime: Date.now(), 
         userId: firebase.auth().currentUser.uid
     }; 

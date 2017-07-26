@@ -20,7 +20,7 @@ class ExpensesList extends Component {
 
     }
     render () {
-        // const editNote = this.props.editNote;
+        const editExpense = this.props.editExpense;
         const expensesAltered = alterValuesExpenses (this.props.expenses).slice(0, 10);
         console.log('ea', expensesAltered);
         return (
@@ -44,7 +44,11 @@ class ExpensesList extends Component {
                                 <ExpensesRowTitle />
                                 {map(expensesAltered, function (expense) {
                                     return (
-                                        <ExpenseCard iD={expense[0]} key={expense.created} expense={expense[1]} />
+                                        <ExpenseCard 
+                                        iD={expense[0]} 
+                                        key={expense[1].created} 
+                                        editExpense={editExpense} 
+                                        expense={expense[1]} />
                                     );
                                 })}
                                 <ExpensesPanelButtons
@@ -89,7 +93,7 @@ ExpensesList.propTypes = {
     // view: PropTypes.bool.isRequired,
     expenses: PropTypes.object.isRequired,
     // viewMore: PropTypes.func.isRequired,
-    // editNote: PropTypes.func.isRequired,
+    editExpense: PropTypes.func.isRequired,
     heading: PropTypes.string.isRequired
 };
 

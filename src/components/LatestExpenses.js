@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ExpensesList from './ExpensesList';
-// import EditExpense from './EditExpenses';
+import EditExpense from './EditExpense';
 import PropTypes from 'prop-types';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
@@ -15,7 +15,7 @@ class LatestExpenses extends Component {
             expenseId: '',
             expenses: null
         };
-        // this.editExpense = this.editExpense.bind(this);
+        this.editExpense = this.editExpense.bind(this);
     }
     componentDidMount () {
         this.props.getExpenses();
@@ -29,24 +29,26 @@ class LatestExpenses extends Component {
                  { this.state.edit
                 ? <EditExpense 
                 editExpense={this.editExpense} 
-                expense={this.props.expenses[this.state.expenses]} 
-                expenseId={this.props.expenses[this.state.expenseId]}
+                id={this.state.expenseId}
+                expense={this.props.expenses[this.state.expenseId]} 
+                /*expenseId={this.props.expenses[this.state.expenseId]}*/
                 />
                 : <ExpensesList
                     heading={'Latest Expenses'}
                     view={this.state.view}
                     expenses={this.props.expenses}
                     editExpense={this.editExpense}
-                />}
+                />
+                }
             </div>
         );
     }
-    // editNote (id) {
-    //     this.setState({
-    //         edit: !this.state.edit,
-    //         noteId: id
-    //     });
-    // }
+    editExpense (id) {
+        this.setState({
+            edit: !this.state.edit,
+            expenseId: id
+        });
+    }
 }
 
 function mapDispatchToProps (dispatch) {

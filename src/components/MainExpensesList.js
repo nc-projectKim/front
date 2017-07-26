@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ExpensesPageExpensesList from './ExpensesPageExpensesList';
-// import EditExpense from './EditExpense';
+import EditExpense from './EditExpense';
 import PropTypes from 'prop-types';
 // import * as actions from '../actions/actions';
 // import { connect } from 'react-redux';
@@ -16,7 +16,7 @@ class MainExpensesList extends Component {
             expenses: null,
             newSubmit: false
         };
-        // this.editExpense = this.editExpense.bind(this);
+        this.editExpense = this.editExpense.bind(this);
     }
     // componentDidMount () {
     //     this.props.getNotes();
@@ -27,27 +27,34 @@ class MainExpensesList extends Component {
     render () {
         return (
             <div>
-                {/* { this.state.edit*/}
-                {/* ? <EditExpense id={this.state.noteId} editNote={this.editNote} note={this.props.notes[this.state.noteId]}/>*/}
-                <ExpensesPageExpensesList
+                 { this.state.edit
+                 ? 
+                 <div>
+                {console.log(this.props.expenses[this.state.expenseId])}
+                 <EditExpense 
+                 id={this.state.expenseId} 
+                 editExpense={this.editExpense} 
+                 expense={this.props.expenses[this.state.expenseId]}/>
+                 </div>
+                : <ExpensesPageExpensesList
                     heading={'Latest Expenses'}
                     expenses={this.props.expenses}
                     viewMore={this.viewMore}
-                    /* editNote={this.editNote}*/
+                    editExpense={this.editExpense}
                     /* submitNote={this.submitNote}*/
                     newSubmit={this.state.newSubmit}
                 />
-                {/* }*/}
+                 }
             </div>
         );
     }
-    // editNote (id) {
-    //     this.setState({
-    //         edit: !this.state.edit,
-    //         noteId: id
-    //     });
-//     // }
-// }
+    editExpense (id) {
+        this.setState({
+            edit: !this.state.edit,
+            expenseId: id
+        });
+    // }
+}
 
 // function mapDispatchToProps (dispatch) {
 //     return {

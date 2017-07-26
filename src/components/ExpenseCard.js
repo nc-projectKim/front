@@ -61,5 +61,5 @@ export default ExpenseCard;
 ExpenseCard.propTypes = {
     expense: PropTypes.object.isRequired,
     iD: PropTypes.string.isRequired,
-    editNote: PropTypes.func.isRequired
+    editExpense: PropTypes.func.isRequired
 };

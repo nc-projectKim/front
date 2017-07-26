@@ -13,10 +13,11 @@ class MainExpensesPage extends Component {
         this.state = {
             view: true,
             edit: false,
-            noteId: '',
+            expenseId: '',
             notes: null
         };
         this.viewMore = this.viewMore.bind(this);
+        // this.editExpense = this.editExpense.bind(this);
     }
     componentDidMount() {
         this.props.getExpenses();
@@ -35,18 +36,17 @@ class MainExpensesPage extends Component {
                     heading={'My Expenses'}
                     expenses={this.props.expenses}
                     viewMore={this.viewMore}
-                /* editNote={this.editNote}*/
+                    editExpense={this.editExpense}
                 />
                 {/* }*/}
 
             </div>
         );
     }
-    // editNote (id) {
-    //     console.log('id', id);
+    // editExpense (id) {
     //     this.setState({
     //         edit: !this.state.edit,
-    //         noteId: id
+    //         expenseId: id
     //     });
     // }
     viewMore() {
@@ -71,7 +71,7 @@ function mapStateToProps (state) {
 }
 
 MainExpensesPage.propTypes = {
-    // expenses: PropTypes.any.isRequired,
+    expenses: PropTypes.any.isRequired
     // getNotes: PropTypes.func.isRequired
 };
 export default connect(mapStateToProps, mapDispatchToProps)(MainExpensesPage);

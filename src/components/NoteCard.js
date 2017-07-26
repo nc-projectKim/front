@@ -43,7 +43,9 @@ class NoteCard extends Component {
                         this.props.note.tags.map((tag, i) => {
                             return (
                                 <span key={`${tag}${i}`}>
-                                  {`#${tag}  `}
+                                  { tag.length > 0 &&
+                                      `#${tag}  `
+                                  }
                                 </span>
                             );
                         })

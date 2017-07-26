@@ -62,10 +62,10 @@ class AddExpense extends React.Component {
                                     <textarea className="expenseInput" name="expenseDescription" type="text" placeholder="expense description..." />
                                 </div>
                                 <div>
-                                    <label htmlFor="Tags">Have Receipt?</label>
+                                    <label htmlFor="receipt">Have Receipt?</label>
                                     <br />
                                     <select>
-                                        <optgroup label="Do you have a receipt?">
+                                        <optgroup name="receipt" label="Do you have a receipt?">
                                             <option value="no">no</option>
                                             <option value="yes">Yes</option>
                                         </optgroup>

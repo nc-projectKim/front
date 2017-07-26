@@ -4,7 +4,7 @@ import React from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
-import { BrowserRouter as Redirect, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
 import addExpense from '../utilities/addExpense.utilities';
 
 class AddExpense extends React.Component {
@@ -24,7 +24,7 @@ class AddExpense extends React.Component {
                     this.state.newSubmit &&
                     <div>
                         <div>Expense submitted!</div>
-                        <Redirect to="/expenses" />
+                        <Redirect to={'/expenses'} />
                     </div>
                 }
                 <div className='panel panel-default'>
@@ -87,19 +87,20 @@ class AddExpense extends React.Component {
             dateSelect: date,
             // searchOneDateClicked: true
         });
+        console.log(this.state.dateSelect);
     }
     submitExpense (e) {
         e.preventDefault();
         console.dir(e.target);
         const newExpenseObj = {
-            expenseDate: e.target[0].value,
+            expenseDate: moment(e.target[0].value).format('x'),
             currency: 'GBP',
             amount: e.target[1].value,
             chargeTo: e.target[2].value,
             description: e.target[3].value,
             haveReceipt: e.target[4].value
         };
-        console.log(newExpenseObj);
+        console.log('what adding', newExpenseObj);
         addExpense(newExpenseObj)
             .then(() => {
                 return (

@@ -24,7 +24,6 @@ class LatestExpenses extends Component {
         });
     }
     render () {
-		console.log(this.props.expenses);
         return (
             <div>
                  { this.state.edit
@@ -51,7 +50,6 @@ class LatestExpenses extends Component {
 }
 
 function mapDispatchToProps (dispatch) {
-	console.log('mapping dispatch');
     return {
         getExpenses: () => {
             dispatch(actions.getExpenses());
@@ -60,7 +58,6 @@ function mapDispatchToProps (dispatch) {
 }
 
 function mapStateToProps (state) {
-	console.log('mapping state');
     return {
         expenses: state.expenses,
     };

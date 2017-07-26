@@ -7,7 +7,7 @@ import { map, each } from 'underscore';
 import PropTypes from 'prop-types';
 import './css/ExpensesList.css';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
-// import alterValues from './component-utilities/alterValues';
+import alterValuesExpenses from './component-utilities/alterValues';
 
 class ExpensesList extends Component {
     constructor (props) {
@@ -20,9 +20,9 @@ class ExpensesList extends Component {
 
     }
     render () {
-        console.log(this.props.expenses);
         // const editNote = this.props.editNote;
-        // const notesAltered = alterValues (this.props.notes).slice(0, 10);
+        const expensesAltered = alterValuesExpenses (this.props.expenses).slice(0, 10);
+        console.log('ea', expensesAltered);
         return (
             <div>
                 {this.state.view
@@ -42,9 +42,9 @@ class ExpensesList extends Component {
                         <div className="panel-body">
                             <div className="container">
                                 <ExpensesRowTitle />
-                                {map(this.props.expenses, function (expense, key) {
+                                {map(expensesAltered, function (expense) {
                                     return (
-                                        <ExpenseCard iD={key} key={expense.created} expense={expense} />
+                                        <ExpenseCard iD={expense[0]} key={expense.created} expense={expense[1]} />
                                     );
                                 })}
                                 <ExpensesPanelButtons

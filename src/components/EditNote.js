@@ -66,15 +66,15 @@ class EditNote extends React.Component {
     }
     titleChange (e) {
         e.preventDefault();
-        this.setState = {
+        this.setState({
             title: e.target.value
-        };
+        });
     }
     textChange (e) {
         e.preventDefault();
-        this.setState = {
+        this.setState({
             title: e.target.value
-        };
+        });
     }
     removeTag (tag) {
         const newTags = [...this.state.tags];
@@ -95,9 +95,12 @@ class EditNote extends React.Component {
         };
         editNote(editedNote)
         .then(() => {
+            console.log('noteEdited');
+            return (
             this.setState({
-                justEdited: true
-            }).bind(this);
+                justEdited: !this.state.justEdited
+            })
+            );
         })
         .catch((err) => {
             console.log(err);

@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 // import AddExpense from './AddNote';
 import './css/ExpensesList.css';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
-import alterValues from './component-utilities/alterValues';
+import alterValuesExpenses from './component-utilities/alterValuesExpenses';
 
 class ExpensesPageExpensesList extends Component {
     constructor (props) {
@@ -16,7 +16,7 @@ class ExpensesPageExpensesList extends Component {
     }
     render () {
         // const editNote = this.props.editNote;
-        const alteredValues = alterValues(this.props.expenses);
+        const alteredValues = alterValuesExpenses(this.props.expenses);
         return (
             <div>
                     <div className='panel panel-default'>

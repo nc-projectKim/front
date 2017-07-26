@@ -6,5 +6,4 @@ config.js
 .idea/*
 bundle.js
 bundle.js.map
-webpack.config.js
 .bin

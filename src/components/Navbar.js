@@ -11,7 +11,7 @@ class KimNavbar extends Component {
                     <Navbar.Header>
                         <Navbar.Brand>
                             <a href="#">
-                                <img className="img-st" src={require("../../public/logo.png")} />
+                                <img className="img-st" src={require('../../public/logo.png')} />
                             </a>
                         </Navbar.Brand>
                         <Navbar.Toggle />
@@ -24,7 +24,7 @@ class KimNavbar extends Component {
                                 : <Button className='btn btn-primary logout-btn' onClick={this.props.loginWithFacebook}>Login with Facebook</Button>
                             }
                         </Nav>
-                        {/*<Nav>
+                        {/* <Nav>
                             <NavItem eventKey={1} href="#">Link</NavItem>
                             <NavItem eventKey={2} href="#">Link</NavItem>
                             <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">

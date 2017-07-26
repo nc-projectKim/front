@@ -2,7 +2,7 @@ import firebase/* , /*{ facebookProvider, auth, database }*/ from '../../Firebas
 import { EDITEXPENSEURL } from '../../config';
 import axios from 'axios';
 
-export default function editExpense(data) {
+export default function editExpense (data) {
     const receipt = data.haveReceipt === 'yes' ? true : false;
     const expense = {
         expenseDate: Number(data.expenseDate),

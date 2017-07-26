@@ -9,7 +9,7 @@ import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
 class EditExpense extends React.Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             expenseDate: moment(this.props.expense.expenseDate).utc(),
@@ -29,7 +29,7 @@ class EditExpense extends React.Component {
         this.editExpenseSubmit = this.editExpenseSubmit.bind(this);
         this.deleteExpense = this.deleteExpense.bind(this);
     }
-    render() {
+    render () {
         console.log(this.props.id);
         return (
             <div>
@@ -51,7 +51,7 @@ class EditExpense extends React.Component {
                                         isClearable={true}
                                     />
                     </div>
-                    {/*<div>
+                    {/* <div>
                         <label htmlFor="currency">Currency</label>
                         <br />
                         <input className="titleInput" type="text" onClick={this.currencyChange} name="currency" placeholder="GBP" />
@@ -91,42 +91,42 @@ class EditExpense extends React.Component {
             </div>
         );
     }
-    dateChange(date) {
+    dateChange (date) {
         console.log(date);
         // e.preventDefault();
         this.setState({
             expenseDate: date
         });
     }
-    amountChange(e) {
+    amountChange (e) {
         e.preventDefault();
         console.log(e.target.value);
         this.setState({
             title: e.target.value
         });
     }
-    chargeToChange(e) {
+    chargeToChange (e) {
         e.preventDefault();
         console.log(e.target.value);
         this.setState({
             title: e.target.value
         });
     }
-    descriptionChange(e) {
+    descriptionChange (e) {
         e.preventDefault();
         console.log(e.target.value);
         this.setState ({
             title: e.target.value
         });
     }
-    haveReceiptChange(e) {
+    haveReceiptChange (e) {
         console.log(e.target.value);
         e.preventDefault();
         this.setState = {
             title: e.target.value
         };
     }
-    editExpenseSubmit(e) {
+    editExpenseSubmit (e) {
         console.dir(e.target);
         e.preventDefault();
         const editedExpense = {
@@ -152,7 +152,7 @@ class EditExpense extends React.Component {
                 console.log(err);
             });
     }
-    deleteExpense(id) {
+    deleteExpense (id) {
         // e.preventDefault();
         console.log(id);
         deleteExpense(id)

@@ -26,15 +26,18 @@ class LatestExpenses extends Component {
     render () {
         return (
             <div>
-                {/* { this.state.edit
-                ? <EditNote editNote={this.editNote} note={this.props.notes[this.state.noteId]}/>
-                : <NotesList*/}
-                <ExpensesList
+                 { this.state.edit
+                ? <EditExpense 
+                editExpense={this.editExpense} 
+                expense={this.props.expenses[this.state.expenses]} 
+                expenseId={this.props.expenses[this.state.expenseId]}
+                />
+                : <ExpensesList
                     heading={'Latest Expenses'}
                     view={this.state.view}
                     expenses={this.props.expenses}
-                    /* editNote={this.editNote}*/
-                />
+                    editExpense={this.editExpense}
+                />}
             </div>
         );
     }

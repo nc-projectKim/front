@@ -46,10 +46,13 @@ class EditNote extends React.Component {
                         <br />
                         {this.state.tags.map((tag, i) => {
                             return (<div key={i}>
+                                {
+                                    tag.length > 0 && 
                                 <span>
                                     {tag}
                                     <i onClick={this.removeTag.bind(this, tag)} className="fa fa-times-circle-o" ></i>
                                 </span>
+                                }
                             </div>
                             );
                         })}

@@ -1,5 +1,5 @@
 import firebase/* , { facebookProvider, auth, database }*/ from '../../FirebaseConfig';
-import {ADDNOTEURL} from '../../config';
+import ADDNOTEURL from '../../config';
 import axios from 'axios';
 
 
@@ -13,12 +13,13 @@ export default function addNote (data) {
         userId: firebase.auth().currentUser.uid
     }; 
     console.log(note);
+    console.log('using ', ADDNOTEURL);
 return axios.post(`${ADDNOTEURL}`, note)
   .then(res => {
       console.log(res);
-      console.log('note added');
+      console.log('Julian Dick and Ann, George and Timmy the Dog');
     })
   .catch((error) => {
-    console.log(error);
+    console.log('Famous Five Error', error);
   });
 }

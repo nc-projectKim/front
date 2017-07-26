@@ -4,7 +4,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public', 'js'),
+    path: path.resolve(__dirname, 'public'),
     publicPath: '/'
   },
   devtool: 'eval-source-map',
@@ -30,7 +30,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, 'public'),
-    publicPath: '/js/',
+    publicPath: '/',
     port: 9090,
     historyApiFallback: true
   },

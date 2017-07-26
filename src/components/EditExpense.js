@@ -23,7 +23,7 @@ class EditExpense extends React.Component {
         };
         this.dateChange = this.dateChange.bind(this);
         this.amountChange = this.amountChange.bind(this);
-        // this.textChange = this.textChange.bind(this);
+        this.chargeToChange = this.chargeToChange.bind(this);
         // this.editNoteSubmit = this.editNoteSubmit.bind(this);
         // this.deleteNote = this.deleteNote.bind(this);
     }
@@ -62,7 +62,7 @@ class EditExpense extends React.Component {
                     <div>
                         <label htmlFor="chargeTo">Charge To</label>
                         <br />
-                        <input className="titleInput" type="text" onClick={this.changeToChange} name="chargeTo" placeholder="client" defaultValue={this.props.expense.chargeTo} />
+                        <input className="titleInput" type="text" onChange={this.chargeToChange} name="chargeTo" placeholder="client" defaultValue={this.props.expense.chargeTo} />
                     </div>
                     <div>
                         <label htmlFor="expenseDescription">Expense Description</label>
@@ -102,12 +102,13 @@ class EditExpense extends React.Component {
             title: e.target.value
         };
     }
-    // changeToChange(e) {
-    //     e.preventDefault();
-    //     this.setState = {
-    //         title: e.target.value
-    //     };
-    // }
+    chargeToChange(e) {
+        e.preventDefault();
+        console.log(e.target.value);
+        this.setState = {
+            title: e.target.value
+        };
+    }
     // descriptionChange(e) {
     //     e.preventDefault();
     //     this.setState = {

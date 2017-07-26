@@ -87,18 +87,20 @@ class AddExpense extends React.Component {
             dateSelect: date,
             // searchOneDateClicked: true
         });
+        console.log(this.state.dateSelect);
     }
     submitExpense (e) {
         e.preventDefault();
         console.dir(e.target);
         const newExpenseObj = {
-            expenseDate: e.target[0].value,
+            expenseDate: moment(e.target[0].value).format('x'),
             currency: 'GBP',
             amount: e.target[1].value,
             chargeTo: e.target[2].value,
             description: e.target[3].value,
             haveReceipt: e.target[4].value
         };
+        console.log('what adding', newExpenseObj);
         addExpense(newExpenseObj)
             .then(() => {
                 return (

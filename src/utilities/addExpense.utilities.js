@@ -6,7 +6,7 @@ export default function addExpense (data) {
   const receipt = data.haveReceipt === 'yes' ? true : false;
     const expense = {
         created: Date.now(),
-        expenseDate: data.date,
+        expenseDate: Number(data.expenseDate),
         amount: data.amount,
         currency: data.currency,
         chargeTo: data.chargeTo,

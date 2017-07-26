@@ -6,7 +6,7 @@ import './css/ExpenseCard.css';
 
 const dateFormat = 'D MMM YYYY';
 const timeFormat = 'HH:mm';
-import { map, each } from 'underscore';
+// import { map, each } from 'underscore';
 
 class ExpenseCard extends Component {
     constructor (props) {
@@ -22,7 +22,7 @@ class ExpenseCard extends Component {
                 <div className="row">
                     {/* Date*/}
                     <div className="col-xs-2"><div>{moment(this.props.expense.expenseDate).format(dateFormat)}</div>
-                        <div>{moment(this.props.expense.created).format(timeFormat)}</div>
+                        <div>{moment(this.props.expense.expenseDate).format(timeFormat)}</div>
                     </div>
                     {/* Amount -2*/}
                     {/*<div className="col-xs-2">{`£${this.props.expense.amount.toFixed(2)}`}</div>*/}

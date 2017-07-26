@@ -13,6 +13,8 @@ import {connect} from 'react-redux';
 // import {firebaseConnect, isLoaded, isEmpty, dataToJS} from 'react-redux-firebase';
 import * as actions from '../actions/actions';
 import Expenses from './Expenses';
+import Billing from './Billing';
+
 // import MAINPAGE from './MAINPAGE';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -55,6 +57,7 @@ class App extends Component {
                                 <Route exact path='/welcome' component={LoggedInHome} />
                                 <Route path='/notes' component={Notes} />
                                 <Route path="/expenses" component={Expenses} />
+                                <Route path="/billing" component={Billing} />                                
                                 <Route component={NoMatch} />
                             </Switch>
                         </div>

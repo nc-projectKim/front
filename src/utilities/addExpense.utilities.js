@@ -15,10 +15,8 @@ export default function addExpense (data) {
         haveReceipt: receipt,
         userId: firebase.auth().currentUser.uid
     }; 
-    console.log(ADDEXPENSEURL);
 return axios.post(`${ADDEXPENSEURL}`, expense)
-  .then((res) => {
-      console.log('r', res);
+  .then(() => {
       console.log('expense added');
     })
   .catch((error) => {

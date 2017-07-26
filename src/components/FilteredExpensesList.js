@@ -11,7 +11,6 @@ class FilteredExpensesList extends Component {
         super(props);
     }
     render () {
-        console.log(this.props.filteredExpenses);
         // const editNote = this.props.editNote;
         return (
             <div>

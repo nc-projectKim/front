@@ -20,7 +20,6 @@ class ExpensesList extends Component {
 
     }
     render () {
-        console.log(this.props.expenses);
         // const editNote = this.props.editNote;
         // const notesAltered = alterValues (this.props.notes).slice(0, 10);
         return (

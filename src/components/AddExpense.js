@@ -99,7 +99,6 @@ class AddExpense extends React.Component {
             description: e.target[3].value,
             haveReceipt: e.target[4].value
         };
-        console.log(newExpenseObj);
         addExpense(newExpenseObj)
             .then(() => {
                 return (

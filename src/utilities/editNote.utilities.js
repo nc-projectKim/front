@@ -10,11 +10,9 @@ export default function editNote (data) {
         userId: firebase.auth().currentUser.uid,
         noteId: data.noteId
     }; 
-    console.log(note);
 return axios.post(`${EDITNOTEURL}`, note)
-  .then(response => {
+  .then(() => {
       console.log('note edited');
-      console.log('rk', response);
     })
   .catch((error) => {
     console.log(error);

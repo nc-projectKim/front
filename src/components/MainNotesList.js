@@ -25,7 +25,6 @@ class MainNotesList extends Component {
         });
     }
     render () {
-        console.log(this.props.notes)
         return (
             <div>
                 { this.state.edit

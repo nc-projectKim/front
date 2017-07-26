@@ -24,15 +24,17 @@ class EditExpense extends React.Component {
         this.dateChange = this.dateChange.bind(this);
         this.amountChange = this.amountChange.bind(this);
         this.chargeToChange = this.chargeToChange.bind(this);
-        // this.editNoteSubmit = this.editNoteSubmit.bind(this);
-        // this.deleteNote = this.deleteNote.bind(this);
+        this.descriptionChange = this.descriptionChange.bind(this);
+        this.haveReceiptChange = this.haveReceiptChange.bind(this);
+        this.editExpenseSubmit = this.editExpenseSubmit.bind(this);
+        this.deleteExpense = this.deleteExpense.bind(this);
     }
     render() {
         return (
             <div>
-                {/*{this.state.justDeleted &&
+                {this.state.justDeleted &&
                     <Redirect to={'/expenses/deleted'} />
-                }*/}
+                }
                 {/*{this.state.justEdited &&
                     <Redirect to={'/expenses/edited'} />
                 }*/}
@@ -67,12 +69,12 @@ class EditExpense extends React.Component {
                     <div>
                         <label htmlFor="expenseDescription">Expense Description</label>
                         <br />
-                        <textarea className="expenseInput" name="expenseDescription" onClick={this.descriptionChange} type="text" defaultValue={this.props.expense.description} placeholder="expense description..." />
+                        <textarea className="expenseInput" name="expenseDescription" onChange={this.descriptionChange} type="text" defaultValue={this.props.expense.description} placeholder="expense description..." />
                     </div>
                     <div>
-                        <label htmlFor="Tags">Have Receipt?</label>
+                        <label htmlFor="receipt">Have Receipt?</label>
                         <br />
-                        <select>
+                        <select onChange={this.haveReceiptChange}>
                             <optgroup label="Do you have a receipt?">
                                 <option value="no">no</option>
                                 <option value="yes">Yes</option>
@@ -82,7 +84,7 @@ class EditExpense extends React.Component {
                     <div>
                         <button className="btn btn-success" type="submit">Save Changes</button>
                         <button className="btn btn-warning" onClick={this.props.editExpense} type="button">Cancel</button>
-                        <button className="btn btn-danger" /*onClick={this.deleteExpense.bind(null, this.props.ExpenseId)}*/ type="button">Delete</button>
+                        <button className="btn btn-danger" onClick={this.deleteExpense.bind(null, this.props.ExpenseId)} type="button">Delete</button>
                     </div>
                 </form>
             </div>
@@ -98,65 +100,71 @@ class EditExpense extends React.Component {
     amountChange(e) {
         e.preventDefault();
         console.log(e.target.value);
-        this.setState = {
+        this.setState({
             title: e.target.value
-        };
+        });
     }
     chargeToChange(e) {
+        e.preventDefault();
+        console.log(e.target.value);
+        this.setState({
+            title: e.target.value
+        });
+    }
+    descriptionChange(e) {
         e.preventDefault();
         console.log(e.target.value);
         this.setState = {
             title: e.target.value
         };
     }
-    // descriptionChange(e) {
-    //     e.preventDefault();
-    //     this.setState = {
-    //         title: e.target.value
-    //     };
-    // }
-    // haveReceiptChange(e) {
-    //     e.preventDefault();
-    //     this.setState = {
-    //         title: e.target.value
-    //     };
-    // }
+    haveReceiptChange(e) {
+        console.log(e.target.value);
+        e.preventDefault();
+        this.setState = {
+            title: e.target.value
+        };
+    }
+    editExpenseSubmit(e) {
+        console.dir(e.target);
+        e.preventDefault();
+        const editedExpense = {
+            expenseDate: moment(this.state.expenseDate).format('x'),
+            currency: 'GBP',
+            amount: e.target[1].value,
+            chargeTo: e.target[2].value,
+            description: e.target[3].value,
+            haveReceipt: e.target[4].value,            
+            expenseId: this.props.expenseId
+        };
+        console.log(editedExpense);
+        editExpense(editedExpense)
+            .then(() => {
+                console.log('expenseEdited');
+                return (
+                this.setState({
+                    justEdited: true
+                })
+                );
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+    deleteExpense(id) {
+        // e.preventDefault();
+        deleteExpense(id)
+            .then(() => {
+                console.log('deleted');
+                this.setState({
+                    justDeleted: true
+                });
 
-    // editExpenseSubmit(e) {
-    //     e.preventDefault();
-    //     const editedNote = {
-    //         date: e.target[0].value,
-    //         currency: e.target[1].value,
-    //         amount: e.target[2].value,
-    //         changeTo: e.target[3].value,
-    //         description: e.target[4].value,
-    //         haveReceipt: e.target[5].value,            
-    //         expenseId: this.props.expenseId
-    //     };
-    //     editExpense(editedNote)
-    //         .then(() => {
-    //             this.setState({
-    //                 justEdited: true
-    //             }).bind(this);
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //         });
-    // }
-    // deleteExpense(id) {
-    //     // e.preventDefault();
-    //     deleteExpense(id)
-    //         .then(() => {
-    //             console.log('deleted');
-    //             this.setState({
-    //                 justDeleted: true
-    //             });
-
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //         });
-    // }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
 }
 
 export default EditExpense;

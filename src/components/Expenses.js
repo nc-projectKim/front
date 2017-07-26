@@ -14,8 +14,7 @@ import FilteredExpenses from './FilteredExpenses';
 import { connect } from 'react-redux';
 import NoMatch from './NoMatch';
 import AddExpense from './AddExpense';
-
-// import DeleteExpense from './DeleteExpense';
+import DeleteExpense from './DeleteExpense';
 
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
@@ -44,7 +43,7 @@ class Expenses extends Component {
                      <Route exact path='/expenses/search' component={ExpensesSearch} />
                      <Route path='/expenses/search/result' component={FilteredExpenses} />
                      <Route exact path='/expenses/add' component={AddExpense}/>
-                    {/* <Route path='/notes/deleted' component={DeleteNote} />*/}
+                     <Route path='/expenses/deleted' component={DeleteExpense} />
                     <Route component={NoMatch} />
                 </Switch>
             </div>

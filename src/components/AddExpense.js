@@ -7,15 +7,24 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
 import addExpense from '../utilities/addExpense.utilities';
 
+
 class AddExpense extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
             newSubmit: false,
-            dateSelect: moment().utc()
+            dateSelect: moment().utc(),
+            amount: {
+                value: 0,
+                touched: false
+            },
+            errors: {
+                amount: ''
+            }
         };
         this.submitExpense = this.submitExpense.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.changeAmount = this.changeAmount.bind(this);
     }
     render () {
         return (
@@ -49,7 +58,9 @@ class AddExpense extends React.Component {
                                     <label htmlFor="expenseAmount">Amount</label>
                                     <br />
                                     <span>£</span>
-                                    <span><input className="expenseInput" name="expenseAmount" type="text" placeholder="5.99" /></span>
+                                    <span><input className="expenseInput" onChange={this.changeAmount} name="expenseAmount" type="text" placeholder="5.99" /></span>
+                                    {console.log(this.state.errors)}
+                                    <p>{this.state.errors.amount}</p>
                                 </div>
                                 <div>
                                     <label htmlFor="chargeTo">Charge To</label>
@@ -85,9 +96,19 @@ class AddExpense extends React.Component {
     handleChange (date) {
         this.setState({
             dateSelect: date,
+            dateTouched: true
             // searchOneDateClicked: true
         });
         console.log(this.state.dateSelect);
+    }
+    changeAmount (e) {
+        e.preventDefault();
+        console.log(e.target.value, typeof e.target.value);
+        const newState = Object.assign({}, this.state);
+        newState.amount.value = e.target.value;
+        newState.amount.touched = true;
+        const errors = validate(newState);
+        this.setState(Object.assign(newState, {errors}));
     }
     submitExpense (e) {
         e.preventDefault();
@@ -122,3 +143,19 @@ AddExpense.propTypes = {
     // addNewExpense: PropTypes.func.isRequired,
     // submitExpense: PropTypes.func.isRequired
 };
+function validate (state) {
+    const errors = {};
+
+    // test amounts
+            let decimal = false;
+            let place = state.amount.value.indexOf('.');
+            if ((place > -1) && (state.amount.value.indexOf('.', place + 1) >= 0)) decimal = true;
+            if (decimal) {
+                errors.amount = 'Please only enter one decimal point';
+            } else if (/[^(\d|\.]/g.test(state.amount.value)) {
+                errors.amount = 'Please enter only numbers';
+            } else if (state.amount.touched && state.amount.value.length < 1) {
+                errors.amount = 'Please enter a valid amount';
+            } else errors.amount = '';
+        return errors;
+    }

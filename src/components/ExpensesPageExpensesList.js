@@ -37,7 +37,7 @@ class ExpensesPageExpensesList extends Component {
                                 <ExpensesRowTitle />
                                 {map(alteredValues, function (expense) {
                                     return (
-                                        <ExpenseCard iD={expense[0]} 
+                                        <ExpenseCard id={expense[0]} 
                                         key={expense[1].created} 
                                         expense={expense[1]} 
                                         editExpense={editExpense} />

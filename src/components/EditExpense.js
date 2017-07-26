@@ -30,14 +30,15 @@ class EditExpense extends React.Component {
         this.deleteExpense = this.deleteExpense.bind(this);
     }
     render() {
+        console.log(this.props.id);
         return (
             <div>
                 {this.state.justDeleted &&
                     <Redirect to={'/expenses/deleted'} />
                 }
-                {/*{this.state.justEdited &&
+                {this.state.justEdited &&
                     <Redirect to={'/expenses/edited'} />
-                }*/}
+                }
                 <form onSubmit={this.editExpenseSubmit} method="post">
                     <div>
                         <label htmlFor="dateOfExpense">Date of Expense</label>
@@ -84,7 +85,7 @@ class EditExpense extends React.Component {
                     <div>
                         <button className="btn btn-success" type="submit">Save Changes</button>
                         <button className="btn btn-warning" onClick={this.props.editExpense} type="button">Cancel</button>
-                        <button className="btn btn-danger" onClick={this.deleteExpense.bind(null, this.props.ExpenseId)} type="button">Delete</button>
+                        <button className="btn btn-danger" onClick={this.deleteExpense.bind(null, this.props.id)} type="button">Delete</button>
                     </div>
                 </form>
             </div>
@@ -114,9 +115,9 @@ class EditExpense extends React.Component {
     descriptionChange(e) {
         e.preventDefault();
         console.log(e.target.value);
-        this.setState = {
+        this.setState ({
             title: e.target.value
-        };
+        });
     }
     haveReceiptChange(e) {
         console.log(e.target.value);
@@ -135,7 +136,7 @@ class EditExpense extends React.Component {
             chargeTo: e.target[2].value,
             description: e.target[3].value,
             haveReceipt: e.target[4].value,            
-            expenseId: this.props.expenseId
+            expenseId: this.props.id
         };
         console.log(editedExpense);
         editExpense(editedExpense)
@@ -153,6 +154,7 @@ class EditExpense extends React.Component {
     }
     deleteExpense(id) {
         // e.preventDefault();
+        console.log(id);
         deleteExpense(id)
             .then(() => {
                 console.log('deleted');

@@ -17,6 +17,7 @@ class ExpenseCard extends Component {
         this.displayExpenseDescription = this.displayExpenseDescription.bind(this);
     }
     render () {
+        console.log(this.props.id);
         return (
             <div className="container-fluid component-ExpenseCard">
                 <div className="row">
@@ -45,7 +46,7 @@ class ExpenseCard extends Component {
                         : <div className="col-xs-1"><button onClick={this.displayExpenseDescription}>View</button></div>
 
                     }
-                    <div className="col-xs-1"><button type="submit" value={this.props.iD} onClick={this.props.editExpense.bind(this, this.props.iD)} >Edit</button></div>
+                    <div className="col-xs-1"><button type="submit" value={this.props.iD} onClick={this.props.editExpense.bind(this, this.props.id)} >Edit</button></div>
                 </div>
             </div>
         );
@@ -60,6 +61,6 @@ export default ExpenseCard;
 
 ExpenseCard.propTypes = {
     expense: PropTypes.object.isRequired,
-    iD: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
     editExpense: PropTypes.func.isRequired
 };

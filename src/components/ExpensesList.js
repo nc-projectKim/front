@@ -45,7 +45,7 @@ class ExpensesList extends Component {
                                 {map(expensesAltered, function (expense) {
                                     return (
                                         <ExpenseCard 
-                                        iD={expense[0]} 
+                                        id={expense[0]} 
                                         key={expense[1].created} 
                                         editExpense={editExpense} 
                                         expense={expense[1]} />

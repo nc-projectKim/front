@@ -30,25 +30,16 @@ class MainExpensesPage extends Component {
     render() {
         return (
             <div>
-                {/* {this.state.edit
-                    ? <EditNote id={this.state.noteId} editNote={this.editNote} note={this.props.notes[this.state.noteId]} />*/}
                 <MainExpensesList
                     heading={'My Expenses'}
                     expenses={this.props.expenses}
                     viewMore={this.viewMore}
                     editExpense={this.editExpense}
                 />
-                {/* }*/}
 
             </div>
         );
     }
-    // editExpense (id) {
-    //     this.setState({
-    //         edit: !this.state.edit,
-    //         expenseId: id
-    //     });
-    // }
     viewMore() {
         this.setState({
             view: !this.state.view

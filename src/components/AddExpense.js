@@ -147,7 +147,6 @@ class AddExpense extends React.Component {
             .catch(err => {
                 console.log(err);
             });
-
         } else {
             this.setState({
                 invalidEntries: true

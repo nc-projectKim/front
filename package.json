@@ -51,6 +51,6 @@
     "test:watch": "yarn test -- --watch",
     "posttest": "yarn run lint",
     "dev": "webpack-dev-server",
-    "lint": "eslint ./"
+    "lint": "eslint ./ --fix"
   }
 }

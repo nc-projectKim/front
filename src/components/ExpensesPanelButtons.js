@@ -9,8 +9,7 @@ import { map, each } from 'underscore';
 const headers = ['expenseId', 'created', 'expenseDate', 'amount', 'currency', 'description', 'haveReceipt', 'chargeTo', 'lastEditTime'];
 
 class ExpensesPanelButtons extends Component {
-    render() {
-
+    render () {
         const expenses = this.props.expenses;
         const data = map(expenses, (x, key) => {
             const newArr = [];

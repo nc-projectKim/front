@@ -66,7 +66,7 @@ class EditExpense extends React.Component {
                                         isClearable={true}
                                     />
                     </div>
-                    {/*<div>
+                    {/* <div>
                         <label htmlFor="currency">Currency</label>
                         <br />
                         <input className="titleInput" type="text" onClick={this.currencyChange} name="currency" placeholder="GBP" />
@@ -81,7 +81,7 @@ class EditExpense extends React.Component {
                     <div>
                         <label htmlFor="chargeTo">Charge To</label>
                         <br />
-                        <input className="textInput" name="chargeTo" type="text" onChange={this.chargeToChange} name="chargeTo" placeholder="client" defaultValue={this.props.expense.chargeTo} />
+                        <input className="titleInput" type="text" onChange={this.chargeToChange} name="chargeTo" placeholder="client" defaultValue={this.props.expense.chargeTo} />
                     </div>
                     <div>
                         <label htmlFor="expenseDescription">Expense Description</label>
@@ -108,7 +108,7 @@ class EditExpense extends React.Component {
             </div>
         );
     }
-    dateChange(date) {
+    dateChange (date) {
         console.log(date);
         // e.preventDefault();
         this.setState({

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Welcome from './Welcome';
 
 const Billing = () => {
@@ -10,5 +10,5 @@ const Billing = () => {
             </div>
         </div>
     );
-}
-export default Billing
+};
+export default Billing;

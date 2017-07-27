@@ -6,7 +6,7 @@ import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
 import addExpense from '../utilities/addExpense.utilities';
-
+import {every} from 'underscore';
 
 class AddExpense extends React.Component {
     constructor (props) {
@@ -25,7 +25,8 @@ class AddExpense extends React.Component {
             errors: {
                 amount: '',
                 description: ''
-            }, 
+            },
+            invalidEntries: false
         };
         this.submitExpense = this.submitExpense.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -36,8 +37,10 @@ class AddExpense extends React.Component {
         let amountStyling = this.state.errors.amount ? 'textInputError' : 'textInput'; 
         return (
             <div>
-                {
-                    this.state.newSubmit &&
+                {this.state.invalidEntries &&
+                    <h3 className="errorMessage">Unable to submit form</h3>
+                }
+                { this.state.newSubmit &&
                     <div>
                         <div>Expense submitted!</div>
                         <Redirect to={'/expenses'} />
@@ -124,6 +127,7 @@ class AddExpense extends React.Component {
     }
     submitExpense (e) {
         e.preventDefault();
+        if (every(this.state.errors, field => field.length === 0)) {
         const newExpenseObj = {
             expenseDate: moment(e.target[0].value).format('x'),
             currency: 'GBP',
@@ -143,6 +147,12 @@ class AddExpense extends React.Component {
             .catch(err => {
                 console.log(err);
             });
+
+        } else {
+            this.setState({
+                invalidEntries: true
+            });
+        }
     }
 }
 

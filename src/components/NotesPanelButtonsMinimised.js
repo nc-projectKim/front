@@ -10,7 +10,7 @@ class NotesPanelButtonsMinimised extends Component {
                 <button
                     onClick={this.props.viewMore}
                     type="button"
-                    className="btn btn-default view-btn notes-buttons">
+                    className="btn btn-default notes-buttons view-btn ">
                     <i className="fa fa-arrow-down" aria-hidden="true"></i>
                         &nbsp; Expand
                 </button>

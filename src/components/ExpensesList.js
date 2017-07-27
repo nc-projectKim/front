@@ -30,7 +30,7 @@ class ExpensesList extends Component {
                     <div className='panel panel-default'>
                         <div className="expenses">
                             <span>
-                                <h3 className="panel-title"><span>Latest Expenses</span></h3>
+                                <h3 className="panel-title"><span>{this.props.heading}</span></h3>
                                 <Link to="/expenses/search" ><button type="button"
                                     className="btn btn-info expenses-buttons srch-btn">
                                     <i className="fa fa-search" aria-hidden="true"></i>

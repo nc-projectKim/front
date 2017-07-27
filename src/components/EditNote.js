@@ -49,29 +49,24 @@ class EditNote extends React.Component {
                                         <textarea className="form-control noteDescription" id="note2" type="text" onChange={this.textChange} defaultValue={this.props.note.text} />
                                     </div>
                                 </div>
-                                <div className="col-sm-8">
-                                        {this.state.tags.map((tag, i) => {
-                                            return (<div key={i}>
-                                                {
-                                                    tag.length > 0 &&
-                                                    <span>
-                                                        {tag}
-                                                        <i onClick={this.removeTag.bind(this, tag)} className="fa fa-times-circle-o" ></i>
-                                                    </span>
-                                                }
-                                            </div>
-                                            );
-                                        })}
+                                <div className="form-group row">
+                                    {this.state.tags.map((tag, i) => {
+                                        return (<div key={i}>
+                                            {
+                                                tag.length > 0 &&
+                                                <span>
+                                                    {tag}
+                                                    <i onClick={this.removeTag.bind(this, tag)} className="fa fa-times-circle-o" ></i>
+                                                </span>
+                                            }
+                                        </div>
+                                        );
+                                    })}
                                     <label className="col-sm-2 col-form-label" htmlFor="Tags2"><h4>Tag</h4></label>
                                     <div className="col-sm-8">
                                         <input className="form-control" id="Tags2" type="text" placeholder="#" />
                                     </div>
-                                    <div className="container-fluid">
-                                    </div>
                                 </div>
-                                <br />
-                                <br />
-                                <br />
                                 <div className="btn-group">
                                     <div className="inline-bt">
                                         <button className="btn btn-success" type="submit">Save Changes</button>

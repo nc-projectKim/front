@@ -5,7 +5,6 @@ import './css/Welcome.css';
 class Welcome extends Component {
     render () {
         return (
-<<<<<<< HEAD
                 <div className="panel panel-default">
                     <div className="welcome-header"> 
                     </div>
@@ -18,16 +17,6 @@ class Welcome extends Component {
                             <p>{this.props.messageBody}</p>
                         </div>
                     </div>
-                    
-=======
-                <div className="media">
-                    <div className="media-left">
-                            <img src={this.props.picture} className="media-object" /></div>
-                    <div className="welcomeText media-body">
-                        <h3 className="media-heading">{this.props.messageTitle}</h3>
-                        <p>{this.props.messageBody}</p>
-                    </div>
->>>>>>> 1a2e3071f7659ca583a4e4dfe5ae4dcfb8083756
                 </div>
         );
     }

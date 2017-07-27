@@ -42,11 +42,11 @@ class ExpenseCard extends Component {
                     {/* Have Receipt 2*/}
                     <div className="col-xs-2">{`${this.props.expense.haveReceipt}`}</div>
                     {this.state.displayAll
-                        ? <div className="col-xs-1"><button onClick={this.displayExpenseDescription}>Collapse</button></div>
-                        : <div className="col-xs-1"><button onClick={this.displayExpenseDescription}>View</button></div>
+                        ? <div className="col-xs-1"><button className="btn expenses-buttons" onClick={this.displayExpenseDescription}>Collapse</button></div>
+                        : <div className="col-xs-1"><button className="btn expenses-buttons" onClick={this.displayExpenseDescription}>View</button></div>
 
                     }
-                    <div className="col-xs-1"><button type="submit" value={this.props.iD} onClick={this.props.editExpense.bind(this, this.props.id)} >Edit</button></div>
+                    <div className="col-xs-1"><button className="btn expenses-buttons" type="submit" value={this.props.iD} onClick={this.props.editExpense.bind(this, this.props.id)} >Edit</button></div>
                 </div>
             </div>
         );

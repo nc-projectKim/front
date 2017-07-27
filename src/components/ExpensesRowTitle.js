@@ -4,8 +4,8 @@ import './css/ExpenseCard.css';
 class ExpensesRowTitle extends Component {
     render () {
         return (
-            <div className="container-fluid component-ExpenseCard">
-                <div className="col-xs-2"><div>Date</div>
+            <div className="container-fluid component-ExpenseCard headers">
+                <div className="col-xs-2"><div><strong>Date</strong></div>
                     <div>(Time)</div>
                 </div>
                 <div className="col-xs-2">Amount</div>

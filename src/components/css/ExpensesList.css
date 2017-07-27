@@ -1,0 +1,26 @@
+.expenses {
+    background-color: #04DBA9;
+    height: 50px;
+    padding: 15px;
+}
+
+.expenses-minimised {
+    background-color: #04DBA9;
+    height: 90px;
+    padding: 15px;
+}
+
+.panel-title {
+    margin-bottom: 10px;
+}
+
+.srch-btn {
+    float: right;
+    margin-top: -36px;
+    border-radius: 50%;
+}
+
+.expenses-buttons {
+    background-color: #008b6c;
+    color: white;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
-import './css/NotesPanelButtons.css';
+import './css/ExpensesList.css';
 import PropTypes from 'prop-types';
 
 import { CSVLink, CSVDownload } from 'react-csv';
@@ -27,18 +27,18 @@ class ExpensesPanelButtons extends Component {
                 <button
                     onClick={this.props.viewMore}
                     type="button"
-                    className="btn btn-info collapse-btn"><i className="fa fa-arrow-up" aria-hidden="true"></i>
+                    className="btn expenses-buttons collapse-btn"><i className="fa fa-arrow-up" aria-hidden="true"></i>
                     &nbsp; Collapse
                     </button>
 
-                <Link to={'/expenses/add'}><button type="button" className="btn btn-info"><i className="fa fa-plus" aria-hidden="true"></i>
+                <Link to={'/expenses/add'}><button type="button" className="btn expenses-buttons"><i className="fa fa-plus" aria-hidden="true"></i>
                     &nbsp; Add A Expense</button></Link>
 
-                <Link to="/expenses"><button type="button" className="btn btn-info view-more-notes-btn"><i className="fa fa-eye" aria-hidden="true"></i>
+                <Link to="/expenses"><button type="button" className="btn expenses-buttons view-more-notes-btn"><i className="fa fa-eye" aria-hidden="true"></i>
                     &nbsp; View More Expenses</button></Link>
 
-                <button className="btn btn-info">
-                    <CSVLink data={data} header={headers}> Download CSV</CSVLink>
+                <button className="btn expenses-buttons">
+                    <CSVLink className="expenses-buttons" data={data} header={headers}> Download CSV</CSVLink>
                 </button>
             </div>
         );

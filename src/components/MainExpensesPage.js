@@ -8,7 +8,7 @@ import { CSVLink, CSVDownload } from 'react-csv';
 import { map, each } from 'underscore';
 
 class MainExpensesPage extends Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.state = {
             view: true,

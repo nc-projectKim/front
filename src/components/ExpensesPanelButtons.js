@@ -10,7 +10,6 @@ const headers = ['expenseId', 'created', 'expenseDate', 'amount', 'currency', 'd
 
 class ExpensesPanelButtons extends Component {
     render () {
-
         const expenses = this.props.expenses;
         const data = map(expenses, (x, key) => {
             const newArr = [];

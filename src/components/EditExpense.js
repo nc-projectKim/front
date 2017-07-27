@@ -1,25 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './css/EditNote.css';
+import './css/EditExpense.css';
 import deleteExpense from '../utilities/deleteExpense.utilities';
 import editExpense from '../utilities/editExpense.utilities';
 import { BrowserRouter as Router, Redirect } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
+import {every} from 'underscore';
 
 class EditExpense extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.state = {
             expenseDate: moment(this.props.expense.expenseDate).utc(),
             currency: this.props.expense.currency,
-            amount: this.props.expense.amount,
             chargeTo: this.props.expense.chargeTo,
-            description: this.props.expense.description,
             haveReceipt: this.props.expense.haveReceipt,
             justDeleted: false,
-            justEdited: false
+            justEdited: false,
+            amount: {
+                value: this.props.expense.amount,
+                touched: false
+            },
+            description: {
+                value: this.props.expense.description,
+                touched: false
+            },
+            errors: {
+                amount: '',
+                description: ''
+            },
+            invalidEntries: false
         };
         this.dateChange = this.dateChange.bind(this);
         this.amountChange = this.amountChange.bind(this);
@@ -29,10 +41,13 @@ class EditExpense extends React.Component {
         this.editExpenseSubmit = this.editExpenseSubmit.bind(this);
         this.deleteExpense = this.deleteExpense.bind(this);
     }
-    render () {
-        console.log(this.props.id);
+    render() {
+        let amountStyling = this.state.errors.amount ? 'textInputError' : 'textInput'; 
         return (
             <div>
+                {this.state.invalidEntries &&
+                    <h3 className="errorMessage">Unable to submit form</h3>
+                }
                 {this.state.justDeleted &&
                     <Redirect to={'/expenses/deleted'} />
                 }
@@ -60,7 +75,8 @@ class EditExpense extends React.Component {
                         <label htmlFor="expenseAmount">Amount</label>
                         <br />
                         <span>£</span>
-                        <span><input className="expenseInput" name="expenseAmount" onChange={this.amountChange} type="text" placeholder="0.00" defaultValue={this.props.expense.amount} /></span>
+                        <span><input className={amountStyling} required name="expenseAmount" onChange={this.amountChange} type="text" placeholder="0.00" defaultValue={this.props.expense.amount} /></span>
+                        <p className="errorMessage">{this.state.errors.amount}</p>
                     </div>
                     <div>
                         <label htmlFor="chargeTo">Charge To</label>
@@ -70,7 +86,8 @@ class EditExpense extends React.Component {
                     <div>
                         <label htmlFor="expenseDescription">Expense Description</label>
                         <br />
-                        <textarea className="expenseInput" name="expenseDescription" onChange={this.descriptionChange} type="text" defaultValue={this.props.expense.description} placeholder="expense description..." />
+                        <textarea className="expenseInput" name="expenseDescription" onChange={this.descriptionChange} type="text" defaultValue={this.props.expense.description} required placeholder="expense description..." />
+                        <p className="errorMessage">{this.state.errors.description}</p>
                     </div>
                     <div>
                         <label htmlFor="receipt">Have Receipt?</label>
@@ -98,37 +115,39 @@ class EditExpense extends React.Component {
             expenseDate: date
         });
     }
-    amountChange (e) {
+    amountChange(e) {
+        e.preventDefault();
+        const newState = Object.assign({}, this.state);
+        newState.amount.value = e.target.value;
+        newState.amount.touched = true;
+        const errors = validate(newState);
+        this.setState(Object.assign(newState, {errors}));
+    }
+    chargeToChange(e) {
         e.preventDefault();
         console.log(e.target.value);
         this.setState({
             title: e.target.value
         });
     }
-    chargeToChange (e) {
+    descriptionChange(e) {
         e.preventDefault();
-        console.log(e.target.value);
-        this.setState({
-            title: e.target.value
-        });
+        const newState = Object.assign({}, this.state);
+        newState.description.value = e.target.value;
+        newState.description.touched = true;
+        const errors = validate(newState);
+        this.setState(Object.assign(newState, {errors}));
     }
-    descriptionChange (e) {
-        e.preventDefault();
-        console.log(e.target.value);
-        this.setState ({
-            title: e.target.value
-        });
-    }
-    haveReceiptChange (e) {
+    haveReceiptChange(e) {
         console.log(e.target.value);
         e.preventDefault();
         this.setState = {
             title: e.target.value
         };
     }
-    editExpenseSubmit (e) {
-        console.dir(e.target);
+    editExpenseSubmit(e) {
         e.preventDefault();
+        if (every(this.state.errors, field => field.length === 0)) {
         const editedExpense = {
             expenseDate: moment(this.state.expenseDate).format('x'),
             currency: 'GBP',
@@ -138,7 +157,6 @@ class EditExpense extends React.Component {
             haveReceipt: e.target[4].value,            
             expenseId: this.props.id
         };
-        console.log(editedExpense);
         editExpense(editedExpense)
             .then(() => {
                 console.log('expenseEdited');
@@ -151,10 +169,13 @@ class EditExpense extends React.Component {
             .catch((err) => {
                 console.log(err);
             });
+        } else {
+            this.setState({
+                invalidEntries: true
+            });
+        }
     }
     deleteExpense (id) {
-        // e.preventDefault();
-        console.log(id);
         deleteExpense(id)
             .then(() => {
                 console.log('deleted');
@@ -172,8 +193,27 @@ class EditExpense extends React.Component {
 export default EditExpense;
 
 EditExpense.propTypes = {
-    // expense: PropTypes.expense.isRequired,
+    expense: PropTypes.object.isRequired,
     editExpense: PropTypes.func.isRequired,
     // handleSubmit: PropTypes.func.isRequired,
     id: PropTypes.string.isRequired
 };
+
+function validate (state) {
+    const errors = {};
+    // test amounts
+            let decimal = false;
+            let place = state.amount.value.indexOf('.');
+            if ((place > -1) && (state.amount.value.indexOf('.', place + 1) >= 0)) decimal = true;
+            if (decimal) {
+                errors.amount = 'Please only enter one decimal point';
+            } else if (/[^(\d|\.]/g.test(state.amount.value)) {
+                errors.amount = 'Please enter only numbers';
+            } else if (state.amount.touched && state.amount.value.length < 1) {
+                errors.amount = 'Please enter a valid amount';
+            } else errors.amount = '';
+    // test description
+            if (state.description.touched && (state.description.value.length < 1)) errors.description = 'Please enter a description';
+            else errors.description = '';
+        return errors;
+    }

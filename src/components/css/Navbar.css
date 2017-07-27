@@ -12,3 +12,8 @@
 .brand-name {
     display: inline;
 }
+
+.navBar {
+    background-color: #17255a;
+    margin-bottom: 0;
+}

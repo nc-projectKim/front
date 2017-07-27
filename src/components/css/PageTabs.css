@@ -9,11 +9,14 @@
 .navlink {
     flex: 1;
     padding: 10px;
+    background-color: #b6a6f4;
+    color: black;
 }
 
 .selected {
     border-bottom: 0;
     border-radius: 5px 5px 0 0;
-    color: black;
     font-weight: bold;
+    color: white;
+    background-color: #726899;
 }

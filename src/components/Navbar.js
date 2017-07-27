@@ -9,7 +9,7 @@ class KimNavbar extends Component {
     render () {
         return (
             <div>
-                <Navbar collapseOnSelect>
+                <Navbar className='navBar' collapseOnSelect>
                     <Navbar.Header>
                         <Navbar.Brand>
                             <Link to={'/'}>

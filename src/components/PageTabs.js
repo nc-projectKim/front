@@ -14,7 +14,7 @@ class PageTabs extends Component {
     render () {
         return (
             <div className='navTabs'>
-                <NavLink activeClassName='selected' className='navlink' to={'/welcome'}>
+                <NavLink activeClassName='selected' className='navlink home' to={'/welcome'}>
                     Home
                 </NavLink>
                 <NavLink activeClassName='selected' className='navlink' to={'/expenses'}>

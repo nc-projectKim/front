@@ -11,7 +11,7 @@ class PageTop extends Component {
                 <Welcome
                     messageTitle={`Welcome Back ${this.props.name}`}
                     messageBody={'What can I help you with today?'}
-                    picture={this.props.picture} />
+                    picture={'http://res.cloudinary.com/dl37xtqhv/image/upload/v1501154233/kim_wclvcm.png'} />
             </div>
         );
     }

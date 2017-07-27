@@ -2,8 +2,12 @@
     width: 80%;
 }
 
-.noteInput {
-    width: 80%;
+.inline-bt {
+    margin: 3px;
+    display: inline;
+}
+
+.noteDescription {
     resize: none;
     min-height: 200px;
     max-height: 300px;

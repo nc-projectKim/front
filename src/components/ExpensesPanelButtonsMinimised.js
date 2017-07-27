@@ -10,20 +10,20 @@ class ExpensesPanelButtonsMinimised extends Component {
                 <button
                     onClick={this.props.viewMore}
                     type="button"
-                    className="btn btn-info view-btn">
+                    className="btn btn-default expenses-buttons view-btn">
                     <i className="fa fa-arrow-down" aria-hidden="true"></i>
                         &nbsp; Expand
                 </button>
 
                 <Link to="/expenses/add"><button
                     type="button"
-                    className="btn btn-info "><i className="fa fa-plus" aria-hidden="true"></i>
+                    className="btn btn-default expenses-buttons "><i className="fa fa-plus" aria-hidden="true"></i>
                      &nbsp; Add An Expense
                     </button></Link>
 
 
                 <Link to="/expenses/search" ><button type="button"
-                    className="btn btn-info search-btn"><i className="fa fa-search" aria-hidden="true"></i>
+                    className="btn btn-default expenses-buttons search-btn"><i className="fa fa-search" aria-hidden="true"></i>
                     &nbsp; Search
                 </button>
                 </Link>

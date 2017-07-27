@@ -39,55 +39,68 @@ class EditExpense extends React.Component {
                 {this.state.justEdited &&
                     <Redirect to={'/expenses/edited'} />
                 }
-                <form onSubmit={this.editExpenseSubmit} method="post">
-                    <div>
-                        <label htmlFor="dateOfExpense">Date of Expense</label>
-                        <br />
-                        <DatePicker
-                                        placeholderText='Click to select a date'
-                                        dateFormat="DD/MM/YYYY"
-                                        selected={this.state.expenseDate}
-                                        onChange={this.dateChange}
-                                        isClearable={true}
-                                    />
+                <div className='panel panel-default'>
+                    <div className="panel-heading">
+                        <h3 className="panel-title">Edit Expense</h3>
                     </div>
-                    {/*<div>
-                        <label htmlFor="currency">Currency</label>
-                        <br />
-                        <input className="titleInput" type="text" onClick={this.currencyChange} name="currency" placeholder="GBP" />
-                    </div>*/}
-                    <div>
-                        <label htmlFor="expenseAmount">Amount</label>
-                        <br />
-                        <span>£</span>
-                        <span><input className="expenseInput" name="expenseAmount" onChange={this.amountChange} type="text" placeholder="0.00" defaultValue={this.props.expense.amount} /></span>
+                    <div className="panel-body">
+                        <div className="container">
+                            <form onSubmit={this.editExpenseSubmit} method="post">
+                                <div className="form-group row">
+                                    <label className="col-sm-2 col-form-label" htmlFor="dateOfExpense"><h4>Date of Expense</h4></label>
+                                    <div className="col-sm-8">
+                                        <DatePicker
+                                            placeholderText='Click to select a date'
+                                            dateFormat="DD/MM/YYYY"
+                                            selected={this.state.expenseDate}
+                                            onChange={this.dateChange}
+                                            isClearable={true}
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="form-group row">
+                                    <label className="col-sm-2 col-form-label" htmlFor="expenseAmount"><h4>Amount</h4></label>
+                                    <div className="col-sm-8">
+                                        <input className="form-control" name="expenseAmount" onChange={this.amountChange} type="text" placeholder="£" defaultValue={this.props.expense.amount} />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <label className="col-sm-2 col-form-label" htmlFor="chargeTo"><h4>Charge To</h4></label>
+                                    <div className="col-sm-8">
+                                        <input className="form-control" type="text" onChange={this.chargeToChange} name="chargeTo" placeholder="client" defaultValue={this.props.expense.chargeTo} />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <label className="col-sm-2 col-form-label" htmlFor="expenseDescription"><h4>Expense Description</h4></label>
+                                    <div className="col-sm-8">
+                                        <textarea className="form-control editDescription" name="expenseDescription" onChange={this.descriptionChange} type="text" defaultValue={this.props.expense.description} placeholder="expense description..." />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <label className="col-sm-2 col-form-label" htmlFor="receipt"><h4>Have Receipt?</h4></label>
+                                    <div className="col-sm-8">
+                                        <select className="custom-select" onChange={this.haveReceiptChange}>
+                                            <optgroup label="Do you have a receipt?">
+                                                <option value="no">no</option>
+                                                <option value="yes">Yes</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div className="inline-bt">
+                                    <button className="btn btn-success" type="submit">Save Changes</button>
+                                </div>
+                                <div className="inline-bt">
+                                    <button className="btn btn-warning" onClick={this.props.editExpense} type="button">Cancel</button>
+                                </div>
+                                <div className="inline-bt">
+                                    <button className="btn btn-danger" onClick={this.deleteExpense.bind(null, this.props.id)} type="button">Delete</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div>
-                        <label htmlFor="chargeTo">Charge To</label>
-                        <br />
-                        <input className="titleInput" type="text" onChange={this.chargeToChange} name="chargeTo" placeholder="client" defaultValue={this.props.expense.chargeTo} />
-                    </div>
-                    <div>
-                        <label htmlFor="expenseDescription">Expense Description</label>
-                        <br />
-                        <textarea className="expenseInput" name="expenseDescription" onChange={this.descriptionChange} type="text" defaultValue={this.props.expense.description} placeholder="expense description..." />
-                    </div>
-                    <div>
-                        <label htmlFor="receipt">Have Receipt?</label>
-                        <br />
-                        <select onChange={this.haveReceiptChange}>
-                            <optgroup label="Do you have a receipt?">
-                                <option value="no">no</option>
-                                <option value="yes">Yes</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                    <div>
-                        <button className="btn btn-success" type="submit">Save Changes</button>
-                        <button className="btn btn-warning" onClick={this.props.editExpense} type="button">Cancel</button>
-                        <button className="btn btn-danger" onClick={this.deleteExpense.bind(null, this.props.id)} type="button">Delete</button>
-                    </div>
-                </form>
+                </div>
             </div>
         );
     }
@@ -115,7 +128,7 @@ class EditExpense extends React.Component {
     descriptionChange(e) {
         e.preventDefault();
         console.log(e.target.value);
-        this.setState ({
+        this.setState({
             title: e.target.value
         });
     }
@@ -135,7 +148,7 @@ class EditExpense extends React.Component {
             amount: e.target[1].value,
             chargeTo: e.target[2].value,
             description: e.target[3].value,
-            haveReceipt: e.target[4].value,            
+            haveReceipt: e.target[4].value,
             expenseId: this.props.id
         };
         console.log(editedExpense);
@@ -143,9 +156,9 @@ class EditExpense extends React.Component {
             .then(() => {
                 console.log('expenseEdited');
                 return (
-                this.setState({
-                    justEdited: true
-                })
+                    this.setState({
+                        justEdited: true
+                    })
                 );
             })
             .catch((err) => {

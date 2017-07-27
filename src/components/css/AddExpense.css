@@ -1,0 +1,28 @@
+.textInput {
+    width: 80%;
+}
+
+.textInputError {
+    width: 80%;
+    color: red;
+}
+
+.expenseInput {
+    width: 80%;
+    resize: none;
+    min-height: 200px;
+    max-height: 300px;
+}
+
+.expenseInputError {
+    width: 80%;
+    resize: none;
+    min-height: 200px;
+    max-height: 300px;
+    color: red;
+}
+
+.errorMessage {
+    font-weight: bold;
+    color: red;
+}

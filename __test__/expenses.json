@@ -1,0 +1,66 @@
+{
+  "-KpGPXVdwIYfsro8x-Y3" : {
+    "amount" : 200.19,
+    "chargeTo" : "Northcoders",
+    "created" : 1500309497253,
+    "currency" : "GBP",
+    "description" : "parking for 25s econds outside arndale",
+    "expenseDate" : 1500309497253,
+    "haveReceipt" : true,
+    "lastEditTime" : 1500309497253
+  },
+  "-KpZlLpYHHf6CxwFT_Nw" : {
+    "amount" : 200.19,
+    "chargeTo" : "Northcoders",
+    "created" : 1500634247899,
+    "currency" : "GBP",
+    "description" : "Expense created on Fri, 21 Jul 2017 10:50:47 GMT",
+    "expenseDate" : 1500634245917,
+    "haveReceipt" : false,
+    "lastEditTime" : 1500634245917
+  },
+  "-KptOa9KTqwg4ikKEbOM" : {
+    "amount" : 150,
+    "chargeTo" : "ABC Company",
+    "created" : 1500980339246,
+    "currency" : "GBP",
+    "description" : "cors refactor v2",
+    "expenseDate" : 1500980339246,
+    "haveReceipt" : false,
+    "lastEditTime" : 1500980339246,
+    "userId" : "ExkVJBLKOthqpycAiAdkAHdvPfA3"
+  },
+  "-KptOpelRORooMaba1u6" : {
+    "amount" : 150,
+    "chargeTo" : "ABC Company",
+    "created" : 1500980402849,
+    "currency" : "GBP",
+    "description" : "cors refactor v2",
+    "expenseDate" : 1500980402849,
+    "haveReceipt" : false,
+    "lastEditTime" : 1500980402849,
+    "userId" : "ExkVJBLKOthqpycAiAdkAHdvPfA3"
+  },
+  "-KptOtcoLLRYe6mXai6z" : {
+    "amount" : 150,
+    "chargeTo" : "ABC Company",
+    "created" : 1500980419111,
+    "currency" : "GBP",
+    "description" : "cors refactor v2",
+    "expenseDate" : 1500980419111,
+    "haveReceipt" : false,
+    "lastEditTime" : 1500980419111,
+    "userId" : "ExkVJBLKOthqpycAiAdkAHdvPfA3"
+  },
+  "-KptR6EsleiJlP3iupvg" : {
+    "amount" : 150,
+    "chargeTo" : "ABC Company",
+    "created" : 1500980999064,
+    "currency" : "GBP",
+    "description" : "cors refactor v2",
+    "expenseDate" : 1500980999064,
+    "haveReceipt" : false,
+    "lastEditTime" : 1500980999064,
+    "userId" : "ExkVJBLKOthqpycAiAdkAHdvPfA3"
+  }
+}

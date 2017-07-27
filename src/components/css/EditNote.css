@@ -12,3 +12,9 @@
     min-height: 200px;
     max-height: 300px;
 }
+
+.editDescription {
+    resize: none;
+    min-height: 200px;
+    max-height: 300px;
+}

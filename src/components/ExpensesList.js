@@ -28,16 +28,27 @@ class ExpensesList extends Component {
                 {this.state.view
                     ?
                     <div className='panel panel-default'>
+<<<<<<< HEAD
                         <div className="expenses">
                             <span>
                                 <h3 className="panel-title"><span>Latest Expenses</span></h3>
                                 <Link to="/expenses/search" ><button type="button"
                                     className="btn btn-info expenses-buttons srch-btn">
+=======
+                        <div className="panel-heading">
+                            <span>
+                                <h3 className="panel-title"><span>Latest Expenses</span></h3>
+                                <Link to="/expenses/search" ><button type="button"
+                                    className="btn btn-info srch-btn">
+>>>>>>> 1a2e3071f7659ca583a4e4dfe5ae4dcfb8083756
                                     <i className="fa fa-search" aria-hidden="true"></i>
                                 </button>
                                 </Link>
                             </span>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1a2e3071f7659ca583a4e4dfe5ae4dcfb8083756
                         </div>
 
                         <div className="panel-body">
@@ -61,7 +72,11 @@ class ExpensesList extends Component {
                     </div>
                     : <div>
                         <div className="panel panel-default">
+<<<<<<< HEAD
                             <div className="panel-body expenses-minimised">
+=======
+                            <div className="panel-heading">
+>>>>>>> 1a2e3071f7659ca583a4e4dfe5ae4dcfb8083756
                                 <h3 className="panel-title">Latest Expenses</h3>
                                 <ExpensesPanelButtonsMinimised
                                     viewMore={this.viewMore}

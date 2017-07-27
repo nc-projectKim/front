@@ -9,14 +9,22 @@
 .navlink {
     flex: 1;
     padding: 10px;
+<<<<<<< HEAD
     background-color: #b6a6f4;
     color: black;
+=======
+>>>>>>> 1a2e3071f7659ca583a4e4dfe5ae4dcfb8083756
 }
 
 .selected {
     border-bottom: 0;
     border-radius: 5px 5px 0 0;
+<<<<<<< HEAD
     font-weight: bold;
     color: white;
     background-color: #726899;
+=======
+    color: black;
+    font-weight: bold;
+>>>>>>> 1a2e3071f7659ca583a4e4dfe5ae4dcfb8083756
 }

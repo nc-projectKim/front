@@ -2,8 +2,23 @@
     width: 80%;
 }
 
+<<<<<<< HEAD
 .noteInput {
     width: 80%;
+=======
+.inline-bt {
+    margin: 3px;
+    display: inline;
+}
+
+.noteDescription {
+    resize: none;
+    min-height: 200px;
+    max-height: 300px;
+}
+
+.inputDescription {
+>>>>>>> 1a2e3071f7659ca583a4e4dfe5ae4dcfb8083756
     resize: none;
     min-height: 200px;
     max-height: 300px;

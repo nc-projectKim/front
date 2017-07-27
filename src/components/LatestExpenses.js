@@ -31,7 +31,11 @@ class LatestExpenses extends Component {
                 editExpense={this.editExpense} 
                 id={this.state.expenseId}
                 expense={this.props.expenses[this.state.expenseId]} 
+<<<<<<< HEAD
                 /* expenseId={this.props.expenses[this.state.expenseId]}*/
+=======
+                /*expenseId={this.props.expenses[this.state.expenseId]}*/
+>>>>>>> 1a2e3071f7659ca583a4e4dfe5ae4dcfb8083756
                 />
                 : <ExpensesList
                     heading={'Latest Expenses'}

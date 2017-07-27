@@ -4,6 +4,7 @@ import './css/AddNote.css';
 import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
 import addNote from '../utilities/addNote.utilities';
 
+<<<<<<< HEAD
 class AddNote extends React.Component {
     constructor (props) {
         super(props);
@@ -53,6 +54,65 @@ class AddNote extends React.Component {
     );
 }
     submitNote (e) {
+=======
+
+class AddNote extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            newSubmit: false,
+            newTitle: '',
+            touchedTitle: false
+        };
+        this.submitNote = this.submitNote.bind(this);
+    }
+    render() {
+        return (
+            <div>
+                {
+                    this.state.newSubmit &&
+                    <Redirect to={'/notes'} />
+                }
+                <div className='panel panel-default'>
+                    <div className="panel-heading">
+                        <h3 className="panel-title">New Note</h3>
+                    </div>
+                    <div className="panel-body">
+                        <div className="container">
+                            <form onSubmit={this.submitNote} method="post">
+                                <div className="form-group row">
+                                    <label className="col-sm-2 col-form-label" htmlFor="title1"><h4>Title</h4></label>
+                                    <div className="col-sm-8">
+                                        <input className="form-control" type="text" id="title1" placeholder="Title" />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <label className="col-sm-2 col-form-label" htmlFor="note"><h4>My Note</h4></label>
+                                    <div className="col-sm-8">
+                                        <textarea className="form-control noteDescription" id="note" type="text" placeholder="write your note here..." />
+                                    </div>
+                                </div>
+                                <div className="form-group row">
+                                    <label className="col-sm-2 col-form-label" htmlFor="Tags"><h4>Tag</h4></label>
+                                    <div className="col-sm-8">
+                                    <input className="form-control" id="Tags" type="text" placeholder="#" />
+                                    </div>
+                                </div>
+                                <div className="inline-bt">
+                                    <button className="btn btn-success btn-lg" type="submit">Submit</button>
+                                </div>
+                                <div className="inline-bt">
+                                    <Link to='/notes'><button className="btn btn-danger btn-lg" type="button">Cancel</button></Link>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+    submitNote(e) {
+>>>>>>> 1a2e3071f7659ca583a4e4dfe5ae4dcfb8083756
         e.preventDefault();
         const newNoteObj = {
             title: e.target[0].value,

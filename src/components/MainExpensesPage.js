@@ -19,7 +19,11 @@ class MainExpensesPage extends Component {
         this.viewMore = this.viewMore.bind(this);
         // this.editExpense = this.editExpense.bind(this);
     }
+<<<<<<< HEAD
     componentDidMount () {
+=======
+    componentDidMount() {
+>>>>>>> 1a2e3071f7659ca583a4e4dfe5ae4dcfb8083756
         this.props.getExpenses();
         this.setState({
             view: true,
@@ -27,7 +31,11 @@ class MainExpensesPage extends Component {
             expenses: this.props.expenses
         });
     }
+<<<<<<< HEAD
     render () {
+=======
+    render() {
+>>>>>>> 1a2e3071f7659ca583a4e4dfe5ae4dcfb8083756
         return (
             <div>
                 <MainExpensesList
@@ -40,7 +48,11 @@ class MainExpensesPage extends Component {
             </div>
         );
     }
+<<<<<<< HEAD
     viewMore () {
+=======
+    viewMore() {
+>>>>>>> 1a2e3071f7659ca583a4e4dfe5ae4dcfb8083756
         this.setState({
             view: !this.state.view
         });

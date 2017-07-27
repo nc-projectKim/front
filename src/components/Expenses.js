@@ -36,7 +36,11 @@ class Expenses extends Component {
         return (
             <div className='expenses-page'>
                 <Welcome className='expenses-welcome'
+<<<<<<< HEAD
                     picture={'http://res.cloudinary.com/dl37xtqhv/image/upload/v1501154233/kim_wclvcm.png'}
+=======
+                    picture={this.props.currentUser.photoURL}
+>>>>>>> 1a2e3071f7659ca583a4e4dfe5ae4dcfb8083756
                     messageTitle={`${userFirstName}'s Expenses`} 
                     />
                 <Switch>

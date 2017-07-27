@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import './css/NotesqSearch.css';
+import './css/ExpensesList.css';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -39,11 +39,11 @@ class ExpensesSearch extends React.Component {
                     <Redirect to={'/expenses/search/result'} />
                 }
                 <div className="panel panel-default">
-                    <div className="panel-heading">
+                    <div className="expenses-search">
 
                         <h3 className="panel-title">Search Expenses</h3>
                         <Link to="/expenses"> <button type="button"
-                            className="btn btn-info">Return to Expenses</button>
+                            className="btn btn-default expenses-buttons">Return to Expenses</button>
                             </Link>
                     </div>
                     <form onSubmit={this.handleSubmit}>
@@ -91,7 +91,7 @@ class ExpensesSearch extends React.Component {
                                 />
                             </span>
                         </div>
-                        <button className="btn btn-primary" type="submit">Search</button>
+                        <button className="btn btn-default expenses-buttons" type="submit">Search</button>
                     </form>
                 </div>
 

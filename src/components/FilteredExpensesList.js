@@ -5,6 +5,7 @@ import ExpensesPanelButtons from './ExpensesPanelButtons';
 import { map } from 'underscore';
 import PropTypes from 'prop-types';
 import {BrowserRouter as Router, Link} from 'react-router-dom';
+import './css/ExpensesList.css';
 
 class FilteredExpensesList extends Component {
     constructor (props) {
@@ -16,11 +17,11 @@ class FilteredExpensesList extends Component {
             <div>
                  <div>
                         <div className='panel panel-default'>
-                            <div className="panel-heading">
+                            <div className="expenses-search">
                                 <h3 className="panel-title">Search results</h3>
                                 <Link to="/expenses/search" ><button type="button"
                                     /* onClick={this.props.toggleExpensesSearch}*/
-                                    className="btn btn-info">Change Search</button>
+                                    className="btn btn-default expenses-buttons">Change Search</button>
                                 </Link>
                             </div>
 

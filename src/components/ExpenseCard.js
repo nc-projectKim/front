@@ -17,7 +17,6 @@ class ExpenseCard extends Component {
         this.displayExpenseDescription = this.displayExpenseDescription.bind(this);
     }
     render () {
-        console.log(this.props.id);
         return (
             <div className="container-fluid component-ExpenseCard">
                 <div className="row">
@@ -30,7 +29,7 @@ class ExpenseCard extends Component {
                     <div className="col-xs-2">{`£${this.props.expense.amount}`}</div>
 
                     {/* ChargeTo 4*/}
-                    <div className="col-xs-4">
+                    <div className="col-xs-4 left-align">
                         <div><strong>{this.props.expense.chargeTo}</strong></div>
                         {
                             this.state.displayAll
@@ -40,13 +39,18 @@ class ExpenseCard extends Component {
                         
                     </div>
                     {/* Have Receipt 2*/}
-                    <div className="col-xs-2">{`${this.props.expense.haveReceipt}`}</div>
+                    <div className="col-xs-2 left-align">{`${this.props.expense.haveReceipt}`}</div>
                     {this.state.displayAll
-                        ? <div className="col-xs-1"><button onClick={this.displayExpenseDescription}>Collapse</button></div>
-                        : <div className="col-xs-1"><button onClick={this.displayExpenseDescription}>View</button></div>
+                        ? <div className="col-xs-1"><button className="btn expenses-buttons" onClick={this.displayExpenseDescription}>Collapse</button></div>
+                        : <div className="col-xs-1"><button className="btn expenses-buttons" onClick={this.displayExpenseDescription}>View</button></div>
 
                     }
-                    <div className="col-xs-1"><button type="submit" value={this.props.iD} onClick={this.props.editExpense.bind(this, this.props.id)} >Edit</button></div>
+                    {this.props.id 
+                    ? <div className="col-xs-1 left-align"><button className="btn expenses-buttons" type="submit" value={this.props.iD} onClick={this.props.editExpense.bind(this, this.props.id)} >Edit</button></div>
+                    : <div className="col-xs-1 left-align"><button className="btn expenses-buttons" type="submit" value={this.props.iD} >Edit</button></div>
+                    }
+                </div>
+                <div className="divider">
                 </div>
             </div>
         );

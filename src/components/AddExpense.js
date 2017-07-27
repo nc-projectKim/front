@@ -1,6 +1,6 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-// import './css/AddExpense.css';
+import './css/AddNote.css';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Redirect, Link } from 'react-router-dom';
 import addExpense from '../utilities/addExpense.utilities';
 
 class AddExpense extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.state = {
             newSubmit: false,
@@ -17,7 +17,7 @@ class AddExpense extends React.Component {
         this.submitExpense = this.submitExpense.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
-    render () {
+    render() {
         return (
             <div>
                 {
@@ -34,46 +34,52 @@ class AddExpense extends React.Component {
                     <div className="panel-body">
                         <div className="container">
                             <form onSubmit={this.submitExpense} method="post">
-                                <div>
-                                    <label htmlFor="dateOfExpense">Date of Expense</label>
-                                    <br />
-                                    <DatePicker
-                                        placeholderText='Click to select a date'
-                                        dateFormat="DD/MM/YYYY"
-                                        selected={this.state.dateSelect}
-                                        onChange={this.handleChange}
-                                        isClearable={true}
-                                    />
+                                <div className="form-group row">
+                                    <label className="col-sm-2 col-form-label" htmlFor="dateOfExpense"><h4>Date of Expense</h4></label>
+                                    <div className="col-sm-8">
+                                        <DatePicker
+                                            placeholderText='Click to select a date'
+                                            dateFormat="DD/MM/YYYY"
+                                            selected={this.state.dateSelect}
+                                            onChange={this.handleChange}
+                                            isClearable={true}
+                                        />
+                                    </div>
                                 </div>
-                                <div>
-                                    <label htmlFor="expenseAmount">Amount</label>
-                                    <br />
-                                    <span>£</span>
-                                    <span><input className="expenseInput" name="expenseAmount" type="text" placeholder="5.99" /></span>
+                                <div className="form-group row">
+                                    <label className="col-sm-2 col-form-label" htmlFor="expenseAmount"><h4>Amount</h4></label>
+                                    <div className="col-sm-8">
+                                        <input className="form-control" name="expenseAmount" type="text" placeholder="£" />
+                                    </div>
                                 </div>
-                                <div>
-                                    <label htmlFor="chargeTo">Charge To</label>
-                                    <br />
-                                    <input className="titleInput" type="text" name="chargeTo" placeholder="Client Name" />
+                                <div className="form-group row">
+                                    <label className="col-sm-2 col-form-label" htmlFor="chargeTo"><h4>Charge To</h4></label>
+                                    <div className="col-sm-8">
+                                        <input className="form-control" type="text" name="chargeTo" placeholder="Client Name" />
+                                    </div>
                                 </div>
-                                <div>
-                                    <label htmlFor="expenseDescription">Expense Description</label>
-                                    <br />
-                                    <textarea className="expenseInput" name="expenseDescription" type="text" placeholder="expense description..." />
+                                <div className="form-group row">
+                                    <label className="col-sm-2 col-form-label" htmlFor="expenseDescription"><h4>Expense Description</h4></label>
+                                    <div className="col-sm-8">
+                                        <textarea className="form-control inputDescription" name="expenseDescription" type="text" placeholder="expense description..." />
+                                    </div>
                                 </div>
-                                <div>
-                                    <label htmlFor="receipt">Have Receipt?</label>
-                                    <br />
-                                    <select>
-                                        <optgroup name="receipt" label="Do you have a receipt?">
-                                            <option value="no">no</option>
-                                            <option value="yes">Yes</option>
-                                        </optgroup>
-                                    </select>
+                                <div className="form-group row">
+                                    <label className="col-sm-2 col-form-label" htmlFor="receipt"><h4>Have Receipt?</h4></label>
+                                    <div className="col-sm-8">
+                                        <select className="custom-select">
+                                            <optgroup name="receipt" label="Do you have a receipt?">
+                                                <option value="no">no</option>
+                                                <option value="yes">Yes</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div>
-                                    <button className="btn btn-success" type="submit">Submit</button>
-                                    <Link to='/expenses'><button className="btn btn-warning" type="button">Cancel</button></Link>
+                                <div className="inline-bt">
+                                    <button className="btn btn-success btn-lg" type="submit">Submit</button>
+                                </div>
+                                <div className="inline-bt">                                
+                                    <Link to='/expenses'><button className="btn btn-danger btn-lg" type="button">Cancel</button></Link>
                                 </div>
                             </form>
                         </div>
@@ -82,14 +88,14 @@ class AddExpense extends React.Component {
             </div>
         );
     }
-    handleChange (date) {
+    handleChange(date) {
         this.setState({
             dateSelect: date,
             // searchOneDateClicked: true
         });
         console.log(this.state.dateSelect);
     }
-    submitExpense (e) {
+    submitExpense(e) {
         e.preventDefault();
         console.dir(e.target);
         const newExpenseObj = {

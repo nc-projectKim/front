@@ -1,9 +1,10 @@
 .profilePicture {
     border-radius: 50px;
     border: 1px solid white;
-    margin-left: 20px;
-    width: 70px;
-    height: 70px;
+    margin-left: 10px;
+    width: 80%;
+    max-width: 80px;
+    max-height: 80px;
     margin-top: -60px;
 }
 
@@ -20,6 +21,7 @@
 
 .welcomeText {
     text-align: left;
-    font-size: 2rem;
+    font-size: 1.75rem;
+    padding: 5px;
     
 }

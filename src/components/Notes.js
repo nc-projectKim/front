@@ -33,7 +33,7 @@ class NotesList extends Component {
         return (
             <div className='notes-page'>
                 <Welcome className='notes-welcome'
-                    picture={this.props.currentUser.photoURL}
+                    picture={'http://res.cloudinary.com/dl37xtqhv/image/upload/v1501154233/kim_wclvcm.png'}
                     messageTitle={`${userFirstName}'s notes`} 
                     />
                 <Switch>

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Nav, Navbar, NavItem, NavDropdown, MenuItem, Button} from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import './css/Navbar.css';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
+
 
 class KimNavbar extends Component {
     render () {
@@ -10,9 +12,9 @@ class KimNavbar extends Component {
                 <Navbar collapseOnSelect>
                     <Navbar.Header>
                         <Navbar.Brand>
-                            <a href="#">
+                            <Link to={'/'}>
                                 <img className="img-st" src={require('../../public/logo.png')} />
-                            </a>
+                            </Link>
                         </Navbar.Brand>
                         <Navbar.Toggle />
                     </Navbar.Header>

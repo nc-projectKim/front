@@ -16,11 +16,11 @@ class NotesList extends Component {
             <div>
                  <div>
                         <div className='panel panel-default'>
-                            <div className="panel-heading">
+                            <div className="notes-search">
                                 <h3 className="panel-title">Search results</h3>
                                 <Link to="/notes/search" ><button type="button"
                                     onClick={this.props.toggleNoteSearch}
-                                    className="btn btn-info">Change Search</button>
+                                    className="btn btn-default notes-buttons">Change Search</button>
                                 </Link>
                             </div>
 

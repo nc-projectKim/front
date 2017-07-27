@@ -10,20 +10,20 @@ class NotesPanelButtonsMinimised extends Component {
                 <button
                     onClick={this.props.viewMore}
                     type="button"
-                    className="btn btn-info view-btn">
+                    className="btn btn-default view-btn notes-buttons">
                     <i className="fa fa-arrow-down" aria-hidden="true"></i>
                         &nbsp; Expand
                 </button>
 
                 <Link to="/notes/add"><button
                     type="button"
-                    className="btn btn-info "><i className="fa fa-plus" aria-hidden="true"></i>
+                    className="btn btn-default notes-buttons"><i className="fa fa-plus" aria-hidden="true"></i>
                      &nbsp; Add A Note
                     </button></Link>
 
 
                 <Link to="/notes/search" ><button type="button"
-                    className="btn btn-info search-btn"><i className="fa fa-search" aria-hidden="true"></i>
+                    className="btn btn-default notes-buttons search-btn"><i className="fa fa-search" aria-hidden="true"></i>
                     &nbsp; Search
                 </button>
                 </Link>

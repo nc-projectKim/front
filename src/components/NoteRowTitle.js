@@ -5,7 +5,7 @@ import './css/NoteCard.css';
 class NoteRowTitle extends Component {
     render () {
         return (
-            <div className="container-fluid component-NoteCard">
+            <div className="container-fluid component-NoteCard rowHeader">
                 <div className="col-xs-2"><div>Date</div>
                 <div>(Time)</div>
                 </div>

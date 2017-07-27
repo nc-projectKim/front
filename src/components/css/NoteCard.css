@@ -1,9 +1,24 @@
 .component-NoteCard {
-    text-align: left;
+    text-align: center;
     white-space: normal;
+}
+
+.left-align {
+    text-align: left;
 }
 
 .text-body {
     white-space: normal;
     word-wrap: break-word;
+}
+
+.rowHeader {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.divider {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-bottom: 2px solid #dcd3fc;
 }

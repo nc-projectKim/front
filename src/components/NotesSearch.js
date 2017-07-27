@@ -39,11 +39,11 @@ class NotesSearch extends React.Component {
                     <Redirect to={'/notes/search/result'} />
                 }
                 <div className="panel panel-default">
-                    <div className="panel-heading">
+                    <div className="notes-search">
 
                         <h3 className="panel-title">Search Notes</h3>
                         <Link to="/notes"> <button type="button"
-                            className="btn btn-info">Return to Notes</button>
+                            className="btn btn-default notes-buttons">Return to Notes</button>
                             </Link>
                     </div>
                     <form onSubmit={this.handleSubmit}>
@@ -85,7 +85,7 @@ class NotesSearch extends React.Component {
                                 />
                             </span>
                         </div>
-                        <button className="btn btn-primary" type="submit">Search</button>
+                        <button className="btn btn-default notes-buttons" type="submit">Search</button>
                     </form>
                 </div>
 

@@ -20,12 +20,12 @@ class NotesPageNotesList extends Component {
         return (
             <div>
                     <div className='panel panel-default'>
-                        <div className="panel-heading">
+                        <div className="notes">
 
                             <span>
                                 <h3 className="panel-title"><span>{this.props.heading}</span></h3>
                                 <Link to="/notes/search" ><button type="button"
-                                    className="btn btn-info srch-btn">
+                                    className="btn btn-default notes-buttons srch-btn">
                                     <i className="fa fa-search" aria-hidden="true"></i>
                                 </button>
                                 </Link>

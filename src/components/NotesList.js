@@ -26,11 +26,11 @@ class NotesList extends Component {
                 {this.state.view
                     ?
                     <div className='panel panel-default'>
-                        <div className="panel-heading">
+                        <div className="notes">
                             <span>
                                 <h3 className="panel-title"><span>{this.props.heading}</span></h3>
                                 <Link to="/notes/search" ><button type="button"
-                                    className="btn btn-info srch-btn">
+                                    className="btn btn-default notes-buttons srch-btn">
                                     <i className="fa fa-search" aria-hidden="true"></i>
                                 </button>
                                 </Link>
@@ -52,7 +52,7 @@ class NotesList extends Component {
                     </div>
                     : <div>
                         <div className="panel panel-default">
-                            <div className="panel-heading">
+                            <div className="notes-minimised">
                                 <h3 className="panel-title">Latest Notes</h3>
                                 <NotesPanelButtonsMinimised
                                     viewMore={this.viewMore} />

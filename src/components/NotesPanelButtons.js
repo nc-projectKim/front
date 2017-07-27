@@ -10,12 +10,12 @@ class NotesPanelButtons extends Component {
                     <button 
                     onClick={this.props.viewMore} 
                     type="button" 
-                    className="btn btn-info collapse-btn"><i className="fa fa-arrow-up" aria-hidden="true"></i>
+                    className="btn btn-default notes-buttons collapse-btn"><i className="fa fa-arrow-up" aria-hidden="true"></i>
                     &nbsp; Collapse</button>
 
-                    <Link to={'/notes/add'}><button onClick={this.props.addNewNote}type="button" className="btn btn-info"><i className="fa fa-plus" aria-hidden="true"></i>
+                    <Link to={'/notes/add'}><button onClick={this.props.addNewNote}type="button" className="btn btn-default notes-buttons"><i className="fa fa-plus" aria-hidden="true"></i>
                      &nbsp; Add A Note</button></Link>
-                    <Link to="/notes"><button type="button" className="btn btn-info view-more-notes-btn"><i className="fa fa-eye" aria-hidden="true"></i>
+                    <Link to="/notes"><button type="button" className="btn btn-default notes-buttons view-more-notes-btn"><i className="fa fa-eye" aria-hidden="true"></i>
                     &nbsp; View More Notes</button></Link>
             </div>
         );

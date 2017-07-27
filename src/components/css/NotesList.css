@@ -1,5 +1,36 @@
+.notes {
+    background-color: #edbe5a;
+    height: 50px;
+    padding: 15px;
+}
+
+.notes-search {
+    background-color: #edbe5a;
+    height: 100px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.notes-minimised {
+    background-color: #edbe5a;
+    height: 90px;
+    padding: 15px;
+}
+
+.panel-title {
+    margin-bottom: 10px;
+}
+
 .srch-btn {
     float: right;
-    margin-top: -26px;
+    margin-top: -36px;
     border-radius: 50%;
 }
+
+.notes-buttons {
+    background-color: #ab7c19;
+    color: white;
+    margin: 10px;
+}
+
+/* main ce3175 dark 900441*/

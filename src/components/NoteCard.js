@@ -24,10 +24,11 @@ class NoteCard extends Component {
         return (
             <div>
                 <div className="container-fluid component-NoteCard">
+                    <div className="row">
                     <div className="col-xs-2"><div>{moment(this.props.note.created).format(dateFormat)}</div>
                         <div>{moment(this.props.note.created).format(timeFormat)}</div>
                     </div>
-                    <div className="col-xs-6"><div><strong>{
+                    <div className="col-xs-6 left-align"><div><strong>{
                         this.props.note.title
                         ? this.props.note.title.substring(0, 30)
                         : null
@@ -53,11 +54,14 @@ class NoteCard extends Component {
                         }
                     </div>
                     {this.state.displayAll
-                        ? <div className="col-xs-1"><button onClick={this.displayNote}>Collapse</button></div>
-                        : <div className="col-xs-1"><button onClick={this.displayNote}>View</button></div>
+                        ? <div className="col-xs-1 left-align"><button className="btn notes-buttons" onClick={this.displayNote}>Collapse</button></div>
+                        : <div className="col-xs-1 left-align"><button className="btn notes-buttons" onClick={this.displayNote}>View</button></div>
 
                     }
-                    <div className="col-xs-1"><button type="submit" value={this.props.iD} onClick={this.props.editNote.bind(this, this.props.iD)}>Edit</button></div>
+                    <div className="col-xs-1 left-align"><button type="submit" className="btn notes-buttons" value={this.props.iD} onClick={this.props.editNote.bind(this, this.props.iD)}>Edit</button></div>
+                </div>
+                <div className="divider">
+                </div>
                 </div>
             </div>
         );

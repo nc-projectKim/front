@@ -51,7 +51,8 @@ class EditNote extends React.Component {
                                     <label htmlFor="Tags">#tags</label>
                                     <br />
                                     <div className="tag-group">
-                                        {this.state.tags.map((tag, i) => {
+                                        {this.state.tags &&
+                                        this.state.tags.map((tag, i) => {
                                             return (<div key={i}>
                                                 {tag.length > 0 && 
                                                     <span className="tag">
@@ -61,7 +62,8 @@ class EditNote extends React.Component {
                                         }
                                             </div>
                                             );
-                                        })}
+                                        })
+                                        }
                                     </div>
                                     <input name="Tags" type="text" placeholder="#" />
                                 </div>

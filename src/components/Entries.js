@@ -10,9 +10,10 @@ import PropTypes from 'prop-types';
 
 class Entries extends Component {
     render () {
+        console.log(this.props.currentUser)
         return (
             <div className="entries-main">
-                <PageTop name={'Kim'} picture={this.props.currentUser.photoURL}/>
+                <PageTop name={this.props.currentUser.displayName.split(' ')[0]} picture={this.props.currentUser.photoURL}/>
                 <LatestExpenses />
                 <LatestNotes />
             </div>

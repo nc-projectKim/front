@@ -48,7 +48,7 @@ class NotesSearch extends React.Component {
                     </div>
                     <form onSubmit={this.handleSubmit}>
                         <input className="word-search" style={inputStyles} type="text" name="Search Word" placeholder="&#xf002; Search" />
-                        <p>If you want to search for a tag, put a # before your search term</p>
+                        {/*<p>If you want to search for a tag, put a # before your search term</p>*/}
                         <h4>Search on Date</h4>
                         <DatePicker
                             placeholderText='Click to select a date'

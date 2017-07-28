@@ -30,42 +30,50 @@ class EditNote extends React.Component {
                 {this.state.justEdited &&
                     <Redirect to={'/notes/edited'}/>
                 }
-                <form onSubmit={this.editNoteSubmit}>
-                    <div>
-                        <label htmlFor="Title">Title</label>
-                        <br />
-                        <input className="titleInput" type="text" name="Title" onChange={this.titleChange} defaultValue={this.props.note.title} />
+                <div className='panel panel-default'>
+                    <div className="notes">
+                        <h3 className="panel-title">Edit Note</h3>
                     </div>
-                    <div>
-                        <label htmlFor="note">My Note</label>
-                        <br />
-                        <textarea className="noteInput" name="note" type="text" onChange={this.textChange} defaultValue={this.props.note.text} />
-                    </div>
-                    <div>
-                        <label htmlFor="Tags">#tags</label>
-                        <br />
-                        <div className="tag-group">
-                        {this.state.tags.map((tag, i) => {
-                            return (<div key={i}>
-                                {
-                                    tag.length > 0 && 
-                                <span className="tag">
-                                    {tag}
-                                    <i onClick={this.removeTag.bind(this, tag)} className="fa fa-times-circle-o" ></i>
-                                </span>
-                                }
-                            </div>
-                            );
-                        })}
+                    <div className="panel-body">
+                        <div className="container">
+                            <form onSubmit={this.editNoteSubmit}>
+                                <div>
+                                    <label htmlFor="Title">Title</label>
+                                    <br />
+                                    <input className="titleInput" type="text" name="Title" onChange={this.titleChange} defaultValue={this.props.note.title} />
+                                </div>
+                                <div>
+                                    <label htmlFor="note">My Note</label>
+                                    <br />
+                                    <textarea className="noteInput" name="note" type="text" onChange={this.textChange} defaultValue={this.props.note.text} />
+                                </div>
+                                <div>
+                                    <label htmlFor="Tags">#tags</label>
+                                    <br />
+                                    <div className="tag-group">
+                                        {this.state.tags.map((tag, i) => {
+                                            return (<div key={i}>
+                                                {tag.length > 0 && 
+                                                    <span className="tag">
+                                                        {tag }
+                                                        <i onClick={this.removeTag.bind(this, tag)} className="fa fa-times-circle-o" ></i>
+                                                    </span>
+                                        }
+                                            </div>
+                                            );
+                                        })}
+                                    </div>
+                                    <input name="Tags" type="text" placeholder="#" />
+                                </div>
+                                <div>
+                                    <button className="btn btn-default notes-buttons" type="submit">Save Changes</button>
+                                    <button className="btn btn-default notes-buttons" onClick={this.props.editNote} type="button">Cancel</button>
+                                    <button className="btn btn-default notes-buttons" onClick={this.deleteNote.bind(null, this.props.id)} type="button">Delete</button>
+                                </div>
+                            </form>
                         </div>
-                        <input name="Tags" type="text" placeholder="#" />
                     </div>
-                    <div>
-                        <button className="btn btn-default notes-buttons" type="submit">Save Changes</button>
-                        <button className="btn btn-default notes-buttons" onClick={this.props.editNote} type="button">Cancel</button>
-                        <button className="btn btn-default notes-buttons" onClick={this.deleteNote.bind(null, this.props.id)} type="button">Delete</button>
-                    </div>
-                </form>
+                </div>
             </div>
         );
     }

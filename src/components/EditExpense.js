@@ -54,58 +54,62 @@ class EditExpense extends React.Component {
                 {this.state.justEdited &&
                     <Redirect to={'/expenses/edited'} />
                 }
-                <form onSubmit={this.editExpenseSubmit} method="post">
-                    <div>
-                        <label htmlFor="dateOfExpense">Date of Expense</label>
-                        <br />
-                        <DatePicker
+                <div className='panel panel-default'>
+                    <div className="expenses">
+                        <h3 className="panel-title">Edit Expense</h3>
+                    </div>
+                    <div className="panel-body">
+                        <div className="container">
+                        <form onSubmit={this.editExpenseSubmit} method="post">
+                            <div>
+                                <label htmlFor="dateOfExpense">Date of Expense</label>
+                                <br />
+                                    <DatePicker
                                         placeholderText='Click to select a date'
                                         dateFormat="DD/MM/YYYY"
                                         selected={this.state.expenseDate}
                                         onChange={this.dateChange}
                                         isClearable={true}
                                     />
+                            </div>
+                            <div>
+                                <label htmlFor="expenseAmount">Amount</label>
+                                <br />
+                                <span>£</span>
+                                <span><input className={amountStyling} required name="expenseAmount" onChange={this.amountChange} type="text" placeholder="0.00" defaultValue={this.props.expense.amount} /></span>
+                                <p className="errorMessage">{this.state.errors.amount}</p>
+                            </div>
+                            <div>
+                                <label htmlFor="chargeTo">Charge To</label>
+                                <br />
+                                <input className="titleInput" type="text" onChange={this.chargeToChange} name="chargeTo" placeholder="client" defaultValue={this.props.expense.chargeTo} />
+                            </div>
+                            <div>
+                                <label htmlFor="expenseDescription">Expense Description</label>
+                                <br />
+                                <textarea className="expenseInput" name="expenseDescription" onChange={this.descriptionChange} type="text" defaultValue={this.props.expense.description} required placeholder="expense description..." />
+                                <p className="errorMessage">{this.state.errors.description}</p>
+                            </div>
+                            <div>
+                                <label htmlFor="receipt">Have Receipt?</label>
+                                <br />
+                                <select onChange={this.haveReceiptChange}>
+                                    <optgroup label="Do you have a receipt?">
+                                        <option value="no">no</option>
+                                        <option value="yes">Yes</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div>
+                                <button className="btn btn-default expenses-buttons" type="submit">Save Changes</button>
+                                <button className="btn btn-default expenses-buttons" onClick={this.props.editExpense} type="button">Cancel</button>
+                                <button className="btn btn-default expenses-buttons" onClick={this.deleteExpense.bind(null, this.props.id)} type="button">Delete</button>
+                            </div>
+                        </form>
                     </div>
-                    {/* <div>
-                        <label htmlFor="currency">Currency</label>
-                        <br />
-                        <input className="titleInput" type="text" onClick={this.currencyChange} name="currency" placeholder="GBP" />
-                    </div>*/}
-                    <div>
-                        <label htmlFor="expenseAmount">Amount</label>
-                        <br />
-                        <span>£</span>
-                        <span><input className={amountStyling} required name="expenseAmount" onChange={this.amountChange} type="text" placeholder="0.00" defaultValue={this.props.expense.amount} /></span>
-                        <p className="errorMessage">{this.state.errors.amount}</p>
-                    </div>
-                    <div>
-                        <label htmlFor="chargeTo">Charge To</label>
-                        <br />
-                        <input className="titleInput" type="text" onChange={this.chargeToChange} name="chargeTo" placeholder="client" defaultValue={this.props.expense.chargeTo} />
-                    </div>
-                    <div>
-                        <label htmlFor="expenseDescription">Expense Description</label>
-                        <br />
-                        <textarea className="expenseInput" name="expenseDescription" onChange={this.descriptionChange} type="text" defaultValue={this.props.expense.description} required placeholder="expense description..." />
-                        <p className="errorMessage">{this.state.errors.description}</p>
-                    </div>
-                    <div>
-                        <label htmlFor="receipt">Have Receipt?</label>
-                        <br />
-                        <select onChange={this.haveReceiptChange}>
-                            <optgroup label="Do you have a receipt?">
-                                <option value="no">no</option>
-                                <option value="yes">Yes</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                    <div>
-                        <button className="btn btn-default expenses-buttons" type="submit">Save Changes</button>
-                        <button className="btn btn-default expenses-buttons" onClick={this.props.editExpense} type="button">Cancel</button>
-                        <button className="btn btn-default expenses-buttons" onClick={this.deleteExpense.bind(null, this.props.id)} type="button">Delete</button>
-                    </div>
-                </form>
+                </div>
             </div>
+        </div>
         );
     }
     dateChange (date) {

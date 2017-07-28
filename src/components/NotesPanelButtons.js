@@ -26,5 +26,4 @@ export default NotesPanelButtons;
 
 NotesPanelButtons.propTypes = {
     viewMore: PropTypes.func,
-    // addNewNote: PropTypes.func.isRequired
 };

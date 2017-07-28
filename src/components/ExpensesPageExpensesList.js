@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import ExpensesRowTitle from './ExpensesRowTitle';
 import ExpenseCard from './ExpenseCard';
 import ExpensesPanelButtons from './ExpensesPanelButtons';
-// import NotesPanelButtonsMinimised from './NotesPanelButtonsMinimised';
 import { map } from 'underscore';
 import PropTypes from 'prop-types';
-// import AddExpense from './AddNote';
 import './css/ExpensesList.css';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import alterValuesExpenses from './component-utilities/alterValuesExpenses';
@@ -44,7 +42,6 @@ class ExpensesPageExpensesList extends Component {
                                     );
                                 })}
                                 <ExpensesPanelButtons
-                                    /* addNewExpense={this.props.addNewExpense}*/
                                     viewMore={this.viewMore} 
                                     expenses={this.props.expenses}
                                     />
@@ -61,10 +58,8 @@ export default ExpensesPageExpensesList;
 
 ExpensesPageExpensesList.propTypes = {
     add: PropTypes.bool.isRequired,
-    // addNewExpense: PropTypes.func.isRequired,
     expenses: PropTypes.object.isRequired,
     editExpense: PropTypes.func.isRequired,
     heading: PropTypes.string.isRequired,
-    // submitExpense: PropTypes.func.isRequired,
     newSubmit: PropTypes.bool.isRequired
 };

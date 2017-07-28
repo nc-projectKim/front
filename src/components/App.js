@@ -1,21 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import LoggedInHome from './LoggedInHome';
-// import NonLoggedInHome from './NonLoggedInHome';
 import Notes from './Notes';
 import KimNavbar from './Navbar';
-// import Entries from './Entries';
 import PageTabs from './PageTabs';
 import NoMatch from './NoMatch';
 import './css/App.css';
 import firebase, { facebookProvider } from '../../FirebaseConfig';
 import {connect} from 'react-redux';
-// import {firebaseConnect, isLoaded, isEmpty, dataToJS} from 'react-redux-firebase';
 import * as actions from '../actions/actions';
 import Expenses from './Expenses';
 import Billing from './Billing';
-
-// import MAINPAGE from './MAINPAGE';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 

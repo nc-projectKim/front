@@ -37,10 +37,10 @@ class ExpenseCard extends Component {
                         
                     </div>
                     {/* Have Receipt 2*/}
-                    <div className="col-xs-2 left-align">{`${this.props.expense.haveReceipt}`}</div>
+                    <div className="col-xs-1 left-align">{`${this.props.expense.haveReceipt}`}</div>
                     {this.state.displayAll
-                        ? <div className="col-xs-1"><button className="btn expenses-buttons" onClick={this.displayExpenseDescription}>Collapse</button></div>
-                        : <div className="col-xs-1"><button className="btn expenses-buttons" onClick={this.displayExpenseDescription}>View</button></div>
+                        ? <div className="col-xs-2"><button className="btn expenses-buttons" onClick={this.displayExpenseDescription}>Collapse</button></div>
+                        : <div className="col-xs-2"><button className="btn expenses-buttons" onClick={this.displayExpenseDescription}>View</button></div>
 
                     }
                     {this.props.id 

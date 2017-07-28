@@ -14,7 +14,6 @@ export default function queryNotes (query) {
                 && childObject[query.dateItems.dateChosen] <= query.dateItems.to;
             }
             let include = true;
-            // if (!filterByTag(childObject, query)) include = false;
             if (query.findWord !== null) {
                 const regex = new RegExp(query.findWord, 'i');
                 let testWord = regex.test(childObject.text) ||

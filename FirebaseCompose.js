@@ -2,7 +2,6 @@ import {CONFIG} from '../../config.js';
 import {reactReduxFirebase} from 'react-redux-firebase';
 import {compose, createStore} from 'redux';
 import rootReducer from '../reducer/';
-// import {createStore, applyMiddleware} from 'redux';
 
 const initialState = {
     currentUser: null,

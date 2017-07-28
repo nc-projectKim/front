@@ -15,11 +15,6 @@ export default function queryExpenses (query) {
                 && childObject[query.dateItems.dateChosen] <= query.dateItems.to;
                 }
                 let include = true;
-                // for (let key of Object.keys(query.queryItems)) {
-                //     if (query.queryItems[key] !== null && childObject[key] !== query.queryItems[key]) {
-                //         include = false;
-                //     }
-                // }
                 if (query.findWord !== null) {
                     const regex = new RegExp(query.findWord, 'i');
                     let testWord;

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import EditNote from './EditNote';
 import FilteredNotesList from './FilteredNotesList';
 import PropTypes from 'prop-types';
-// import * as actions from '../actions/actions';
 import {connect} from 'react-redux';
 
 
@@ -55,5 +54,4 @@ FilteredNotes.propTypes = {
     getFilteredNotes: PropTypes.func.isRequired
 };
 
-// export default FilteredNotes;
 export default connect(mapStateToProps)(FilteredNotes);

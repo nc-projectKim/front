@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
-// import RowTitle from './RowTitle';
-// import NoteCard from './NoteCard';
-// import NotesPanelButtons from './NotesPanelButtons';
-// import NotesPanelButtonsMinimised from './NotesPanelButtonsMinimised';
-// import { map } from 'underscore';
 import PropTypes from 'prop-types';
 import ExpensesSearch from './ExpensesSearch';
-// import AddNote from './AddNote';
 import Welcome from './Welcome';
 import MainExpensesPage from './MainExpensesPage';
 import FilteredExpenses from './FilteredExpenses';
-// import AddExpense from './AddExpense';
 import { connect } from 'react-redux';
 import NoMatch from './NoMatch';
 import AddExpense from './AddExpense';
@@ -61,7 +54,6 @@ function mapStateToProps (state) {
 }
 
 export default connect(mapStateToProps)(Expenses);
-// export default Expenses;
 
 Expenses.propTypes = {
     currentUser: PropTypes.object.isRequired,

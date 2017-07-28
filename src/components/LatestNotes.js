@@ -4,7 +4,6 @@ import EditNote from './EditNote';
 import PropTypes from 'prop-types';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
-// import _ from 'underscore';
 
 class LatestNotes extends Component {
     constructor (props) {

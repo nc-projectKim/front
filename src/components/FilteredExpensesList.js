@@ -12,7 +12,7 @@ class FilteredExpensesList extends Component {
         super(props);
     }
     render () {
-        // const editNote = this.props.editNote;
+        const editExpense = this.props.editExpense;
         return (
             <div>
                  <div>
@@ -20,7 +20,6 @@ class FilteredExpensesList extends Component {
                             <div className="expenses-search">
                                 <h3 className="panel-title">Search results</h3>
                                 <Link to="/expenses/search" ><button type="button"
-                                    /* onClick={this.props.toggleExpensesSearch}*/
                                     className="btn btn-default expenses-buttons">Change Search</button>
                                 </Link>
                             </div>
@@ -30,7 +29,11 @@ class FilteredExpensesList extends Component {
                                     <ExpensesRowTitle />
                                     {map(this.props.filteredExpenses, function (expense, key) {
                                         return (
-                                            <ExpenseCard iD={key} key={expense.created} expense={expense} /* editExpense={editExpense}*/ />
+                                            <ExpenseCard 
+                                            iD={key} 
+                                            key={expense.created} 
+                                            editExpense={editExpense} 
+                                            expense={expense} />
                                         );
                                     })}
                                     <ExpensesPanelButtons
@@ -46,12 +49,6 @@ class FilteredExpensesList extends Component {
 export default FilteredExpensesList;
 
 FilteredExpensesList.propTypes = {
-    // view: PropTypes.bool.isRequired,
-    // add: PropTypes.bool.isRequired,
-    // addNewNote: PropTypes.func.isRequired,
     filteredExpenses: PropTypes.object.isRequired,
     viewMore: PropTypes.func.isRequired,
-    // editNote: PropTypes.func.isRequired,
-    // toggleNoteSearch: PropTypes.func.isRequired
-
 };

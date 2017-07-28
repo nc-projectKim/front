@@ -122,7 +122,6 @@ class EditNote extends React.Component {
         });
     }
     deleteNote (id) {
-        // e.preventDefault();
         deleteNote(id)
             .then(() => {
                 console.log('deleted');
@@ -150,6 +149,5 @@ export default EditNote;
 EditNote.propTypes = {
     note: PropTypes.object.isRequired,
     editNote: PropTypes.func.isRequired,
-    // handleSubmit: PropTypes.func.isRequired,
     id: PropTypes.string.isRequired
 };

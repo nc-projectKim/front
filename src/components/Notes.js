@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
-// import RowTitle from './RowTitle';
-// import NoteCard from './NoteCard';
-// import NotesPanelButtons from './NotesPanelButtons';
-// import NotesPanelButtonsMinimised from './NotesPanelButtonsMinimised';
-// import { map } from 'underscore';
 import PropTypes from 'prop-types';
 import NotesSearch from './NotesSearch';
-// import AddNote from './AddNote';
 import Welcome from './Welcome';
 import MainNotesPage from './MainNotesPage';
 import FilteredNotes from './FilteredNotes';

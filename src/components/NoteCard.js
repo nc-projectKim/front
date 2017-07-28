@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import moment from 'moment';
 import './css/NoteCard.css';
 
@@ -21,6 +20,7 @@ class NoteCard extends Component {
         this.displayNote = this.displayNote.bind(this);
     }
     render () {
+        const time = this.props.note.created
         return (
             <div>
                 <div className="container-fluid component-NoteCard">
@@ -28,7 +28,7 @@ class NoteCard extends Component {
                     <div className="col-xs-2"><div>{moment(this.props.note.created).format(dateFormat)}</div>
                         <div>{moment(this.props.note.created).format(timeFormat)}</div>
                     </div>
-                    <div className="col-xs-6 left-align"><div><strong>{
+                    <div className="col-xs-5 left-align"><div><strong>{
                         this.props.note.title
                         ? this.props.note.title.substring(0, 30)
                         : null
@@ -43,7 +43,7 @@ class NoteCard extends Component {
                         ?
                         this.props.note.tags.map((tag, i) => {
                             return (
-                                  <div key={`${tag}${i}`}>
+                                  <div key={`${tag}${time}`}>
                                   { tag.length > 0 &&
                                 <span className="tag">
                                       {`#${tag}  `}
@@ -56,8 +56,8 @@ class NoteCard extends Component {
                         }
                     </div>
                     {this.state.displayAll
-                        ? <div className="col-xs-1 left-align"><button className="btn notes-buttons" onClick={this.displayNote}>Collapse</button></div>
-                        : <div className="col-xs-1 left-align"><button className="btn notes-buttons" onClick={this.displayNote}>View</button></div>
+                        ? <div className="col-xs-2 left-align"><button className="btn notes-buttons" onClick={this.displayNote}>Collapse</button></div>
+                        : <div className="col-xs-2 left-align"><button className="btn notes-buttons" onClick={this.displayNote}>View</button></div>
 
                     }
                     <div className="col-xs-1 left-align"><button type="submit" className="btn notes-buttons" value={this.props.iD} onClick={this.props.editNote.bind(this, this.props.iD)}>Edit</button></div>

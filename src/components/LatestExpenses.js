@@ -4,7 +4,6 @@ import EditExpense from './EditExpense';
 import PropTypes from 'prop-types';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
-// import _ from 'underscore';
 
 class LatestExpenses extends Component {
     constructor (props) {
@@ -31,7 +30,6 @@ class LatestExpenses extends Component {
                 editExpense={this.editExpense} 
                 id={this.state.expenseId}
                 expense={this.props.expenses[this.state.expenseId]} 
-                /* expenseId={this.props.expenses[this.state.expenseId]}*/
                 />
                 : <ExpensesList
                     heading={'Latest Expenses'}
@@ -66,10 +64,4 @@ function mapStateToProps (state) {
 }
 
 
-// LatestExpenses.propTypes = {
-//     notes: PropTypes.any,
-//     getNotes: PropTypes.func.isRequired
-// };
-
-// export default LatestExpenses;
 export default connect(mapStateToProps, mapDispatchToProps)(LatestExpenses);

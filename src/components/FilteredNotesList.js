@@ -29,7 +29,7 @@ class NotesList extends Component {
                                     <NoteRowTitle />
                                     {map(this.props.notes, function (note, key) {
                                         return (
-                                            <NoteCard iD={key} key={note.created} note={note} editNote={editNote} />
+                                            <NoteCard iD={key} key={`${note.created}${key}`} note={note} editNote={editNote} />
                                         );
                                     })}
                                     <NotesPanelButtons

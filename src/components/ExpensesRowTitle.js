@@ -10,8 +10,8 @@ class ExpensesRowTitle extends Component {
                 </div>
                 <div className="col-xs-2">Amount</div>
                 <div className="col-xs-4">Charge To</div>
-                <div className="col-xs-2">Have Receipt?</div>
-                <div className="col-xs-1">View</div>
+                <div className="col-xs-1">Have Receipt?</div>
+                <div className="col-xs-2">View</div>
                 <div className="col-xs-1">Edit</div>
 
             </div>

@@ -42,7 +42,7 @@ class NotesList extends Component {
                                 <NoteRowTitle />
                                 {map(notesAltered, function (note) {
                                     return (
-                                        <NoteCard iD={note[0]} key={note.created} note={note[1]} editNote={editNote} />
+                                        <NoteCard iD={note[0]} key={`${note[0]}${note[1].created}`} note={note[1]} editNote={editNote} />
                                     );
                                 })}
                                 <NotesPanelButtons
@@ -70,20 +70,10 @@ class NotesList extends Component {
     }
 }
 
-// function mapDispatchToProps(dispatch) {
-//     return {
-//         addNote: (note) => {
-//             dispatch(actions.)
-//         }
-//     }
-// }
-
 export default NotesList;
 
 NotesList.propTypes = {
-    // view: PropTypes.bool.isRequired,
     notes: PropTypes.object,
-    // viewMore: PropTypes.func.isRequired,
     editNote: PropTypes.func.isRequired,
     heading: PropTypes.string.isRequired
 };

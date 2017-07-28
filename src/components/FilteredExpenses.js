@@ -4,16 +4,17 @@ import FilteredExpensesList from './FilteredExpensesList';
 import PropTypes from 'prop-types';
 import * as actions from '../actions/actions';
 import {connect} from 'react-redux';
+import EditExpense from './EditExpense';
 
 class FilteredExpenses extends Component {
     constructor (props) {
         super(props);
         this.state = {
             edit: false,
-            noteId: '',
+            expenseId: '',
             filteredExpenses: null
         };
-        // this.editExpense = this.editExpense.bind(this);
+        this.editExpense = this.editExpense.bind(this);
     }
     componentDidMount () {
             this.setState({
@@ -23,23 +24,24 @@ class FilteredExpenses extends Component {
     render () {
         return (
             <div className="FilteredExpenses-main">
-                {/* {this.state.edit 
-                    ? <EditExpense editNote={this.editNote} note={this.props.filteredNotes[this.state.noteId]} />*/}
-                     <FilteredExpensesList
+                 {this.state.edit 
+                    ? <EditExpense editExpense={this.editExpense} note={this.props.filteredExpense[this.state.expenseId]} />
+                    : <FilteredExpensesList
                         filteredExpenses={this.props.filteredExpenses}
-                        /* addNewExpense={this.addNewExpense}*/
                         viewMore={this.viewMore}
-                        /* editExpense={this.editExpense}*/
+                        editExpense={this.editExpense}
                     />
+                 }
             </div>
         );
     }
-    // editNote (id) {
-    //     this.setState({
-    //         edit: !this.state.edit,
-    //         noteId: id
-    //     });
-    // }
+    editExpense (id) {
+        console.log('clicked');
+        this.setState({
+            edit: !this.state.edit,
+            expenseId: id
+        });
+    }
 }
 
 function mapStateToProps (state) {

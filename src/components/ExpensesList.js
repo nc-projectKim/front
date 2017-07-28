@@ -79,20 +79,11 @@ class ExpensesList extends Component {
     }
 }
 
-// function mapDispatchToProps(dispatch) {
-//     return {
-//         addNote: (note) => {
-//             dispatch(actions.)
-//         }
-//     }
-// }
 
 export default ExpensesList;
 
 ExpensesList.propTypes = {
-    // view: PropTypes.bool.isRequired,
     expenses: PropTypes.object.isRequired,
-    // viewMore: PropTypes.func.isRequired,
     editExpense: PropTypes.func.isRequired,
     heading: PropTypes.string.isRequired
 };

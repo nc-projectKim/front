@@ -49,5 +49,4 @@ export default ExpensesPanelButtons;
 
 ExpensesPanelButtons.propTypes = {
     viewMore: PropTypes.func,
-    // addNewNote: PropTypes.func.isRequired,
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import './css/AddExpense.css';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
@@ -159,8 +158,6 @@ class AddExpense extends React.Component {
 export default AddExpense;
 
 AddExpense.propTypes = {
-    // addNewExpense: PropTypes.func.isRequired,
-    // submitExpense: PropTypes.func.isRequired
 };
 function validate (state) {
     const errors = {};

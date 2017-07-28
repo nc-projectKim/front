@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MainExpensesList from './MainExpensesList';
-// import EditNote from './EditNote';
 import PropTypes from 'prop-types';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
@@ -17,7 +16,6 @@ class MainExpensesPage extends Component {
             notes: null
         };
         this.viewMore = this.viewMore.bind(this);
-        // this.editExpense = this.editExpense.bind(this);
     }
     componentDidMount () {
         this.props.getExpenses();
@@ -63,7 +61,5 @@ function mapStateToProps (state) {
 
 MainExpensesPage.propTypes = {
     expenses: PropTypes.any.isRequired
-    // getNotes: PropTypes.func.isRequired
 };
 export default connect(mapStateToProps, mapDispatchToProps)(MainExpensesPage);
-// export default MainExpensesPage;

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MainNotesList from './MainNotesList';
-// import EditNote from './EditNote';
 import PropTypes from 'prop-types';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
@@ -60,7 +59,6 @@ function mapStateToProps (state) {
 }
 
 MainNotesPage.propTypes = {
-    // notes: PropTypes.any.isRequired,
     getNotes: PropTypes.func.isRequired
 };
 export default connect(mapStateToProps, mapDispatchToProps)(MainNotesPage);

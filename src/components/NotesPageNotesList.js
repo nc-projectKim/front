@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import NoteRowTitle from './NoteRowTitle';
 import NoteCard from './NoteCard';
 import NotesPanelButtons from './NotesPanelButtons';
-// import NotesPanelButtonsMinimised from './NotesPanelButtonsMinimised';
 import { map } from 'underscore';
 import PropTypes from 'prop-types';
 import AddNote from './AddNote';
@@ -61,11 +60,7 @@ class NotesPageNotesList extends Component {
 export default NotesPageNotesList;
 
 NotesPageNotesList.propTypes = {
-    // add: PropTypes.bool.isRequired,
-    // addNewNote: PropTypes.func.isRequired,
-    // notes: PropTypes.object.isRequired,
     editNote: PropTypes.func.isRequired,
     heading: PropTypes.string.isRequired,
-    // submitNote: PropTypes.func.isRequired,
     newSubmit: PropTypes.bool.isRequired
 };

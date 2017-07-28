@@ -4,7 +4,6 @@ import EditNote from './EditNote';
 import PropTypes from 'prop-types';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
-// import addNote from '../utilities/addNote.utilities';
 
 class MainNotesList extends Component {
     constructor (props) {

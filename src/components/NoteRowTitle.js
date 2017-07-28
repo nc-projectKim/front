@@ -9,9 +9,9 @@ class NoteRowTitle extends Component {
                 <div className="col-xs-2"><div>Date</div>
                 <div>(Time)</div>
                 </div>
-                <div className="col-xs-6">Note</div>
+                <div className="col-xs-5">Note</div>
                 <div className="col-xs-2">Tags</div>
-                <div className="col-xs-1">View</div>
+                <div className="col-xs-2">View</div>
                 <div className="col-xs-1">Edit</div>
                 
             </div>

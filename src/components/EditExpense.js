@@ -195,7 +195,6 @@ export default EditExpense;
 EditExpense.propTypes = {
     expense: PropTypes.object.isRequired,
     editExpense: PropTypes.func.isRequired,
-    // handleSubmit: PropTypes.func.isRequired,
     id: PropTypes.string.isRequired
 };
 

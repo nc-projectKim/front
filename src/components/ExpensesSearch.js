@@ -5,7 +5,6 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 import {BrowserRouter as Router, Link, Redirect} from 'react-router-dom';
-// import queryNote from '../utilities/queryNote.utilities';
 import * as actions from '../actions/actions';
 import {connect} from 'react-redux';
 
@@ -47,14 +46,16 @@ class ExpensesSearch extends React.Component {
                             </Link>
                     </div>
                     <form onSubmit={this.handleSubmit}>
-                        <input className="word-search" style={inputStyles} type="text" name="Search Word" placeholder="&#xf002; Search" />
+                        <label htmlFor="search word" className="word-search-text">Search for a word</label>
+                        <br />
+                        <input className="word-search" style={inputStyles} type="text" name="search word" placeholder="&#xf002; Search" />
                         <select>
                             <optgroup label="Choose how to search">
                                 <option value="Search all">All</option>
                                 <option value="Search charge to">Charge To</option>
                             </optgroup>
                         </select>
-                        
+{/*                        
                         <h4>Search on Date</h4>
                         <DatePicker
                             placeholderText='Click to select a date'
@@ -62,9 +63,10 @@ class ExpensesSearch extends React.Component {
                             selected={this.state.startDate}
                             onChange={this.handleChange}
                             isClearable={true}
-                        />
+                        />*/}
                         <div>
-                            <h4>Search Between Dates</h4>
+                            <label htmlFor="datePicker" className="word-search-text">Search Between Dates</label>
+                            <br />
                             <span>
                                 Start date:<DatePicker
                                     placeholderText='Click to select a start date'
@@ -180,9 +182,5 @@ function mapDispatchToProps (dispatch) {
 }
 
 
-// export default ExpensesSearch;
 export default connect (null, mapDispatchToProps)(ExpensesSearch);
 
-// NotesSearch.propTypes = {
-//     getFilteredNotes: PropTypes.func.isRequired
-// };

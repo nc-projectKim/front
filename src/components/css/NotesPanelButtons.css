@@ -1,0 +1,26 @@
+.components-NotesPanelButtons {
+    margin-top: -10px;
+    text-align: center;
+}
+
+.view-btn {
+    float: left;
+    margin-left: 5%!important;
+    margin-bottom: 1.5%!important;    
+}
+
+.search-btn {
+    float: right;
+    margin-right: 5%!important;
+    margin-bottom: 1.5%!important;
+}
+
+.collapse-btn {
+    float: left;
+    margin-left: 3%; 
+}
+
+.view-more-notes-btn {
+    float: right;
+    margin-right: 5%;
+}

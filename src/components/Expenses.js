@@ -33,21 +33,22 @@ class Expenses extends Component {
     render () {
         const userFirstName = this.props.currentUser.displayName.split(' ')[0];
         return (
-            <div className='expenses-page'>
-                <Welcome className='expenses-welcome'
-                    picture={'http://res.cloudinary.com/dl37xtqhv/image/upload/v1501154233/kim_wclvcm.png'}
-                    messageTitle={`${userFirstName}'s Expenses`} 
-                    />
-                <Switch>
-                    <Route exact path='/expenses' component={MainExpensesPage}/>
-                    {/* <Route exact path='/notes/add' component={AddNote}/>*/}
-                     <Route exact path='/expenses/search' component={ExpensesSearch} />
-                     <Route path='/expenses/search/result' component={FilteredExpenses} />
-                     <Route exact path='/expenses/add' component={AddExpense}/>
-                     <Route path='/expenses/deleted' component={DeleteExpense} />
-                     <Route path='/expenses/edited' component={ExpenseHasBeenEdited} />
-                    <Route component={NoMatch} />
-                </Switch>
+                <div className='expenses-page'>
+                    <div className='expenses-welcome'>
+                    <Welcome
+                        picture={'http://res.cloudinary.com/dl37xtqhv/image/upload/v1501154233/kim_wclvcm.png'}
+                        messageTitle={`${userFirstName}'s Expenses`} 
+                        />
+                    <Switch>
+                        <Route exact path='/expenses' component={MainExpensesPage}/>
+                        <Route exact path='/expenses/search' component={ExpensesSearch} />
+                        <Route path='/expenses/search/result' component={FilteredExpenses} />
+                        <Route exact path='/expenses/add' component={AddExpense}/>
+                        <Route path='/expenses/deleted' component={DeleteExpense} />
+                        <Route path='/expenses/edited' component={ExpenseHasBeenEdited} />
+                        <Route component={NoMatch} />
+                    </Switch>
+                </div>
             </div>
         );
     }

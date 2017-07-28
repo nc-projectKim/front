@@ -32,19 +32,21 @@ class NotesList extends Component {
         const userFirstName = this.props.currentUser.displayName.split(' ')[0];
         return (
             <div className='notes-page'>
-                <Welcome className='notes-welcome'
-                    picture={'http://res.cloudinary.com/dl37xtqhv/image/upload/v1501154233/kim_wclvcm.png'}
-                    messageTitle={`${userFirstName}'s notes`} 
+                <div className='notes-welcome'>
+                    <Welcome
+                        picture={'http://res.cloudinary.com/dl37xtqhv/image/upload/v1501154233/kim_wclvcm.png'}
+                        messageTitle={`${userFirstName}'s notes`} 
                     />
-                <Switch>
-                    <Route exact path='/notes' component={MainNotesPage}/>
-                    <Route exact path='/notes/add' component={AddNote}/>
-                    <Route exact path='/notes/search' component={NotesSearch} />
-                    <Route path='/notes/search/result' component={FilteredNotes} />
-                    <Route path='/notes/deleted' component={DeleteNote} />
-                    <Route path='/notes/edited' component={NoteHasBeenEdited} />
-                    <Route component={NoMatch} />
-                </Switch>
+                    <Switch>
+                        <Route exact path='/notes' component={MainNotesPage}/>
+                        <Route exact path='/notes/add' component={AddNote}/>
+                        <Route exact path='/notes/search' component={NotesSearch} />
+                        <Route path='/notes/search/result' component={FilteredNotes} />
+                        <Route path='/notes/deleted' component={DeleteNote} />
+                        <Route path='/notes/edited' component={NoteHasBeenEdited} />
+                        <Route component={NoMatch} />
+                    </Switch>
+                </div>
             </div>
         );
     }

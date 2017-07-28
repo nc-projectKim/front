@@ -109,8 +109,6 @@ class EditExpense extends React.Component {
         );
     }
     dateChange (date) {
-        console.log(date);
-        // e.preventDefault();
         this.setState({
             expenseDate: date
         });
@@ -125,7 +123,6 @@ class EditExpense extends React.Component {
     }
     chargeToChange(e) {
         e.preventDefault();
-        console.log(e.target.value);
         this.setState({
             title: e.target.value
         });
@@ -139,7 +136,6 @@ class EditExpense extends React.Component {
         this.setState(Object.assign(newState, {errors}));
     }
     haveReceiptChange(e) {
-        console.log(e.target.value);
         e.preventDefault();
         this.setState = {
             title: e.target.value

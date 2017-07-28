@@ -15,11 +15,9 @@ export default function editExpense (data) {
         userId: firebase.auth().currentUser.uid,
         expenseId: data.expenseId
     };
-    console.log('ut', expense);
     return axios.post(`${EDITEXPENSEURL}`, expense)
-        .then((response) => {
-            console.log('expense edited');
-            console.log('rk', response);
+        .then(() => {
+            console.log('Expense edited');
         })
         .catch((error) => {
             console.log(error);

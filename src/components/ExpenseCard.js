@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import moment from 'moment';
 import './css/ExpenseCard.css';
 
 const dateFormat = 'D MMM YYYY';
 const timeFormat = 'HH:mm';
-// import { map, each } from 'underscore';
 
 class ExpenseCard extends Component {
     constructor (props) {

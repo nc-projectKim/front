@@ -31,7 +31,6 @@ class Expenses extends Component {
     }
 
     render () {
-        console.log('cu', this.props.currentUser);
         const userFirstName = this.props.currentUser.displayName.split(' ')[0];
         return (
             <div className='expenses-page'>

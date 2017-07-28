@@ -100,9 +100,9 @@ class EditExpense extends React.Component {
                         </select>
                     </div>
                     <div>
-                        <button className="btn btn-success" type="submit">Save Changes</button>
-                        <button className="btn btn-warning" onClick={this.props.editExpense} type="button">Cancel</button>
-                        <button className="btn btn-danger" onClick={this.deleteExpense.bind(null, this.props.id)} type="button">Delete</button>
+                        <button className="btn btn-default expenses-buttons" type="submit">Save Changes</button>
+                        <button className="btn btn-default expenses-buttons" onClick={this.props.editExpense} type="button">Cancel</button>
+                        <button className="btn btn-default expenses-buttons" onClick={this.deleteExpense.bind(null, this.props.id)} type="button">Delete</button>
                     </div>
                 </form>
             </div>

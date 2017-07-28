@@ -42,13 +42,14 @@ class EditNote extends React.Component {
                         <textarea className="noteInput" name="note" type="text" onChange={this.textChange} defaultValue={this.props.note.text} />
                     </div>
                     <div>
-                        <label htmlFor="Tags">#tag</label>
+                        <label htmlFor="Tags">#tags</label>
                         <br />
+                        <div className="tag-group">
                         {this.state.tags.map((tag, i) => {
                             return (<div key={i}>
                                 {
                                     tag.length > 0 && 
-                                <span>
+                                <span className="tag">
                                     {tag}
                                     <i onClick={this.removeTag.bind(this, tag)} className="fa fa-times-circle-o" ></i>
                                 </span>
@@ -56,12 +57,13 @@ class EditNote extends React.Component {
                             </div>
                             );
                         })}
+                        </div>
                         <input name="Tags" type="text" placeholder="#" />
                     </div>
                     <div>
-                        <button className="btn btn-success" type="submit">Save Changes</button>
-                        <button className="btn btn-warning" onClick={this.props.editNote} type="button">Cancel</button>
-                        <button className="btn btn-danger" onClick={this.deleteNote.bind(null, this.props.id)} type="button">Delete</button>
+                        <button className="btn btn-default notes-buttons" type="submit">Save Changes</button>
+                        <button className="btn btn-default notes-buttons" onClick={this.props.editNote} type="button">Cancel</button>
+                        <button className="btn btn-default notes-buttons" onClick={this.deleteNote.bind(null, this.props.id)} type="button">Delete</button>
                     </div>
                 </form>
             </div>

@@ -39,15 +39,17 @@ class NoteCard extends Component {
                         }
                     </div>
                     <div className="col-xs-2">
-                        {this.props.note.tags 
+                        {this.props.note.tags
                         ?
                         this.props.note.tags.map((tag, i) => {
                             return (
-                                <span key={`${tag}${i}`}>
+                                  <div key={`${tag}${i}`}>
                                   { tag.length > 0 &&
-                                      `#${tag}  `
-                                  }
+                                <span className="tag">
+                                      {`#${tag}  `}
                                 </span>
+                                  }
+                                  </div>
                             );
                         })
                         : null

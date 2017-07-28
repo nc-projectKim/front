@@ -8,3 +8,14 @@
     min-height: 200px;
     max-height: 300px;
 }
+
+.tag {
+    background-color: #ffd884;
+    padding: 5px;
+    border-radius: 20px;
+    margin-bottom: 5px;
+}
+
+.tag-group {
+    margin-bottom: 10px;
+}

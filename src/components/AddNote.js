@@ -20,7 +20,7 @@ class AddNote extends React.Component {
                     <Redirect to={'/notes'}/>
             }
             <div className='panel panel-default'>
-                <div className="panel-heading">
+                <div className="notes">
                     <h3 className="panel-title">New Note</h3>
                 </div>
                 <div className="panel-body">
@@ -42,8 +42,8 @@ class AddNote extends React.Component {
                                 <input name="Tags" type="text" placeholder="#" />
                             </div>
                             <div>
-                                <button className="btn btn-success" type="submit">Submit</button>
-                                <Link to='/notes'><button className="btn btn-warning" type="button">Cancel</button></Link>
+                                <button className="btn btn-default notes-buttons" type="submit">Submit</button>
+                                <Link to='/notes'><button className="btn btn-default notes-buttons" type="button">Cancel</button></Link>
                             </div>
                         </form>
                     </div>

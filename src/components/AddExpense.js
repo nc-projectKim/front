@@ -47,7 +47,7 @@ class AddExpense extends React.Component {
                     </div>
                 }
                 <div className='panel panel-default'>
-                    <div className="panel-heading">
+                    <div className="expenses">
                         <h3 className="panel-title">New Expense</h3>
                     </div>
                     <div className="panel-body">
@@ -93,8 +93,8 @@ class AddExpense extends React.Component {
                                     </select>
                                 </div>
                                 <div>
-                                    <button className="btn btn-success" type="submit">Submit</button>
-                                    <Link to='/expenses'><button className="btn btn-warning" type="button">Cancel</button></Link>
+                                    <button className="btn btn-default expenses-buttons" type="submit">Submit</button>
+                                    <Link to='/expenses'><button className="btn btn-default expenses-buttons" type="button">Cancel</button></Link>
                                 </div>
                             </form>
                         </div>
